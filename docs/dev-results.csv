@@ -1,0 +1,27 @@
+sample,kind,expected,expectedFamily,text,ocr,ocrExact,top1,distance,familyCorrect,variantCorrect,proposed,candidateIncludesExpected,seconds
+inter-400-clean,clean,inter-400,Inter,Hamburgo creativo 123,Hamburgo creativo 123,True,inter-400,0.1172,True,True,True,True,2.224
+inter-400-degraded,degraded,inter-400,Inter,Agua mineral bosque,Agua mineral bosque,True,inter-400,0.2015,True,True,False,False,1.81
+inter-700-clean,clean,inter-700,Inter,Hamburgo creativo 123,Hamburgo creativo 123,True,inter-700,0.0879,True,True,True,True,1.968
+roboto-400-clean,clean,roboto-400,Roboto,Hamburgo creativo 123,Hamburgo creativo 123,True,roboto-400,0.0857,True,True,True,True,1.405
+roboto-700-clean,clean,roboto-700,Roboto,Hamburgo creativo 123,Hamburgo creativo 123,True,roboto-700,0.0729,True,True,True,True,1.379
+roboto-700-degraded,degraded,roboto-700,Roboto,Agua mineral bosque,Agua mineral bosque,True,roboto-700,0.1107,True,True,True,True,1.548
+opensans-400-clean,clean,opensans-400,Open Sans,Hamburgo creativo 123,Hamburgo creativo 123,True,opensans-400,0.1057,True,True,True,True,1.54
+opensans-700-clean,clean,opensans-700,Open Sans,Hamburgo creativo 123,Hamburgo creativo 123,True,opensans-700,0.0737,True,True,True,True,1.574
+montserrat-400-clean,clean,montserrat-400,Montserrat,Hamburgo creativo 123,Hamburgo creativo 123,True,montserrat-400,0.1535,True,True,True,True,1.515
+montserrat-400-degraded,degraded,montserrat-400,Montserrat,Agua mineral bosque,Agua mineral bosque,True,montserrat-400,0.1695,True,True,False,False,1.436
+montserrat-700-clean,clean,montserrat-700,Montserrat,Hamburgo creativo 123,Hamburgo creativo 123,True,montserrat-700,0.0692,True,True,True,True,1.557
+lato-400-clean,clean,lato-400,Lato,Hamburgo creativo 123,Hamburgo creativo 123,True,lato-400,0.1014,True,True,True,True,1.384
+lato-700-clean,clean,lato-700,Lato,Hamburgo creativo 123,Hamburgo creativo 123,True,lato-700,0.0813,True,True,True,True,1.555
+lato-700-degraded,degraded,lato-700,Lato,Agua mineral bosque,Agua mineral bosque,True,lato-700,0.1636,True,True,False,False,1.354
+lora-400-clean,clean,lora-400,Lora,Hamburgo creativo 123,Hambur¢go creativo 123,False,lora-400,0.1107,True,True,True,True,1.365
+lora-700-clean,clean,lora-700,Lora,Hamburgo creativo 123,Hambur¢go creativo 123,False,lora-700,0.0814,True,True,True,True,1.423
+playfairdisplay-400-clean,clean,playfairdisplay-400,Playfair Display,Hamburgo creativo 123,Hamburgo creativo 123,True,playfairdisplay-400,0.1481,True,True,True,True,1.469
+playfairdisplay-400-degraded,degraded,playfairdisplay-400,Playfair Display,Agua mineral bosque,Agua mineral bosque,True,playfairdisplay-400,0.1647,True,True,False,False,1.264
+playfairdisplay-700-clean,clean,playfairdisplay-700,Playfair Display,Hamburgo creativo 123,Hamburgo creativo 123,True,playfairdisplay-700,0.0905,True,True,True,True,1.416
+robotomono-400-clean,clean,robotomono-400,Roboto Mono,Hamburgo creativo 123,Hamburgo creativo 123,True,robotomono-400,0.1021,True,True,True,True,1.48
+robotomono-700-clean,clean,robotomono-700,Roboto Mono,Hamburgo creativo 123,Hamburgo creativo 123,True,robotomono-700,0.0598,True,True,True,True,1.556
+robotomono-700-degraded,degraded,robotomono-700,Roboto Mono,Agua mineral bosque,Agua mineral bosque,True,robotomono-700,0.1059,True,True,True,True,1.342
+DejaVu-Sans-external-clean,external-clean,OUTSIDE,DejaVu Sans,Hamburgo creativo 123,Hamburgo creativo 123,True,roboto-700,0.3285,False,False,False,False,1.401
+DejaVu-Sans-external-degraded,external-degraded,OUTSIDE,DejaVu Sans,Agua mineral bosque,Agua mineral bosque,True,opensans-700,0.29,False,False,False,False,1.263
+DejaVu-Serif-external-clean,external-clean,OUTSIDE,DejaVu Serif,Hamburgo creativo 123,Hamburgo creativo 123,True,roboto-400,0.3579,False,False,False,False,1.364
+DejaVu-Serif-external-degraded,external-degraded,OUTSIDE,DejaVu Serif,Agua mineral bosque,Agua mineral bosque,True,sourceserif4-700,0.2967,False,False,False,False,1.281

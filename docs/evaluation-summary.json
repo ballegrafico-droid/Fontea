@@ -1,0 +1,48 @@
+{
+  "split": "evaluation",
+  "samples": 79,
+  "catalogFamilies": 11,
+  "catalogVariants": 42,
+  "groups": {
+    "clean": {
+      "samples": 42,
+      "top1FamilyCorrect": 42,
+      "top1VariantCorrect": 42,
+      "proposedCandidates": 35,
+      "candidateIncludesExpected": 35,
+      "ocrExact": 0
+    },
+    "degraded": {
+      "samples": 21,
+      "top1FamilyCorrect": 21,
+      "top1VariantCorrect": 19,
+      "proposedCandidates": 6,
+      "candidateIncludesExpected": 6,
+      "ocrExact": 21
+    },
+    "external-clean": {
+      "samples": 6,
+      "top1FamilyCorrect": 0,
+      "top1VariantCorrect": 0,
+      "proposedCandidates": 0,
+      "candidateIncludesExpected": 0,
+      "ocrExact": 0
+    },
+    "external-degraded": {
+      "samples": 6,
+      "top1FamilyCorrect": 0,
+      "top1VariantCorrect": 0,
+      "proposedCandidates": 0,
+      "candidateIncludesExpected": 0,
+      "ocrExact": 6
+    },
+    "short": {
+      "samples": 4,
+      "top1FamilyCorrect": 4,
+      "top1VariantCorrect": 4,
+      "proposedCandidates": 0,
+      "candidateIncludesExpected": 0,
+      "ocrExact": 2
+    }
+  }
+}
