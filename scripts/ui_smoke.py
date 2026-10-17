@@ -29,10 +29,10 @@ with sync_playwright() as p:
     page.screenshot(path=str(ROOT / "docs/desktop.png"), full_page=True)
     page.get_by_role("button", name="El catálogo", exact=True).click()
     expect(page.get_by_role("dialog")).to_be_visible()
-    expect(page.locator(".catalog-list>div")).to_have_count(11)
+    expect(page.locator(".catalog-list>div")).to_have_count(17)
     page.keyboard.press("Escape")
     expect(page.get_by_role("dialog")).not_to_be_visible()
-    checks.append("Catalogue dialog: eleven real families, keyboard dismissal")
+    checks.append("Catalogue dialog: seventeen real families, keyboard dismissal")
     page.get_by_role(
         "button", name="Prueba un ejemplo de demostración", exact=False
     ).click()
@@ -119,13 +119,28 @@ with sync_playwright() as p:
     checks.append(
         "390 px mobile: file upload, clipboard event, crop, OCR, comparison and results without overflow"
     )
+    # Explicit English re-read uses the same crop; no silent OCR selection.
+    page.locator("input[type=file]").set_input_files(
+        str(ROOT / "public/ejemplos/demostracion-ingles-lato.png")
+    )
+    page.get_by_role("button", name="Seleccionar imagen completa").click()
+    page.get_by_role("button", name="Leer el recorte").click()
+    expect(page.locator("#ocr-text")).to_be_enabled(timeout=25000)
+    page.locator("#ocr-language").select_option("eng+spa")
+    page.get_by_role("button", name="Volver a leer", exact=True).click()
+    expect(page.locator("#ocr-text")).to_have_value(
+        "Typography & rhythm 538", timeout=25000
+    )
+    checks.append(
+        "Explicit English priority re-reads the same crop and recovers the documented English control"
+    )
     # No silent fixture fallback on a malformed upload.
     page.locator("input[type=file]").set_input_files(
         {"name": "bad.png", "mimeType": "image/png", "buffer": b"not an image"}
     )
     expect(page.get_by_role("alert")).to_contain_text("Ese formato no es compatible")
     checks.append(
-        "Malformed upload shows understandable error and keeps prior real results"
+        "Malformed upload shows understandable error"
     )
     assert not errors, errors
     browser.close()

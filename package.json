@@ -1,6 +1,6 @@
 {
   "name": "fontea",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,7 +10,7 @@
     "build": "tsc --noEmit && vite build && tsc -p tsconfig.server.json",
     "start": "node --env-file-if-exists=.env dist-server/index.js",
     "test": "tsx --test tests/server.test.ts",
-    "evaluate": "python scripts/evaluate.py --split final",
+    "evaluate": "python benchmarks/revision.py --generate --run",
     "catalog:fetch": "python scripts/fetch_catalog.py",
     "doctor": "python scripts/doctor.py"
   },

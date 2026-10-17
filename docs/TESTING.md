@@ -1,5 +1,7 @@
 # Pruebas y alcance de la evidencia
 
+Informe histórico de la versión 0.1 (`21f1e73`). Para la versión 0.2 consulta [MEJORAS-0.2.md](MEJORAS-0.2.md). Los recuentos y el OCR descritos aquí corresponden a la entrega original.
+
 Pruebas ejecutadas el 17 de octubre de 2026. Los recuentos siguientes no estiman precisión general. Son muestras sintéticas de texto horizontal sobre blanco, no fotografías ni diseños comerciales reales.
 
 ## Separación entre ajuste y evaluación

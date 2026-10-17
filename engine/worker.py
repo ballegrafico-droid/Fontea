@@ -8,7 +8,7 @@ def main():
         im = decode(request.get("image", ""))
         operation = request.get("operation")
         if operation == "ocr":
-            result = ocr(im)
+            result = ocr(im, request.get("language"))
         elif operation == "identify":
             result = identify(im, request.get("text", ""))
         else:

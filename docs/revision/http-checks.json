@@ -1,0 +1,41 @@
+{
+  "note": "Current version only, three images; includes HTTP, interpreter startup and PNG results. Not an SLA or a paired before/after HTTP benchmark. Corrected text supplied for identify.",
+  "rows": [
+    {
+      "sample": "inter-400-italic-clean",
+      "ocrHttpSeconds": 0.602,
+      "ocrText": "Edición, música y señal 538",
+      "ocrExact": true,
+      "identifyHttpSeconds": 2.709,
+      "status": "candidates",
+      "top1": "inter-400-italic",
+      "candidateIds": [
+        "inter-400-italic"
+      ]
+    },
+    {
+      "sample": "firasans-700-clean",
+      "ocrHttpSeconds": 0.497,
+      "ocrText": "Edición, música y señal 538",
+      "ocrExact": true,
+      "identifyHttpSeconds": 2.607,
+      "status": "candidates",
+      "top1": "firasans-700",
+      "candidateIds": [
+        "firasans-700"
+      ]
+    },
+    {
+      "sample": "dmsans-400-clean",
+      "ocrHttpSeconds": 0.487,
+      "ocrText": "Edición, música y señal 538",
+      "ocrExact": true,
+      "identifyHttpSeconds": 2.639,
+      "status": "candidates",
+      "top1": "dmsans-400",
+      "candidateIds": [
+        "dmsans-400"
+      ]
+    }
+  ]
+}

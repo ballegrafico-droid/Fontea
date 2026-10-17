@@ -177,17 +177,34 @@ def distance(source, candidate):
     return 0.62 * (1 - iou) + 0.28 * min(chamfer * 5, 1) + 0.10 * min(aspect * 2, 1)
 
 
-def ocr(im):
+def ocr(im, language=None):
     # Tesseract reads bytes on stdin. No image or OCR file is persisted.
-    sample = im.copy()
+    sample = im.convert("L")
     sample.thumbnail((2200, 500))
-    if sample.height < 160:
-        sample = sample.resize((sample.width * 3, sample.height * 3))
+    pixels = np.asarray(sample)
+    border = np.concatenate([pixels[0], pixels[-1], pixels[:, 0], pixels[:, -1]])
+    if float(np.median(border)) < 128:
+        sample = ImageOps.invert(sample)
+        pixels = np.asarray(sample)
+        border = 255 - border
+    # Measure lettering, not the surrounding margin. Keep grayscale antialiasing.
+    ink = pixels < max(0, float(np.median(border)) - 30)
+    box = Image.fromarray(ink.astype(np.uint8) * 255).getbbox()
+    if box:
+        sample = sample.crop(box)
+        factor = min(3.0, max(1.0, 72 / sample.height))
+        if factor > 1:
+            sample = sample.resize(
+                (round(sample.width * factor), round(sample.height * factor)),
+                Image.Resampling.LANCZOS,
+            )
+        sample.thumbnail((3000, 500))
+    sample = ImageOps.expand(sample, border=16, fill=255)
     data = io.BytesIO()
     sample.save(data, format="PNG")
-    lang = os.environ.get("TESSERACT_LANG", "eng+spa")
-    if lang not in ("eng", "spa", "eng+spa"):
-        lang = "eng"
+    lang = language or os.environ.get("TESSERACT_LANG", "spa+eng")
+    if lang not in ("eng", "spa", "eng+spa", "spa+eng"):
+        lang = "spa+eng"
     try:
         result = subprocess.run(
             [

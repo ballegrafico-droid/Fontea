@@ -25,6 +25,7 @@ async function post(
   operation: string,
   image: Uint8Array | Buffer,
   text?: string,
+  language?: string,
 ) {
   const form = new FormData();
   form.append(
@@ -33,13 +34,32 @@ async function post(
     "sample.png",
   );
   if (text !== undefined) form.append("text", text);
+  if (language !== undefined) form.append("language", language);
   return fetch(base + "/api/" + operation, { method: "POST", body: form });
 }
 test("serves actual catalogue and pinned, unmodified, licensed font bytes", async () => {
   const r = await fetch(base + "/api/catalog");
   assert.equal(r.status, 200);
   const publicCatalog = await r.json();
-  assert.equal(publicCatalog.fonts.length, 42);
+  assert.equal(publicCatalog.fonts.length, 66);
+  const baseline = JSON.parse(
+    readFileSync("benchmarks/catalog_v01.json", "utf8"),
+  );
+  const current = JSON.parse(readFileSync("catalog/manifest.json", "utf8"));
+  assert.equal(
+    new Set(current.fonts.map((f: { family: string }) => f.family)).size,
+    17,
+  );
+  for (const old of baseline.fonts)
+    assert.equal(
+      current.fonts.find((f: { id: string }) => f.id === old.id).sha256,
+      old.sha256,
+    );
+  assert.equal(
+    current.fonts.find((f: { family: string }) => f.family === "Fira Sans")
+      .variable,
+    false,
+  );
   const manifest = JSON.parse(readFileSync("catalog/manifest.json", "utf8"));
   for (const f of manifest.fonts) {
     assert.equal(
@@ -50,6 +70,12 @@ test("serves actual catalogue and pinned, unmodified, licensed font bytes", asyn
     );
     assert(f.sourceUrl.includes(manifest.revision));
     assert(f.licenseUrl.includes(manifest.revision));
+    assert.equal(
+      createHash("sha256")
+        .update(readFileSync("catalog/licenses/" + f.licenseFile))
+        .digest("hex"),
+      f.licenseSha256,
+    );
     assert.match(
       readFileSync("catalog/licenses/" + f.licenseFile, "utf8"),
       /SIL OPEN FONT LICENSE Version 1.1/,
@@ -85,7 +111,7 @@ test("OCR reads real demonstration and comparison returns actual Inter Bold", as
   ]);
   const spanishResponse = await post("ocr", spanish);
   assert.equal(spanishResponse.status, 200);
-  assert.match((await spanishResponse.json()).text, /Diseño/);
+  assert.equal((await spanishResponse.json()).text, "Diseño y tipografía");
 
   assert(result.candidates[0].preview.startsWith("data:image/png;base64,"));
   assert.equal(result.confidence, undefined);
@@ -140,4 +166,13 @@ test("kills a timed-out worker and makes the slot available again", async () => 
   const r = await post("ocr", demo);
   assert.equal(r.status, 200);
   await r.arrayBuffer();
+});
+
+test("OCR language selection is explicit and validated", async () => {
+  const image = readFileSync("public/ejemplos/demostracion-ingles-lato.png");
+  const r = await post("ocr", image, undefined, "eng+spa");
+  assert.equal(r.status, 200);
+  assert.equal((await r.json()).text, "Typography & rhythm 538");
+  const invalid = await post("ocr", demo, undefined, "invalid");
+  assert.equal(invalid.status, 400);
 });

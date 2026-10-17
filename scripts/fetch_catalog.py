@@ -17,6 +17,12 @@ FAMILIES = {
     "sourceserif4": "Source Serif 4",
     "robotomono": "Roboto Mono",
     "oswald": "Oswald",
+    "nunitosans": "Nunito Sans",
+    "raleway": "Raleway",
+    "dmsans": "DM Sans",
+    "bitter": "Bitter",
+    "firasans": "Fira Sans",
+    "librefranklin": "Libre Franklin",
 }
 
 
@@ -35,6 +41,12 @@ def run():
         ]
     )
 
+    known_hashes = (
+        {f["file"]: f["sha256"] for f in json.loads(previous.read_text())["fonts"]}
+        if previous.exists()
+        else {}
+    )
+
     def family(item):
         slug, name = item
         entries = json.loads(
@@ -44,7 +56,7 @@ def run():
         )
         license_entry = next(x for x in entries if x["name"] == "OFL.txt")
         license_data = get(license_entry["download_url"])
-        assert b"SIL OPEN FONT LICENSE" in license_data
+        assert b"SIL OPEN FONT LICENSE Version 1.1" in license_data
         (ROOT / f"catalog/licenses/{slug}.txt").write_bytes(license_data)
         font_entries = [x for x in entries if x["name"].endswith(".ttf")]
         result = []
@@ -71,6 +83,11 @@ def run():
                 target = ROOT / "catalog/fonts" / filename
                 if not target.exists():
                     target.write_bytes(get(selected["download_url"]))
+                if filename in known_hashes:
+                    assert (
+                        hashlib.sha256(target.read_bytes()).hexdigest()
+                        == known_hashes[filename]
+                    ), f"Archivo alterado: {filename}"
                 font = TTFont(target)
                 axes = (
                     {a.axisTag: a.defaultValue for a in font["fvar"].axes}
@@ -89,6 +106,8 @@ def run():
                         + (" Italic" if italic else ""),
                         "file": filename,
                         "axes": axes,
+                        "variable": "fvar" in font,
+                        "licenseSha256": hashlib.sha256(license_data).hexdigest(),
                         "opticalSizes": (
                             list(dict.fromkeys([a.defaultValue, a.maxValue]))
                             if "fvar" in font

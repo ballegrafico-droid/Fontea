@@ -20,6 +20,12 @@ for f in ocr_manifest["sources"]:
 manifest = json.loads((ROOT / "catalog/manifest.json").read_text())
 for f in manifest["fonts"]:
     assert (
+        hashlib.sha256(
+            (ROOT / "catalog/licenses" / f["licenseFile"]).read_bytes()
+        ).hexdigest()
+        == f["licenseSha256"]
+    )
+    assert (
         hashlib.sha256((ROOT / "catalog/fonts" / f["file"]).read_bytes()).hexdigest()
         == f["sha256"]
     ), f["file"]
@@ -28,5 +34,5 @@ for f in manifest["fonts"]:
         in (ROOT / "catalog/licenses" / f["licenseFile"]).read_text()
     ), f["licenseFile"]
 print(
-    f"Motor disponible, Tesseract eng+spa, {len(manifest['fonts'])} variantes y licencias verificadas."
+    f"Motor disponible, Tesseract spa+eng, {len(manifest['fonts'])} variantes y licencias verificadas."
 )

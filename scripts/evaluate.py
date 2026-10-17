@@ -220,7 +220,7 @@ with report.open("w") as f:
 summary = {
     "split": args.split,
     "samples": len(rows),
-    "catalogFamilies": 11,
+    "catalogFamilies": len(set(f["family"] for f in CATALOG["fonts"])),
     "catalogVariants": len(CATALOG["fonts"]),
     "groups": {},
 }

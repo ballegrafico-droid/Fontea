@@ -1,0 +1,1037 @@
+[
+  {
+    "sample": "inter-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "inter-400",
+    "family": "Inter",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "9ca55491f84163ca7a8f43836dc04dcfcbcb703e1ed6f0af4be72cb64fc35ee5"
+  },
+  {
+    "sample": "inter-400-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "inter-400",
+    "family": "Inter",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "2a0f97ec78c6cee475668e35a476979b46efd168ab702bf213accfaccab9e154"
+  },
+  {
+    "sample": "inter-700-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "inter-700",
+    "family": "Inter",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "d7455a37afe28df6e2e0f23a27af7d32f8999081efc125a41779a3cbd786b059"
+  },
+  {
+    "sample": "inter-400-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "inter-400-italic",
+    "family": "Inter",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "fe79a733edfc724675dda92d8741abff88c05379dc252a36bf268c6e54cf6933"
+  },
+  {
+    "sample": "inter-400-italic-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "inter-400-italic",
+    "family": "Inter",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "cd01b44e5c674257b5669c93bd416ac2d7ddc5736a6a05198f1788079bbf7e73"
+  },
+  {
+    "sample": "inter-700-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "inter-700-italic",
+    "family": "Inter",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "287831b1441d5ce658a7b3d4ab719449b4c95493bcf3554a0a57a95c0206f351"
+  },
+  {
+    "sample": "roboto-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "roboto-400",
+    "family": "Roboto",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "fa1cd36b806b71b7ac9ba720f24b52be4f6107df5ac2f6fe8d390034ab595189"
+  },
+  {
+    "sample": "roboto-400-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "roboto-400",
+    "family": "Roboto",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "b33db9c52326564f2e4daddb1f4b092a4f44e9ac6db828357e62de6d131aca2b"
+  },
+  {
+    "sample": "roboto-700-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "roboto-700",
+    "family": "Roboto",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "7eabc256e4e0ce9889b66f60663f6c7e16804eb65738db0b5c0272a617888536"
+  },
+  {
+    "sample": "roboto-400-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "roboto-400-italic",
+    "family": "Roboto",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "e06b9e86d874889e4ec8eb27b32ae9460fe73c8ca481515872b3b17bfa7239a3"
+  },
+  {
+    "sample": "roboto-400-italic-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "roboto-400-italic",
+    "family": "Roboto",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "8c41e4b4055c917fcb3fd470d1a298a76a14a173447bccf38be9e624be0835fc"
+  },
+  {
+    "sample": "roboto-700-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "roboto-700-italic",
+    "family": "Roboto",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "705ae60e8fbc8a948ba1ca141d29057377bcf8d7e00c9b068e8132b1638bf549"
+  },
+  {
+    "sample": "opensans-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "opensans-400",
+    "family": "Open Sans",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "253cf819ecbda4edb89230336f76636643b179fc4e44fe2e7c2afda56fb1f06e"
+  },
+  {
+    "sample": "opensans-400-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "opensans-400",
+    "family": "Open Sans",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "bb8d4642e56a94017d7c18bf1adb98e18645c519f6e54aa79de23db0c56b7dae"
+  },
+  {
+    "sample": "opensans-700-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "opensans-700",
+    "family": "Open Sans",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "d6c6fb9f9d29e227469bd4d740d21521a6d9af9be0f63e80563f8461ec632a02"
+  },
+  {
+    "sample": "opensans-400-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "opensans-400-italic",
+    "family": "Open Sans",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "cae1db506329b3f24816624acb63df32ceb7e2c5fdecc5bcdbfc8029a60ef7ac"
+  },
+  {
+    "sample": "opensans-400-italic-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "opensans-400-italic",
+    "family": "Open Sans",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "d06ffb7b591e404febf18f869bd44a1ef4784bf581dc9ecb2599d9f025671124"
+  },
+  {
+    "sample": "opensans-700-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "opensans-700-italic",
+    "family": "Open Sans",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "cbafd2c61ce2fb96c6da2a17f707748ee8d31222160a5eece5db7e3672a5fb89"
+  },
+  {
+    "sample": "montserrat-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "montserrat-400",
+    "family": "Montserrat",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "70b88064c4936d8a0cfd7d6e85660d331f5d582e03747b3b4063377e89b9c598"
+  },
+  {
+    "sample": "montserrat-400-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "montserrat-400",
+    "family": "Montserrat",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "444da059279f6ea38dc255b5d97c08482c0df8ce2d8becd99a883fde6cea84a5"
+  },
+  {
+    "sample": "montserrat-700-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "montserrat-700",
+    "family": "Montserrat",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "ff2d533a402cb4986efa02902407cc52c6a036d93f86768c2749e8a9b75e8160"
+  },
+  {
+    "sample": "montserrat-400-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "montserrat-400-italic",
+    "family": "Montserrat",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "6cbe4505c956ce1ea9712f9267ed0a7ab5a9311c8bba3922c930b404b05840b5"
+  },
+  {
+    "sample": "montserrat-400-italic-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "montserrat-400-italic",
+    "family": "Montserrat",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "d53743bd851c5286c385dff4e0289c91dcea79048599b5d32b5c9eeb5efb74f2"
+  },
+  {
+    "sample": "montserrat-700-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "montserrat-700-italic",
+    "family": "Montserrat",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "073205f514d21e9c38b4b304d622292eaf320123de3bf631e78e42bf7e0adaa0"
+  },
+  {
+    "sample": "lato-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "lato-400",
+    "family": "Lato",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "93c399605954edeabeb40659d176a053a4ed6c2b262a52eed090f8348b331a6a"
+  },
+  {
+    "sample": "lato-400-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "lato-400",
+    "family": "Lato",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "a9d97d87e622b660ffbe9c510cde943d0fc23f7a26eedc3226a43f50a8af8305"
+  },
+  {
+    "sample": "lato-700-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "lato-700",
+    "family": "Lato",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "f2b488ff8ca4b3b45c685b409445f1b86ab3bf98f2e239ae3f367a3c99d8d4a1"
+  },
+  {
+    "sample": "lato-400-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "lato-400-italic",
+    "family": "Lato",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "e55bfb6acc288dc311f9931abe93b36d88ec6774f3b895603be23ce7d227262d"
+  },
+  {
+    "sample": "lato-400-italic-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "lato-400-italic",
+    "family": "Lato",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "883a6a0a22b75782bf0938776ed03ac696b5c611ac9f2774137ec71c547771c2"
+  },
+  {
+    "sample": "lato-700-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "lato-700-italic",
+    "family": "Lato",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "b85dcf9576616e89da378479d2e3bf5c9d55a8c6dc99d17c125add7d3d3c7db2"
+  },
+  {
+    "sample": "poppins-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "poppins-400",
+    "family": "Poppins",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "536326746f9956920e53858b972c1804dec5ea74e5c728b30009e192b349c5ef"
+  },
+  {
+    "sample": "poppins-400-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "poppins-400",
+    "family": "Poppins",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "6868029d328522ff9bc0eca4ce6da92affbc69fc381eea88c2927ac0af8e4a5e"
+  },
+  {
+    "sample": "poppins-700-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "poppins-700",
+    "family": "Poppins",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "411d2451dc3d497f88468c3718249f8daa033c430ed0232a4f862434364dd6c3"
+  },
+  {
+    "sample": "poppins-400-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "poppins-400-italic",
+    "family": "Poppins",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "331772055e78d7fdac3eb724a92ac570e11ff65ce5dd259a88541fda555bb39c"
+  },
+  {
+    "sample": "poppins-400-italic-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "poppins-400-italic",
+    "family": "Poppins",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "812c133fafcd5485afe7d2b0bae0fd6d5cca2e0bc45aa554a721e9980c00bd8c"
+  },
+  {
+    "sample": "poppins-700-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "poppins-700-italic",
+    "family": "Poppins",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "bff25438a25b9f09c3afd41a311d4fc4ea0854ddd558d8f84c6cfcb02ff6de92"
+  },
+  {
+    "sample": "lora-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "lora-400",
+    "family": "Lora",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "ceb977b2109e1af5917f9968104c8c50035a466553bd4c3522946956e728e010"
+  },
+  {
+    "sample": "lora-400-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "lora-400",
+    "family": "Lora",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "db0e89d453b282ebc35c2054cbe1a2fb55856622873597a0beb6816c875f2dcc"
+  },
+  {
+    "sample": "lora-700-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "lora-700",
+    "family": "Lora",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "3bccb99978661ee9efebac71b802c1bbe4bb08978663817ab329432286f4eec8"
+  },
+  {
+    "sample": "lora-400-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "lora-400-italic",
+    "family": "Lora",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "f119394edd1eb272dbc88cdb48ca827dec6868eaaed2402ad29d046703b9f2c5"
+  },
+  {
+    "sample": "lora-400-italic-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "lora-400-italic",
+    "family": "Lora",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "a078382b2f49e458abf7627d9e3634928a4c15a9f33533219b05fcdc877befba"
+  },
+  {
+    "sample": "lora-700-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "lora-700-italic",
+    "family": "Lora",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "317b293c004936b16f54a598c24ea1e7911de769c0b67b427d2fa4f69b1fd18b"
+  },
+  {
+    "sample": "playfairdisplay-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "playfairdisplay-400",
+    "family": "Playfair Display",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "afcf9dccc85970bce2863c9d910795ab793260680bfe1f4ed977e4aae27d46d9"
+  },
+  {
+    "sample": "playfairdisplay-400-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "playfairdisplay-400",
+    "family": "Playfair Display",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "6d8a16b84d0c0705273edd3ff03c6254f603212ceee7ae3399361ee986a96870"
+  },
+  {
+    "sample": "playfairdisplay-700-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "playfairdisplay-700",
+    "family": "Playfair Display",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "b5d360f5d695fb7e2f15fe0d4220e42453638d401b341971d02ed23f5d2d2ab0"
+  },
+  {
+    "sample": "playfairdisplay-400-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "playfairdisplay-400-italic",
+    "family": "Playfair Display",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "6ce23191e6cd7f7314963abbf02f72511c8c6172f1af24c89e144b76ec7ca711"
+  },
+  {
+    "sample": "playfairdisplay-400-italic-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "playfairdisplay-400-italic",
+    "family": "Playfair Display",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "6fcebb25c3b695058acde52040c4ee3ead33b122aaf89259b1dc66f6f33e2ef8"
+  },
+  {
+    "sample": "playfairdisplay-700-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "playfairdisplay-700-italic",
+    "family": "Playfair Display",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "0cd3d2e89a4127caba4ddaa6b8b45f3e09c052b210cab77389dc09af278460e6"
+  },
+  {
+    "sample": "sourceserif4-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "sourceserif4-400",
+    "family": "Source Serif 4",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "e5b94238579818aa3eafe2078c2bc684a757b382d769acf35205c7fd1c925802"
+  },
+  {
+    "sample": "sourceserif4-400-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "sourceserif4-400",
+    "family": "Source Serif 4",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "ae99f06a8acdc5adf6f07f1690b307791af79ad6776a7560f5a53fd0562096e3"
+  },
+  {
+    "sample": "sourceserif4-700-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "sourceserif4-700",
+    "family": "Source Serif 4",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "83febd92923bda1df6d9a7ac7bfaa2c397347adb23eeb8615877180fc1e16593"
+  },
+  {
+    "sample": "sourceserif4-400-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "sourceserif4-400-italic",
+    "family": "Source Serif 4",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "b76d72e5fdf96ab754e8a6e93803af902bd66f94b07b83c667c41914cac4b36f"
+  },
+  {
+    "sample": "sourceserif4-400-italic-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "sourceserif4-400-italic",
+    "family": "Source Serif 4",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "0886effbb1579b42f2b59ad38ea2805ef1914e231f1df50e6aec164933a4a74f"
+  },
+  {
+    "sample": "sourceserif4-700-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "sourceserif4-700-italic",
+    "family": "Source Serif 4",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "31c255560b0bd4abc3dfbe60e984b94b0993307f106b5101619c6ba92bf5297d"
+  },
+  {
+    "sample": "robotomono-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "robotomono-400",
+    "family": "Roboto Mono",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "39beb7c11938d0be5fae4999de9a4b6aad3114d2c5195ab97402fb8cea74516c"
+  },
+  {
+    "sample": "robotomono-400-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "robotomono-400",
+    "family": "Roboto Mono",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "50ecde4cbbb77834b6c3f337afda12db42ca4876962bc88e4195d936914950d0"
+  },
+  {
+    "sample": "robotomono-700-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "robotomono-700",
+    "family": "Roboto Mono",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "92290fcb1afed2a177eab52e85a4ed4476e50c451ba3e4aacf4d7389a00ca962"
+  },
+  {
+    "sample": "robotomono-400-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "robotomono-400-italic",
+    "family": "Roboto Mono",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "c9077ae6fa81027ff01d4b45449d70a68007dd77f8fec9b32597a9ef19976ceb"
+  },
+  {
+    "sample": "robotomono-400-italic-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "robotomono-400-italic",
+    "family": "Roboto Mono",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "c6b8e3fca530a44460440fcf2c5870415d83c9a6a282405a40502eb42e94ceab"
+  },
+  {
+    "sample": "robotomono-700-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "robotomono-700-italic",
+    "family": "Roboto Mono",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "a7dc53e0bbcac95279a2e596dcb9a85e2ae3579a4f573c05234c986c78d0518b"
+  },
+  {
+    "sample": "oswald-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "oswald-400",
+    "family": "Oswald",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "c3c061be253827d49e81e348d286d17735fb8050a8e70cb142ac2a24fe16dd08"
+  },
+  {
+    "sample": "oswald-400-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "oswald-400",
+    "family": "Oswald",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "0901f31729c2a9d6f62cf9e7c8af74e7cb0e1e49dfcc520c7f9dfeeb68d67ebb"
+  },
+  {
+    "sample": "oswald-700-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "oswald-700",
+    "family": "Oswald",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "d53153269160b5ebebe78f0b591fa0ac5f52c5ba0500994c05f1ce884e3eb8c6"
+  },
+  {
+    "sample": "nunitosans-400-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "nunitosans-400",
+    "family": "Nunito Sans",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "4c964bb2fc238bc0c86716769f0308a8e3e01ed8b418155bb6c790c4d93c8b46"
+  },
+  {
+    "sample": "nunitosans-400-degraded",
+    "kind": "degraded",
+    "group": "added",
+    "expected": "nunitosans-400",
+    "family": "Nunito Sans",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "bc5e654e001dad622e90df521ad830320460f114131b05879e00976244d6f4ef"
+  },
+  {
+    "sample": "nunitosans-700-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "nunitosans-700",
+    "family": "Nunito Sans",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "d28831ba33207f039c8f9739c706fe96d21a39386433a00384a3397411d8f380"
+  },
+  {
+    "sample": "nunitosans-400-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "nunitosans-400-italic",
+    "family": "Nunito Sans",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "35a7d3ed8bf752640156972191f5ff3558532bf146127bd32d08fbe6badfc32a"
+  },
+  {
+    "sample": "nunitosans-400-italic-degraded",
+    "kind": "degraded",
+    "group": "added",
+    "expected": "nunitosans-400-italic",
+    "family": "Nunito Sans",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "0f92a4dbd08edb3caa236d09544135919165c1e959feb2489b443d9c0cd736df"
+  },
+  {
+    "sample": "nunitosans-700-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "nunitosans-700-italic",
+    "family": "Nunito Sans",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "e41454a00d4ced641728047a5455d681d86d116c9fa6f839f62f703556d69365"
+  },
+  {
+    "sample": "raleway-400-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "raleway-400",
+    "family": "Raleway",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "1a2a6fd0d41d19c47b9987a4119b8c8378d1a83a25d2558a0c96b55397a4f895"
+  },
+  {
+    "sample": "raleway-400-degraded",
+    "kind": "degraded",
+    "group": "added",
+    "expected": "raleway-400",
+    "family": "Raleway",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "e6cef1ea07b19635e3371d0d72393773e65bc68351ccebb16abc6506b2a552cf"
+  },
+  {
+    "sample": "raleway-700-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "raleway-700",
+    "family": "Raleway",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "67fad47a46a34fdf586eefeea880d704d9a731fb3791569613f4cb4a97855df7"
+  },
+  {
+    "sample": "raleway-400-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "raleway-400-italic",
+    "family": "Raleway",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "66a828a1ef2f36323762cb3c36b08f243673127c1461d566b57410ac38b8b776"
+  },
+  {
+    "sample": "raleway-400-italic-degraded",
+    "kind": "degraded",
+    "group": "added",
+    "expected": "raleway-400-italic",
+    "family": "Raleway",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "6d79a2e9cfb443e9152e896213de7c2e6ac9cc7e2560cdcce196b8b114ab26b3"
+  },
+  {
+    "sample": "raleway-700-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "raleway-700-italic",
+    "family": "Raleway",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "523ae2a1d547df9c214af3dbfce46cca74036ab51ab59ebf3cab714a19238478"
+  },
+  {
+    "sample": "dmsans-400-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "dmsans-400",
+    "family": "DM Sans",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "857205226353618ce3f463f327f71db545e150217a8676a1db64222079135ddd"
+  },
+  {
+    "sample": "dmsans-400-degraded",
+    "kind": "degraded",
+    "group": "added",
+    "expected": "dmsans-400",
+    "family": "DM Sans",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "c430fd714eb391f7d915d3ae6edbfc128c846635de04b17e33171e2a7cc55f2e"
+  },
+  {
+    "sample": "dmsans-700-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "dmsans-700",
+    "family": "DM Sans",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "6c09adf7506dffcb6b3e072e2856b3f8255111736a2bcbf36d4597d9b6ddf917"
+  },
+  {
+    "sample": "dmsans-400-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "dmsans-400-italic",
+    "family": "DM Sans",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "bcfae48a4b3f5fa3d2380af75420c7a5ce4900ea36a30b38f339ef657a226676"
+  },
+  {
+    "sample": "dmsans-400-italic-degraded",
+    "kind": "degraded",
+    "group": "added",
+    "expected": "dmsans-400-italic",
+    "family": "DM Sans",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "8b2dc6efaaeda0e8af73a6faffdd3bda384de5d365b8a392526862ad1016a031"
+  },
+  {
+    "sample": "dmsans-700-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "dmsans-700-italic",
+    "family": "DM Sans",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "4647eda4c5315c2957a12917dea38da65b425301483903a7e8bee8bb1394bf05"
+  },
+  {
+    "sample": "bitter-400-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "bitter-400",
+    "family": "Bitter",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "f04c75b4d72eceb7afa2c08df51d11c10f2b12b20f129ded33260f3e5709eb1f"
+  },
+  {
+    "sample": "bitter-400-degraded",
+    "kind": "degraded",
+    "group": "added",
+    "expected": "bitter-400",
+    "family": "Bitter",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "874eedb8c2648c8612aebfcea518c03e39279619b6b58d712ce5341ccbceea49"
+  },
+  {
+    "sample": "bitter-700-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "bitter-700",
+    "family": "Bitter",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "cfbde9a5693ef0da2566c5eba34ca9b16a69bb016c26c9e2377aae5750c3ecb2"
+  },
+  {
+    "sample": "bitter-400-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "bitter-400-italic",
+    "family": "Bitter",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "a84dfbe3282800a563df5c5315e73f6f0605cfe0fc6c5f79e2e0a84455b83b2f"
+  },
+  {
+    "sample": "bitter-400-italic-degraded",
+    "kind": "degraded",
+    "group": "added",
+    "expected": "bitter-400-italic",
+    "family": "Bitter",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "67fc7fa99207436a4c971aee918040de0c0120e5e1ee602644b345c65e9fdec7"
+  },
+  {
+    "sample": "bitter-700-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "bitter-700-italic",
+    "family": "Bitter",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "cd387e6b368ba2ae88ddd01945a814782408e7fedddbcece0856e538de65b04f"
+  },
+  {
+    "sample": "firasans-400-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "firasans-400",
+    "family": "Fira Sans",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "eca781586e8016a06ff3b97fbadf6ebd941e510d28bd9597aa021ad82f519ca2"
+  },
+  {
+    "sample": "firasans-400-degraded",
+    "kind": "degraded",
+    "group": "added",
+    "expected": "firasans-400",
+    "family": "Fira Sans",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "a9fe4ded2747dfbd12deb6845afacc125feafafc809985b4c731b45a12a886e3"
+  },
+  {
+    "sample": "firasans-700-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "firasans-700",
+    "family": "Fira Sans",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "51d569416eb4f1f5125ea61ff411b76c7357da5aed2944b1b447984c77ea0165"
+  },
+  {
+    "sample": "firasans-400-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "firasans-400-italic",
+    "family": "Fira Sans",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "029dc3b4bfe947e1e9c3482d94f3b8ac7cb19841dd2fb39acb9d3dbeda24abce"
+  },
+  {
+    "sample": "firasans-400-italic-degraded",
+    "kind": "degraded",
+    "group": "added",
+    "expected": "firasans-400-italic",
+    "family": "Fira Sans",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "f4621f38ce72e93ff85ec6bb7c8cb1eab0b8ac350afefbe3f600dbcb6bd2633a"
+  },
+  {
+    "sample": "firasans-700-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "firasans-700-italic",
+    "family": "Fira Sans",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "e2b3fc067519ffa955f202657b20b6ec796e36361e7a6e2726b265040f4c4159"
+  },
+  {
+    "sample": "librefranklin-400-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "librefranklin-400",
+    "family": "Libre Franklin",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "ae761089a8f039d80172b05bde3df50641a96c59f1926b3669280f61980128f4"
+  },
+  {
+    "sample": "librefranklin-400-degraded",
+    "kind": "degraded",
+    "group": "added",
+    "expected": "librefranklin-400",
+    "family": "Libre Franklin",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "51f1dd551c449b3286cb9904f0f517f34b1b41392ac4a8571e955cc90f445e67"
+  },
+  {
+    "sample": "librefranklin-700-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "librefranklin-700",
+    "family": "Libre Franklin",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "bf869384ef8b2d89529eb645386a9da54ca779dd4a1c8d7d38076659648be74f"
+  },
+  {
+    "sample": "librefranklin-400-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "librefranklin-400-italic",
+    "family": "Libre Franklin",
+    "text": "Typography & rhythm 538",
+    "imageSha256": "700a89b08dfd9e95995761f41d0bc44e07112e2ad359d741125f2a896a9b9eb7"
+  },
+  {
+    "sample": "librefranklin-400-italic-degraded",
+    "kind": "degraded",
+    "group": "added",
+    "expected": "librefranklin-400-italic",
+    "family": "Libre Franklin",
+    "text": "Quiet rhythm, bold ideas",
+    "imageSha256": "1b0f04f21f1b0417ee9728bc92a5f376317aa996dbd9afd759bf451bb558ddf2"
+  },
+  {
+    "sample": "librefranklin-700-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "librefranklin-700-italic",
+    "family": "Libre Franklin",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "b056d71390661a9bf90b22dbfb34b3852eba8eac10a44a74085c31d6743347c6"
+  },
+  {
+    "sample": "Liberation-Sans-clean",
+    "kind": "clean",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "Liberation Sans",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "7d4fc2bc984d3a9908fd072914cb592a08965cebfda9aa8ef51dacbd20f9fc27"
+  },
+  {
+    "sample": "Liberation-Sans-degraded",
+    "kind": "degraded",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "Liberation Sans",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "0179735fdbc417dbc01f39173fc626559137d0f695f69eb414717f21d4353eb1"
+  },
+  {
+    "sample": "Liberation-Serif-clean",
+    "kind": "clean",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "Liberation Serif",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "e3c1b8c6a608c9ea6d5ba7557ecd950ae10942d8ecfd30369b5c7af08f0c37b9"
+  },
+  {
+    "sample": "Liberation-Serif-degraded",
+    "kind": "degraded",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "Liberation Serif",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "1bf9f6d3340203413ee206ea7c6d4920ac6197b0d420b05a5f49bcd52be59e43"
+  },
+  {
+    "sample": "Nimbus-Sans-clean",
+    "kind": "clean",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "Nimbus Sans",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "2aaef4264c4f6ad3ddb4e95aa7ded8c20c069a07204039a6cd6f14eecec45311"
+  },
+  {
+    "sample": "Nimbus-Sans-degraded",
+    "kind": "degraded",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "Nimbus Sans",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "0b7ac7b1f4d88a4d25759c28a325054b3986f602e8ff75059e62194753532ad3"
+  },
+  {
+    "sample": "Nimbus-Roman-clean",
+    "kind": "clean",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "Nimbus Roman",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "f8416d5133320c6c20a1e574c9c6a2c552d409f5de6d6d19797f2a34d43b54cf"
+  },
+  {
+    "sample": "Nimbus-Roman-degraded",
+    "kind": "degraded",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "Nimbus Roman",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "407a42d44ef9133acfd945b60e0e427873403406f37c99a0f4d5d098848c4384"
+  },
+  {
+    "sample": "URW-Gothic-clean",
+    "kind": "clean",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "URW Gothic",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "a55ce55be9c5a4d3b9ce9bcc82c842b36ea5a096f73c4bc047621e8cc138fea0"
+  },
+  {
+    "sample": "URW-Gothic-degraded",
+    "kind": "degraded",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "URW Gothic",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "a47be1e5f45e227b1d6a3290e48f7548b359c9a6063e3c5008e08b6b1a220830"
+  },
+  {
+    "sample": "P052-clean",
+    "kind": "clean",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "P052",
+    "text": "Edición, música y señal 538",
+    "imageSha256": "b956a42465e9fa6be073ecaa75c65f41104a1386536295eac6ddab406d85f2ed"
+  },
+  {
+    "sample": "P052-degraded",
+    "kind": "degraded",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "P052",
+    "text": "Pequeño café del jardín",
+    "imageSha256": "fa4567a8ad45424095e0170460c711607892478f65dd87b7dacfc014d3e17c38"
+  },
+  {
+    "sample": "short-HHH-short",
+    "kind": "short",
+    "group": "short",
+    "expected": "short-HHH",
+    "family": "Inter",
+    "text": "HHH",
+    "imageSha256": "abb4d552fe62fbf9d48ae9950142d39729be558c33d34722b9828ae28c5da09a"
+  },
+  {
+    "sample": "short-Ill-short",
+    "kind": "short",
+    "group": "short",
+    "expected": "short-Ill",
+    "family": "Inter",
+    "text": "Ill",
+    "imageSha256": "1de5c4badf337234c2c5402fe4a35ac9552a9ab803012a031e7da09ff7911a2e"
+  },
+  {
+    "sample": "short-aaa-short",
+    "kind": "short",
+    "group": "short",
+    "expected": "short-aaa",
+    "family": "Inter",
+    "text": "aaa",
+    "imageSha256": "b6b1ac936288a13ff74e847f927f50b43a9b80c2ab9b30e594f80d387e07a959"
+  },
+  {
+    "sample": "short-OOO-short",
+    "kind": "short",
+    "group": "short",
+    "expected": "short-OOO",
+    "family": "Inter",
+    "text": "OOO",
+    "imageSha256": "94d75a30f247d5f2751f307e4372d6a5f70fd855ba5c609323f3d818a941f906"
+  }
+]

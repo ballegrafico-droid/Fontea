@@ -76,12 +76,9 @@ app.post("/api/:operation", (req, res, next) => {
   }
   // Reject before multipart buffering when another worker already owns the slot.
   if (busy) {
-    res
-      .status(503)
-      .set("Retry-After", "5")
-      .json({
-        error: "El motor está ocupado. Inténtalo de nuevo en unos segundos.",
-      });
+    res.status(503).set("Retry-After", "5").json({
+      error: "El motor está ocupado. Inténtalo de nuevo en unos segundos.",
+    });
     return;
   }
   busy = true;
@@ -129,12 +126,21 @@ app.post("/api/:operation", (req, res, next) => {
       (typeof req.body?.text !== "string" || req.body.text.length > 100)
     ) {
       release();
+      res.status(400).json({
+        error:
+          "Escribe el texto que aparece en el recorte (máximo 80 caracteres).",
+      });
+      return;
+    }
+    if (
+      req.params.operation === "ocr" &&
+      req.body?.language !== undefined &&
+      !["spa+eng", "eng+spa"].includes(req.body.language)
+    ) {
+      release();
       res
         .status(400)
-        .json({
-          error:
-            "Escribe el texto que aparece en el recorte (máximo 80 caracteres).",
-        });
+        .json({ error: "Elige español o inglés como idioma prioritario." });
       return;
     }
     child = spawn(
@@ -175,25 +181,21 @@ app.post("/api/:operation", (req, res, next) => {
       clearTimeout(timer);
       release();
       if (!res.headersSent && !res.destroyed)
-        res
-          .status(503)
-          .json({
-            error:
-              "El motor no está disponible. Comprueba Python y Tesseract en el servidor.",
-          });
+        res.status(503).json({
+          error:
+            "El motor no está disponible. Comprueba Python y Tesseract en el servidor.",
+        });
     });
     child.on("close", (code) => {
       clearTimeout(timer);
       release();
       if (res.headersSent || res.destroyed) return;
       if (timedOut || tooLarge || code !== 0) {
-        res
-          .status(503)
-          .json({
-            error: timedOut
-              ? "El análisis ha tardado demasiado. Recorta una línea más corta."
-              : "El motor no ha podido completar el análisis.",
-          });
+        res.status(503).json({
+          error: timedOut
+            ? "El análisis ha tardado demasiado. Recorta una línea más corta."
+            : "El motor no ha podido completar el análisis.",
+        });
         return;
       }
       try {
@@ -212,6 +214,7 @@ app.post("/api/:operation", (req, res, next) => {
         operation: req.params.operation,
         image: req.file.buffer.toString("base64"),
         text: req.body?.text,
+        language: req.body?.language,
       }),
     );
   });
@@ -246,13 +249,11 @@ app.use(
     res: express.Response,
     _next: express.NextFunction,
   ) => {
-    res
-      .status(error instanceof multer.MulterError ? 413 : 400)
-      .json({
-        error:
-          error instanceof multer.MulterError
-            ? "La imagen debe ocupar menos de 8 MB. Sube un único PNG, JPG o WebP."
-            : "No se ha podido procesar la petición.",
-      });
+    res.status(error instanceof multer.MulterError ? 413 : 400).json({
+      error:
+        error instanceof multer.MulterError
+          ? "La imagen debe ocupar menos de 8 MB. Sube un único PNG, JPG o WebP."
+          : "No se ha podido procesar la petición.",
+    });
   },
 );

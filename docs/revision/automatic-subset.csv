@@ -1,0 +1,13 @@
+sample,group,expected,beforeKnown,beforeFamilyTop1,beforeVariantTop1,beforeProposed,beforeContainsExpected,beforeWrongProposal,beforeTop1,beforeDistance,afterKnown,afterFamilyTop1,afterVariantTop1,afterProposed,afterContainsExpected,afterWrongProposal,afterTop1,afterDistance
+inter-400-clean,original,inter-400,True,True,True,True,True,False,inter-400,0.1278,True,True,True,True,True,False,inter-400,0.1278
+roboto-400-italic-degraded,original,roboto-400-italic,True,True,True,False,False,False,roboto-400-italic,0.1582,True,True,True,True,True,False,roboto-400-italic,0.1544
+montserrat-700-clean,original,montserrat-700,True,True,True,True,True,False,montserrat-700,0.0638,True,True,True,True,True,False,montserrat-700,0.0638
+poppins-400-clean,original,poppins-400,True,True,True,True,True,False,poppins-400,0.0936,True,True,True,True,True,False,poppins-400,0.0936
+lora-400-italic-degraded,original,lora-400-italic,True,True,True,False,False,False,lora-400-italic,0.2035,True,True,True,False,False,False,lora-400-italic,0.1951
+sourceserif4-700-clean,original,sourceserif4-700,True,True,True,True,True,False,sourceserif4-700,0.1422,True,True,True,True,True,False,sourceserif4-700,0.1422
+oswald-400-clean,original,oswald-400,True,True,True,True,True,False,oswald-400,0.0771,True,True,True,True,True,False,oswald-400,0.0771
+raleway-400-degraded,added,raleway-400,False,False,False,False,False,False,inter-400,0.255,True,True,True,False,False,False,raleway-400,0.2096
+dmsans-700-italic-clean,added,dmsans-700-italic,False,False,False,False,False,False,montserrat-700-italic,0.2674,True,True,True,True,True,False,dmsans-700-italic,0.0488
+firasans-400-italic-clean,added,firasans-400-italic,False,False,False,False,False,False,sourceserif4-700-italic,0.397,True,True,True,True,True,False,firasans-400-italic,0.0871
+Liberation-Sans-degraded,outside,OUTSIDE,False,False,False,False,False,False,roboto-400,0.2745,False,False,False,False,False,False,roboto-400,0.2668
+P052-degraded,outside,OUTSIDE,False,False,False,False,False,False,lora-700,0.2636,False,False,False,False,False,False,lora-700,0.2648

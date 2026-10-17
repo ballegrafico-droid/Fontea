@@ -23,7 +23,7 @@ sudo -u fontea env PYTHON_BIN=/opt/fontea/.venv/bin/python3 npm test
 sudo -u fontea cp .env.example .env
 ```
 
-Si la entrega aún no está subida a GitHub, copia el archivo de entrega a `/opt/fontea` en lugar de clonarlo. No es necesario volver a descargar el catálogo ni los modelos de OCR incluidos en `engine/tessdata`. Los 11 archivos de licencia deben permanecer junto a las fuentes. Configura `.env`:
+Si la entrega aún no está subida a GitHub, copia el archivo de entrega a `/opt/fontea` en lugar de clonarlo. No es necesario volver a descargar el catálogo ni los modelos de OCR incluidos en `engine/tessdata`. Los 17 archivos de licencia deben permanecer junto a las fuentes. Configura `.env`:
 
 ```dotenv
 PORT=3001
@@ -31,7 +31,7 @@ HOST=127.0.0.1
 PYTHON_BIN=/opt/fontea/.venv/bin/python3
 ENGINE_TIMEOUT_MS=45000
 TRUST_PROXY=1
-TESSERACT_LANG=eng+spa
+TESSERACT_LANG=spa+eng
 ```
 
 `.env` no se versiona. Aquí no hay secretos. No abras el puerto 3001 al exterior cuando uses `TRUST_PROXY=1`: únicamente Nginx debe poder conectarse. Mantén UNA instancia de Node; el límite de concurrencia es por proceso. Para escalar, añade una cola global y mide CPU/RAM primero.

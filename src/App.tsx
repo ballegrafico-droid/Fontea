@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 
 type Font = {
+  variable: boolean;
   id: string;
   family: string;
   variant: string;
@@ -62,10 +63,12 @@ async function request<T>(
   image: Blob,
   text: string,
   signal: AbortSignal,
+  language?: string,
 ): Promise<T> {
   const form = new FormData();
   form.append("image", image, "recorte.png");
   if (operation === "identify") form.append("text", text);
+  if (operation === "ocr" && language) form.append("language", language);
   const response = await fetch("/api/" + operation, {
     method: "POST",
     body: form,
@@ -183,11 +186,8 @@ function CandidateCard({
         </a>
       </div>
       <p className="download-note">
-        Archivo original{" "}
-        {font.family === "Lato" || font.family === "Poppins"
-          ? "estático"
-          : "variable"}
-        ; puede incluir más pesos que el comparado.
+        Archivo original {font.variable ? "variable" : "estático"}; puede
+        incluir más pesos que el comparado.
       </p>
     </article>
   );
@@ -206,6 +206,7 @@ export default function App() {
   const [croppedUrl, setCroppedUrl] = useState("");
   const [text, setText] = useState("");
   const [ocrNote, setOcrNote] = useState("");
+  const [ocrLanguage, setOcrLanguage] = useState("spa+eng");
   const [error, setError] = useState("");
   const [result, setResult] = useState<Result>();
   const [drag, setDrag] = useState(false);
@@ -242,7 +243,7 @@ export default function App() {
     } else dialog.current?.close();
   }, [modal]);
   useEffect(() => {
-    if (modal === "catalog" && !catalog) {
+    if (!catalog) {
       setCatalogError("");
       fetch("/api/catalog")
         .then((r) => {
@@ -400,6 +401,11 @@ export default function App() {
     setCropped(blob);
     setCroppedUrl(URL.createObjectURL(blob));
     setStage("review");
+    await readCrop(blob);
+  }
+  async function readCrop(blob: Blob | undefined = cropped) {
+    if (!blob) return;
+    setStage("review");
     setPending("ocr");
     setError("");
     setResult(undefined);
@@ -410,7 +416,7 @@ export default function App() {
         text: string;
         lineCount: number;
         needsReview: boolean;
-      }>("ocr", blob, "", abort.signal);
+      }>("ocr", blob, "", abort.signal, ocrLanguage);
       setText(data.text);
       setOcrNote(
         data.lineCount > 1
@@ -742,6 +748,25 @@ export default function App() {
                       Respeta mayúsculas, tildes, signos y espacios. Solo
                       alfabeto latino.
                     </span>
+                    <div className="ocr-controls">
+                      <label htmlFor="ocr-language">Idioma prioritario</label>
+                      <select
+                        id="ocr-language"
+                        value={ocrLanguage}
+                        disabled={!!pending}
+                        onChange={(e) => setOcrLanguage(e.target.value)}
+                      >
+                        <option value="spa+eng">Español primero</option>
+                        <option value="eng+spa">Inglés primero</option>
+                      </select>
+                      <button
+                        className="text-button"
+                        disabled={!!pending}
+                        onClick={() => readCrop()}
+                      >
+                        Volver a leer
+                      </button>
+                    </div>
                     <button
                       className="button primary"
                       onClick={identify}
@@ -954,7 +979,10 @@ export default function App() {
           <p>
             Inter, Lora, Montserrat, Roboto…
             <br />
-            11 familias abiertas para empezar a explorar.
+            {catalog
+              ? new Set(catalog.fonts.map((f) => f.family)).size
+              : "…"}{" "}
+            familias abiertas para explorar.
           </p>
           <button onClick={() => setModal("catalog")}>
             Explorar el catálogo <ArrowUpRight size={19} />
@@ -967,7 +995,7 @@ export default function App() {
         </a>
         <p>Para quienes encuentran belleza en los detalles.</p>
         <div>
-          <span>VERSIÓN 0.1 · CATÁLOGO ABIERTO</span>
+          <span>VERSIÓN 0.2 · CATÁLOGO ABIERTO</span>
           <button onClick={() => setModal("privacy")}>Privacidad</button>
         </div>
       </footer>

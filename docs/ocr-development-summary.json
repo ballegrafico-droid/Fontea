@@ -1,0 +1,16 @@
+{
+  "samples": 32,
+  "exact": {
+    "baseline": 14,
+    "spanish_first": 32,
+    "spanish_only": 32,
+    "line_with_border": 32,
+    "ink_height_preparation": 32
+  },
+  "criterion": "Literal equality including accents; fixed configurations, no dictionary correction.",
+  "tightCropRegression": {
+    "expected": "Diseño y tipografía",
+    "actual": "Diseño y tipografía",
+    "exact": true
+  }
+}
