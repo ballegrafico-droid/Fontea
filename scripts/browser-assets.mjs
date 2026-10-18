@@ -23,7 +23,7 @@ for (const entry of catalog.fonts) {
 }
 for (const entry of ocr.sources)
   await verify(path.join("engine/tessdata", entry.file), entry.sha256);
-const out = "dist-web";
+const out = "out";
 await fs.mkdir(path.join(out, "ocr/core"), { recursive: true });
 await fs.cp("catalog/fonts", path.join(out, "fonts"), { recursive: true });
 await fs.cp("catalog/licenses", path.join(out, "licenses"), {

@@ -9,3 +9,4 @@ tests/artifacts/
 dist-server/
 
 dist-web/
+out/

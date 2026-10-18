@@ -1,5 +1,5 @@
 """Evaluate the real browser engine using the unchanged v0.2 held-out cohort.
-Run npm run build:web, serve dist-web locally, then this script BASE.
+Run npm run build:web, serve out locally, then this script BASE.
 A temporary QA module exports the same production client, never shipped.
 """
 
@@ -13,8 +13,8 @@ assert urlparse(BASE).hostname in ("localhost", "127.0.0.1"), "Local QA only"
 independent = "--pillow" in sys.argv[2:]
 OUT = ROOT / ("docs/browser-independent" if independent else "docs/browser")
 OUT.mkdir(exist_ok=True)
-qa = ROOT / "dist-web/qa-client.js"
-worker = next((ROOT / "dist-web/assets").glob("matcher.worker-*.js"))
+qa = ROOT / "out/qa-client.js"
+worker = next((ROOT / "out/assets").glob("matcher.worker-*.js"))
 subprocess.run(
     [
         str(ROOT / "node_modules/.bin/esbuild"),

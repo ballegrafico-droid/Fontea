@@ -59,7 +59,7 @@ npm test
 python scripts/doctor.py
 ```
 
-El benchmark crea un módulo de prueba temporal dentro de `dist-web` para acceder al cliente real; se elimina al terminar y no se incluye en la publicación. No ejecutes simultáneamente dos benchmarks sobre ese mismo directorio. Las imágenes sintéticas se guardan en `tests/artifacts` y se reproducen con los scripts; no se versionan.
+El benchmark crea un módulo de prueba temporal dentro de `out` para acceder al cliente real; se elimina al terminar y no se incluye en la publicación. No ejecutes simultáneamente dos benchmarks sobre ese mismo directorio. Las imágenes sintéticas se guardan en `tests/artifacts` y se reproducen con los scripts; no se versionan.
 
 ## Alojamiento y pendientes
 

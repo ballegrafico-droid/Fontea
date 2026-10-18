@@ -13,8 +13,8 @@
     "evaluate": "python benchmarks/revision.py --generate --run",
     "catalog:fetch": "python scripts/fetch_catalog.py",
     "doctor": "python scripts/doctor.py",
-    "build:web": "tsc --noEmit && vite build --mode browser --outDir dist-web && node scripts/browser-assets.mjs",
-    "preview:web": "vite preview --outDir dist-web --host 127.0.0.1 --port 4173 --strictPort"
+    "build:web": "tsc --noEmit && vite build --mode browser --outDir out && node scripts/browser-assets.mjs",
+    "preview:web": "vite preview --outDir out --host 127.0.0.1 --port 4173 --strictPort"
   },
   "dependencies": {
     "express": "^5.1.0",

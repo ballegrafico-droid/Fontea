@@ -18,7 +18,7 @@ npm run build:web
 npm run preview:web
 ```
 
-La dirección que imprime este comando es solo para el equipo donde lo ejecutas. Abre desde un servidor HTTP/HTTPS, no haciendo doble clic en `index.html`. El directorio `dist-web/` se puede alojar como sitio estático HTTPS; para una instalación propia no depende de Sites. Requiere navegador actual con Web Workers, OffscreenCanvas, FontFace y WebAssembly. La primera lectura descarga modelos y el comparador descarga las fuentes; en móviles lentos puede tardar o agotar memoria. Tiempo máximo: 90 s por operación, una simultánea por pestaña; cancelar detiene los Workers. Si cancelas mientras se inicializa el lector, se libera al terminar esa inicialización.
+La dirección que imprime este comando es solo para el equipo donde lo ejecutas. Abre desde un servidor HTTP/HTTPS, no haciendo doble clic en `index.html`. El directorio `out/` se puede alojar como sitio estático HTTPS; para una instalación propia no depende de Sites. Requiere navegador actual con Web Workers, OffscreenCanvas, FontFace y WebAssembly. La primera lectura descarga modelos y el comparador descarga las fuentes; en móviles lentos puede tardar o agotar memoria. Tiempo máximo: 90 s por operación, una simultánea por pestaña; cancelar detiene los Workers. Si cancelas mientras se inicializa el lector, se libera al terminar esa inicialización.
 
 Los resultados del navegador pueden diferir de Python por el rasterizador y Tesseract. Se evalúan por separado, sin atribuirle las cifras del servidor. La vista privada alojada y su verificación se indican en el informe de entrega; no es tu VPS.
 
@@ -81,7 +81,7 @@ pip install -r requirements-dev.txt
 # Los scripts usan /usr/bin/chromium; instala Chromium si no está disponible.
 python scripts/ui_smoke.py http://127.0.0.1:3001
 python benchmarks/revision.py --generate --run
-# Modalidad de navegador, con dist-web servido en 4173:
+# Modalidad de navegador, con out servido en 4173:
 python benchmarks/browser.py http://127.0.0.1:4173
 python benchmarks/browser_independent_samples.py
 python benchmarks/browser.py http://127.0.0.1:4173 --pillow
