@@ -92,3 +92,7 @@ El caso **«Dawn en la granja» no se ha identificado ni verificado**: las captu
 Quedan fuentes comerciales y ajenas a estas 117 familias, fotografía/perspectiva, texto alterado, cambios de fuente dentro de una línea y más ejes variables. Un recorte difícil puede quedar sin candidatas ni alternativas, o requerir otra muestra. No se prometen aciertos universales. El OCR conserva sus modelos y errores; esta revisión evita usar varias líneas como una única muestra y mejora el manejo de sus avisos, no inventa una mejora de lectura de caracteres.
 
 Si el recorte contiene únicamente «Dawn», son cuatro letras diferentes: la exigencia existente de cinco letras distintas seguirá pidiendo una muestra más amplia de **esa misma tipografía**. No se deben juntar líneas o fuentes diferentes para superar esa exigencia. Esto es una orientación condicional, no una descripción de las capturas que no se han recibido.
+
+## Publicación verificada
+
+La [misma vista privada](https://fontea-estudio-2026.icycalf17.chatgpt.site) está actualizada. El flujo completo pasó sobre esa URL: catálogo 117, filtros, escritorio y móvil emulado, carga/pegado/recorte/OCR, descarga SHA-256 correcta, alternativas filtradas y bloqueo de dos tipografías en dos líneas incluso al editar el texto. [Registro alojado y hashes de todos los recursos](revision-0.4/hosted-checks.json). La versión final añade solo este registro/documentación a la fuente validada, conservando los bytes ejecutables. La PR sigue abierta; no se ha desplegado en el VPS.
