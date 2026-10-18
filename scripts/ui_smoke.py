@@ -166,7 +166,7 @@ with sync_playwright() as p:
         full_page=True,
     )
     # File selection is separate from the demonstration route.
-    page.locator("input[type=file]").set_input_files(
+    page.get_by_label("Subir imagen", exact=True).set_input_files(
         str(ROOT / "public/demo-inter.png")
     )
     expect(page.get_by_role("button", name="Leer el recorte")).to_be_visible()
@@ -204,7 +204,7 @@ with sync_playwright() as p:
         "390 px mobile: file upload, clipboard event, crop, OCR, comparison and results without overflow"
     )
     # Explicit English re-read uses the same crop; no silent OCR selection.
-    page.locator("input[type=file]").set_input_files(
+    page.get_by_label("Subir imagen", exact=True).set_input_files(
         str(ROOT / "public/ejemplos/demostracion-ingles-lato.png")
     )
     page.get_by_role("button", name="Seleccionar imagen completa").click()
@@ -250,7 +250,7 @@ with sync_playwright() as p:
             "Real browser OCR cancelled during recognize; terminated Worker releases slot and next OCR succeeds"
         )
     # A real two-family image must block search even after editing flattened text.
-    page.locator("input[type=file]").set_input_files(
+    page.get_by_label("Subir imagen", exact=True).set_input_files(
         str(ROOT / "public/ejemplos/demostracion-varias-tipografias.png")
     )
     page.get_by_role("button", name="Seleccionar imagen completa").click()
@@ -262,15 +262,39 @@ with sync_playwright() as p:
     page.locator("#ocr-text").fill("Juegos en el campo Una aventura entre letras")
     expect(page.get_by_role("button", name="Buscar en el catálogo")).to_be_disabled()
     page.locator("#workspace").screenshot(
-        path=str(ROOT / "docs/revision-0.4/multiline-mobile.png")
+        path=str(ROOT / "docs/revision-0.5/multiline-mobile.png")
     )
     page.get_by_role("button", name="Seleccionar una línea", exact=True).click()
     expect(page.get_by_role("button", name="Leer el recorte")).to_be_visible()
     checks.append(
         "Two-family/two-line image requires recropping; editing flattened OCR cannot enable comparison"
     )
+    # Select the upper line from that SAME two-family image, then analyze it.
+    crop_box = page.locator(".ReactCrop").bounding_box()
+    assert crop_box
+    handle = page.locator(".ReactCrop__drag-handle.ord-se").bounding_box()
+    assert handle
+    page.mouse.move(
+        handle["x"] + handle["width"] / 2, handle["y"] + handle["height"] / 2
+    )
+    page.mouse.down()
+    page.mouse.move(
+        crop_box["x"] + crop_box["width"] - 2,
+        crop_box["y"] + crop_box["height"] * 0.49,
+        steps=8,
+    )
+    page.mouse.up()
+    page.get_by_role("button", name="Leer el recorte").click()
+    expect(page.locator("#ocr-text")).to_be_enabled(timeout=25000)
+    page.locator("#ocr-text").fill("Juegos en el campo")
+    expect(page.get_by_role("button", name="Buscar en el catálogo")).to_be_enabled()
+    page.get_by_role("button", name="Buscar en el catálogo").click()
+    expect(page.locator("#results")).to_be_visible(timeout=50000)
+    checks.append(
+        "Same mixed-font image: user crops the upper line and real analysis succeeds separately"
+    )
     # No silent fixture fallback on a malformed upload.
-    page.locator("input[type=file]").set_input_files(
+    page.get_by_label("Subir imagen", exact=True).set_input_files(
         {"name": "bad.png", "mimeType": "image/png", "buffer": b"not an image"}
     )
     expect(page.get_by_role("alert")).to_contain_text("Ese formato no es compatible")

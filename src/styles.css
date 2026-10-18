@@ -873,9 +873,13 @@ kbd {
   border: 1px solid #f1f2ec;
   overflow: hidden;
   border-radius: 3px;
-  padding: 10px 0 22px;
+  padding: 10px 12px 22px;
 }
 .render-sample img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  min-width: 0;
   max-height: 100%;
   object-fit: contain;
 }
@@ -1821,4 +1825,168 @@ button.text-button {
   line-height: 1.5;
   color: #61664f;
   margin: 4px 0 16px;
+}
+
+/* Private font checks and explicit external lookup. */
+.font-tool {
+  margin-top: 24px;
+  border: 1px solid var(--line, #d8d7cd);
+  padding: 20px 24px;
+  border-radius: 12px;
+  background: #f8f8f1;
+  min-width: 0;
+}
+.font-tool summary {
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+.font-tool p {
+  line-height: 1.6;
+  color: #53564c;
+  font-size: 14px;
+  margin: 14px 0;
+  overflow-wrap: anywhere;
+}
+.font-tool h3 {
+  margin: 24px 0 8px;
+  font-size: 21px;
+}
+.font-file-label {
+  display: grid;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 18px 0;
+}
+.font-file-label input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #c9ccbf;
+  background: white;
+  padding: 12px;
+  border-radius: 7px;
+  font: inherit;
+}
+.font-file-label input[type="file"] {
+  white-space: normal;
+}
+.font-file-label input::file-selector-button {
+  margin-right: 10px;
+  border: 0;
+  padding: 9px 10px;
+  background: #e5edcc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.font-metadata {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 22px 0;
+}
+.font-metadata div {
+  min-width: 0;
+}
+.font-metadata dt {
+  font-size: 12px;
+  color: #606450;
+  margin-bottom: 5px;
+}
+.font-metadata dd {
+  margin: 0;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.font-axes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  border: 1px solid #d7d9ce;
+  border-radius: 6px;
+  padding: 16px;
+  margin: 20px 0;
+  min-width: 0;
+}
+.font-axes legend {
+  font-size: 13px;
+}
+.font-axes label {
+  display: grid;
+  gap: 8px;
+  font-size: 12px;
+  min-width: 0;
+  max-width: 100%;
+}
+.font-axes input {
+  border: 1px solid #bfc5b0;
+  padding: 10px;
+  border-radius: 4px;
+  width: 140px;
+  max-width: 100%;
+  font: inherit;
+}
+.local-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin: 20px 0;
+}
+.local-comparison {
+  margin-top: 24px;
+  border-top: 1px solid #d1d7c5;
+  padding-top: 24px;
+}
+.local-comparison .candidate-top h3 {
+  margin: 4px 0;
+}
+.local-comparison .render-sample {
+  background: white;
+}
+.local-reasons {
+  font-size: 14px;
+  line-height: 1.6;
+  padding-left: 20px;
+}
+.local-error {
+  color: #9b321d !important;
+}
+.external-tool a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.commercial-references {
+  display: grid;
+  gap: 16px;
+}
+.commercial-references article {
+  background: white;
+  padding: 18px;
+  border: 1px solid #d8dace;
+  border-radius: 8px;
+}
+.commercial-references h4 {
+  font-size: 22px;
+  margin: 8px 0;
+}
+@media (max-width: 600px) {
+  .font-tool {
+    padding: 16px;
+  }
+  .font-metadata {
+    grid-template-columns: 1fr;
+  }
+  .font-tool .candidate-top {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .local-actions .button {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
 }

@@ -9,6 +9,7 @@
     "Explicit English priority re-reads the same crop and recovers the documented English control",
     "Real browser OCR cancelled during recognize; terminated Worker releases slot and next OCR succeeds",
     "Two-family/two-line image requires recropping; editing flattened OCR cannot enable comparison",
+    "Same mixed-font image: user crops the upper line and real analysis succeeds separately",
     "Malformed upload shows understandable error"
   ],
   "javascriptErrors": [],

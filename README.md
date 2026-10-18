@@ -1,8 +1,8 @@
 # Fontea
 
-Versión 0.4: [varias líneas, alternativas filtradas, catálogo ampliado y mediciones](docs/MEJORAS-0.4.md). Se conservan todos los commits anteriores en la misma rama y PR.
+Versión 0.5: [comparación privada con archivo propio y referencias comerciales](docs/MEJORAS-0.5.md). Se mantiene la ampliación de [117 familias y mediciones 0.4](docs/MEJORAS-0.4.md). Se conservan todos los commits anteriores en la misma rama y PR.
 
-Aplicación web en español para buscar la tipografía de una imagen y consultar su origen y licencia. **Primera versión funcional sobre un catálogo limitado: 117 familias abiertas y 203 variantes. No confirma una identidad exacta ni cubre fuentes comerciales.**
+Aplicación web en español para buscar la tipografía de una imagen y consultar su origen y licencia. **Primera versión funcional sobre un catálogo limitado: 117 familias abiertas y 203 variantes. No confirma una identidad exacta; el reconocimiento automático no cubre fuentes comerciales. Permite comprobar un archivo propio localmente y continuar en un identificador externo.**
 
 Carga o pegado de imagen → recorte → OCR local editable → comparación de contornos con fuentes reales → candidatos y alternativas separados → ficha oficial, licencia y descarga autorizada. No usa resultados simulados, claves externas, cuentas ni servicios de pago. El ejemplo opcional está marcado como demostración y pasa por el mismo motor.
 
@@ -57,6 +57,8 @@ Abre http://127.0.0.1:3001. El mismo servidor sirve React, API, fuentes y licenc
 - Búsqueda inicial sobre 203 variantes mediante un índice comprimido de 2,38 MB; comparación real de hasta 32, con pesos/cursivas declarados, espaciado y tamaño óptico. Varias familias decorativas solo tienen un estilo. Previews generados desde el archivo tipográfico comparado y superposición de contornos.
 - Varias líneas: exige volver a recortar y comparar cada fragmento con una sola tipografía. La API y el motor también lo comprueban.
 - Candidatos del catálogo (filtro 0,155), alternativas solo si distancia <=0,20 y proporciones compatibles, y estado sin alternativas útiles. Distancias de similitud sin porcentajes de confianza. **Ningún resultado se etiqueta como exacto.**
+- Comparación privada con un TTF/OTF propio de hasta 8 MB, incluida una fuente comercial obtenida legalmente, con metadatos y ejes variables. El archivo no sale del navegador, tampoco en modo servidor. No verifica licencia ni identidad.
+- Acceso manual a WhatFontIs para búsqueda externa y dos referencias comerciales Bauhaus consultables por nombre, separadas de la identificación por imagen. [Cobertura, condiciones y costes publicados](docs/COMERCIALES.md).
 - Descargas de archivos originales bajo SIL OFL 1.1, licencias por familia y 117 fichas oficiales comprobadas. Los archivos variables pueden contener más pesos que el comparado.
 - Servidor: procesamiento en memoria, sin historial ni imágenes temporales; límites de concurrencia, tamaño, resolución, peticiones y tiempo. Navegador: procesamiento local en Workers, cancelación y límite de 90 s. No se registran cuerpos, texto ni imágenes.
 
@@ -98,7 +100,7 @@ Las imágenes sintéticas se generan en `tests/artifacts`, que no se versiona. L
 
 [Guía de Ubuntu + Nginx + systemd](docs/UBUNTU.md). Está preparada; no se ha accedido a ningún VPS ni se han aplicado esos comandos en un servidor tuyo.
 
-Fuentes comerciales, búsqueda en catálogos mayores, corrección geométrica y APIs externas quedan pendientes. Antes de añadir un proveedor hay que verificar acceso, términos, enlaces y licencias, y conocer su tarifa. No se ha contratado ningún servicio; el flujo actual funciona sin claves. El alojamiento posterior tendrá el coste de la infraestructura que elijas. [Arquitectura y contrato de ampliación](docs/ENGINE.md).
+La integración automática de fuentes comerciales, la corrección geométrica y una búsqueda remota dentro de Fontea quedan pendientes. Ya se puede comparar un archivo propio sin subirlo o abrir una búsqueda externa manual. WhatFontIs tiene una API documentada, pero su autorización comercial necesita aclaración; los costes publicados y los pasos pendientes están en [COMERCIALES.md](docs/COMERCIALES.md). Antes de añadir un proveedor hay que verificar acceso, términos, enlaces y licencias, y conocer su tarifa. No se ha contratado ningún servicio; el flujo actual funciona sin claves. El alojamiento posterior tendrá el coste de la infraestructura que elijas. [Arquitectura y contrato de ampliación](docs/ENGINE.md).
 
 ## Fuentes y licencias de terceros
 
@@ -106,7 +108,7 @@ Las fuentes permanecen sin modificar, con licencias y avisos originales en `cata
 
 ## Rama y respaldos
 
-La rama de trabajo sigue siendo `codex/fontea-v1` y conserva el commit original `21f1e73`. Los cambios de las versiones 0.2, 0.3 y 0.4 se añaden encima; no se rehace el proyecto. ZIP y bundle se generan desde el commit final, con respaldos separados de la versión inicial. El resultado del envío a GitHub se indica en la entrega de la sesión; la conexión requiere permisos de escritura sobre el repositorio. No se ha desplegado ni publicado en un VPS.
+La rama de trabajo sigue siendo `codex/fontea-v1` y conserva el commit original `21f1e73`. Los cambios de las versiones 0.2, 0.3, 0.4 y 0.5 se añaden encima; no se rehace el proyecto. ZIP y bundle se generan desde el commit final, con respaldos separados de la versión inicial. El resultado del envío a GitHub se indica en la entrega de la sesión; la conexión requiere permisos de escritura sobre el repositorio. No se ha desplegado ni publicado en un VPS.
 
 ## Reproducir la ampliación y evaluar 0.4
 
@@ -123,3 +125,17 @@ python benchmarks/revision04.py --base http://127.0.0.1:4174
 ```
 
 Para las muestras externas se requieren `fonts-liberation` y `fonts-urw-base35`; los scripts prueban las rutas `liberation` y `liberation2`. Los resultados tipográficos usan transcripción revisada, no se confunden con precisión OCR automática. El diseño «Dawn en la granja» no está identificado: falta recibir su archivo/capturas para verificar ese caso.
+
+## Comprobar archivos propios y reconocimiento comercial (0.5)
+
+La herramienta privada aparece después de leer el recorte. Admite TTF/OTF de hasta 8 MB; el archivo permanece en el navegador y no se instala en el servidor. No se verifica su licencia ni se afirma identidad por su nombre o un buen ajuste visual. Consulta [el informe y límites](docs/MEJORAS-0.5.md) y [las opciones comerciales verificadas](docs/COMERCIALES.md).
+
+```bash
+# Con out/ servido en 4173 y Chromium, Playwright, Pillow y fuentes DejaVu/URW instalados:
+python scripts/qa_local_font.py http://127.0.0.1:4173
+python benchmarks/revision05.py
+# Con la compilación para Node servida en un puerto libre configurado con PORT:
+python scripts/qa_local_font.py http://127.0.0.1:3401 --server
+```
+
+La regresión utiliza las imágenes generadas por `python benchmarks/revision04_samples.py`. `qa_local_font.py` requiere además las fuentes de prueba del sistema `fonts-dejavu-core` y `fonts-urw-base35`; no descarga fuentes comerciales. Los casos externos no se añaden al catálogo ni al ZIP como nuevos archivos de fuente.

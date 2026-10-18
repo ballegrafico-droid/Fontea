@@ -1,3 +1,6 @@
+import LocalFontPanel from "./LocalFontPanel";
+import ExternalFonts from "./ExternalFonts";
+import { compareLocalFont } from "./browser/local-font";
 import { browserEngine, browserRequest, fetchCatalog } from "./browser/client";
 import { useEffect, useRef, useState } from "react";
 import ReactCrop, { type PercentCrop, type PixelCrop } from "react-image-crop";
@@ -227,7 +230,7 @@ export default function App() {
   const [stage, setStage] = useState<"upload" | "crop" | "review" | "results">(
     "upload",
   );
-  const [pending, setPending] = useState<"ocr" | "identify" | "">("");
+  const [pending, setPending] = useState<"ocr" | "identify" | "local" | "">("");
   const [cropped, setCropped] = useState<Blob>();
   const [croppedUrl, setCroppedUrl] = useState("");
   const [text, setText] = useState("");
@@ -495,6 +498,36 @@ export default function App() {
             ?.scrollIntoView({ behavior: "smooth", block: "start" }),
         80,
       );
+    } catch (e) {
+      if (!abort.signal.aborted) setError((e as Error).message);
+    } finally {
+      if (!abort.signal.aborted) setPending("");
+    }
+  }
+  async function compareOwnFont(
+    buffer: ArrayBuffer,
+    axes: Record<string, number>,
+  ) {
+    if (!cropped || requiresCrop || pending) return;
+    setPending("local");
+    setError("");
+    const abort = new AbortController();
+    controller.current = abort;
+    try {
+      const data = await compareLocalFont(
+        cropped,
+        text,
+        buffer,
+        axes,
+        abort.signal,
+        ocrLineCount,
+      );
+      if (data.status === "needs_crop") {
+        setRequiresCrop(true);
+        setOcrNote(data.reasons[0]);
+        return;
+      }
+      return data;
     } catch (e) {
       if (!abort.signal.aborted) setError((e as Error).message);
     } finally {
@@ -843,7 +876,9 @@ export default function App() {
                         ? "Leyendo el texto…"
                         : pending === "identify"
                           ? "Comparando contornos…"
-                          : "Buscar en el catálogo"}
+                          : pending === "local"
+                            ? "Comparando tu archivo…"
+                            : "Buscar en el catálogo"}
                       {!pending && <ArrowRight size={17} />}
                     </button>
                     {pending === "identify" && (
@@ -871,6 +906,20 @@ export default function App() {
               )}
             </div>
           )}
+          {cropped && stage !== "crop" && (
+            <LocalFontPanel
+              key={croppedUrl}
+              text={text}
+              disabled={!!pending}
+              blocked={requiresCrop || text.trim().length < 3}
+              compare={compareOwnFont}
+            />
+          )}
+          <ExternalFonts
+            cropUrl={croppedUrl}
+            blocked={requiresCrop || stage === "crop"}
+            busy={!!pending}
+          />
           {error && (
             <div className="error" role="alert">
               <Info size={18} />
@@ -1070,7 +1119,7 @@ export default function App() {
         </a>
         <p>Para quienes encuentran belleza en los detalles.</p>
         <div>
-          <span>VERSIÓN 0.4 · CATÁLOGO ABIERTO</span>
+          <span>VERSIÓN 0.5 · COMPARACIÓN PRIVADA</span>
           <button onClick={() => setModal("privacy")}>Privacidad</button>
         </div>
       </footer>
@@ -1105,6 +1154,17 @@ export default function App() {
                 datos del análisis permanecen en memoria mientras usas la página
                 y se descartan al cambiar de imagen o cerrarla. No se requieren
                 cuentas ni claves de API.
+              </p>
+              <p>
+                Tu archivo de fuente propio se lee únicamente en este navegador,
+                incluso en la versión con servidor. No se sube ni se guarda en
+                almacenamiento persistente. Puedes retirarlo de la sesión. La
+                comparación no verifica su licencia.
+              </p>
+              <p>
+                El identificador externo se abre solo al pulsar su enlace: tú
+                decides si le subes la imagen y se aplican sus condiciones.
+                Fontea no le envía automáticamente imágenes, texto ni fuentes.
               </p>
               <p>
                 El servidor y Nginx pueden registrar datos técnicos de acceso
@@ -1199,9 +1259,9 @@ export default function App() {
                 </>
               )}
               <p className="modal-note">
-                Todavía no cubre fuentes comerciales, otros alfabetos ni todas
-                las variantes de estas familias. Ningún resultado confirma una
-                identidad exacta.
+                El reconocimiento de este catálogo no incluye ninguna Bauhaus ni
+                fuentes comerciales, otros alfabetos ni todas las variantes de
+                estas familias. Ningún resultado confirma una identidad exacta.
               </p>
             </>
           )}

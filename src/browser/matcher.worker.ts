@@ -1,3 +1,4 @@
+import { inspectLocalFont } from "./local-font-info";
 import { retrieve } from "./retrieval";
 import { lineBands } from "./regions";
 // Browser catalogue retrieval: actual FontFace files, measured contour distance.
@@ -552,14 +553,133 @@ async function identify(
       "Índice de glifos y comparación detallada de hasta 32 variantes reales. Menor distancia indica más parecido, no probabilidad. Candidatas hasta 0,155; alternativas hasta 0,20 y proporciones compatibles. Se comprueban pesos variables intermedios para evitar proponer una variante no sustentada. La búsqueda inicial puede omitir una fuente.",
   };
 }
+async function compareOwn(
+  blob: Blob,
+  rawText: string,
+  buffer: ArrayBuffer,
+  requestedAxes: Record<string, number> = {},
+  lineCount = 0,
+) {
+  if (!scope.fonts || typeof FontFace === "undefined")
+    throw Error(
+      "Este navegador no permite comparar archivos de fuente en el analizador. Usa un navegador actualizado.",
+    );
+  if (blob.size > 8 * 1024 * 1024) throw Error("El recorte supera los 8 MB.");
+  const text = rawText.replace(/\s+/g, " ").trim();
+  if (
+    text.length < 3 ||
+    text.length > 80 ||
+    [...text].some((c) => c.charCodeAt(0) < 32 || c.charCodeAt(0) > 0x024f)
+  )
+    throw Error(
+      "Escribe entre 3 y 80 caracteres del alfabeto latino de una sola línea.",
+    );
+  const info = inspectLocalFont(buffer, text),
+    { m, quality } = await source(blob),
+    src = prepared(m);
+  if (/[\r\n]/.test(rawText) || lineCount > 1 || quality.possibleMultiline)
+    return {
+      status: "needs_crop",
+      info,
+      axes: {},
+      text,
+      reasons: [
+        "Se detectan varias líneas. Recorta una sola línea y una sola tipografía; compara cada fragmento por separado.",
+      ],
+    };
+  const axes: Record<string, number> = {};
+  for (const a of info.axes) {
+    const value = requestedAxes[a.tag] ?? a.default;
+    if (!Number.isFinite(value) || value < a.min || value > a.max)
+      throw Error(
+        "El valor de un eje variable está fuera del intervalo del archivo.",
+      );
+    axes[a.tag] = value;
+  }
+  const weight = axes.wght ?? info.weight,
+    italic = axes.ital !== undefined ? axes.ital >= 0.5 : info.italic;
+  const family = "fontea_private_file";
+  const ff = new FontFace(family, buffer, {
+    weight: String(weight),
+    style: italic ? "italic" : "normal",
+    variationSettings:
+      Object.entries(axes)
+        .map(([k, v]) => `"${k}" ${v}`)
+        .join(",") || "normal",
+  } as FontFaceDescriptors & { variationSettings: string });
+  try {
+    await ff.load();
+  } catch {
+    throw Error(
+      "El navegador ha rechazado la fuente. Usa un archivo TTF u OTF válido, sin protección ni compresión WOFF.",
+    );
+  }
+  scope.fonts.add(ff);
+  try {
+    let best: { d: number; rendered: Mask } | undefined;
+    const entry = { weight, italic } as Entry;
+    for (const tracking of [-0.8, 0, 0.8]) {
+      const rendered = render(entry, text, family, tracking),
+        d = distance(src, rendered);
+      if (!best || d < best.d) best = { d, rendered };
+    }
+    const reasons: string[] = [];
+    if (
+      new Set([...text.toLowerCase()].filter((c) => /\p{L}/u.test(c))).size < 5
+    )
+      reasons.push("Hay pocas letras distintas: añade una muestra más larga.");
+    if (quality.inkHeight < 24)
+      reasons.push("Las letras tienen poca resolución.");
+    if (quality.contrast < 50) reasons.push("El contraste es bajo.");
+    const useful =
+      !reasons.length &&
+      best!.d <= 0.2 &&
+      Math.abs(Math.log(m.w / m.h / (best!.rendered.w / best!.rendered.h))) <=
+        Math.log(1.2);
+    reasons.push(
+      useful
+        ? "El archivo ofrece un ajuste visual útil para comprobarlo. Esto no demuestra la identidad ni la variante original."
+        : "No hay un ajuste visual suficiente o la muestra no aporta evidencia suficiente. No se propone como coincidencia.",
+    );
+    reasons.push(
+      "Se ha comparado únicamente tu archivo, con los ejes indicados. Los nombres y la versión son metadatos declarados por el archivo; no verifican su procedencia ni licencia.",
+    );
+    return {
+      status: "compared",
+      info,
+      axes,
+      text,
+      useful,
+      distance: Math.round(best!.d * 1e4) / 1e4,
+      reasons,
+      preview: await png(best!.rendered),
+      overlay: await png(
+        normalize(best!.rendered, src.normalized.w),
+        [196, 30, 132],
+      ),
+      normalizedSource: await png(src.normalized, [0, 144, 155]),
+    };
+  } finally {
+    scope.fonts.delete(ff);
+  }
+}
 scope.onmessage = async (e) => {
   try {
-    const result = await identify(
-      e.data.image,
-      e.data.text,
-      e.data.catalog,
-      e.data.lineCount,
-    );
+    const result =
+      e.data.operation === "local-font"
+        ? await compareOwn(
+            e.data.image,
+            e.data.text,
+            e.data.font,
+            e.data.axes,
+            e.data.lineCount,
+          )
+        : await identify(
+            e.data.image,
+            e.data.text,
+            e.data.catalog,
+            e.data.lineCount,
+          );
     scope.postMessage({ ok: true, result });
   } catch (error) {
     scope.postMessage({
