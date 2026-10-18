@@ -3,6 +3,22 @@
 **Preparación únicamente: no se ha accedido a ningún VPS ni se ha desplegado.**
 Un VPS con 2 GB de RAM y 1–2 vCPU es un punto de partida para medir, no una garantía de capacidad. Una sola petición pesada por instancia; las demás reciben 503 con `Retry-After`. El motor no requiere GPU ni claves. El coste es tu infraestructura, dominio y transferencia; no se ha contratado nada.
 
+## Elegir una instalación independiente
+
+Esta entrega está en la rama `codex/fontea-v1` (PR #1); no clones `main` mientras no se haya integrado. No ejecutes comandos sobre directorios o servicios de otras aplicaciones. Antes de instalar:
+
+```bash
+test ! -e /opt/fontea
+getent passwd fontea
+sudo systemctl status fontea --no-pager
+sudo ss -ltnp
+sudo nginx -T
+```
+
+Los dos primeros comandos pueden informar de que la cuenta o ruta todavía no existen; es lo esperado en una instalación nueva. Si ya hay una instalación de Fontea, conserva su `.env`, copia de seguridad y revisión antes de actualizarla; no repitas `useradd` ni `clone`. No sobrescribas una ruta, cuenta, servicio o dominio que pertenezca a otra aplicación.
+
+En este ejemplo se usa **3401**: comprueba en `ss` que esté libre y, si no, elige otro puerto entre 1024 y 65535. Usa exactamente el mismo en `PORT`, `proxy_pass` y las pruebas `curl`. La aplicación se detiene con un mensaje si encuentra el puerto ocupado; no mata procesos ni elige otro silenciosamente. El subdominio de Fontea debe ser distinto de los ya configurados en `nginx -T`. No borres el sitio `default` ni otras configuraciones.
+
 ## Instalar y comprobar
 
 Instala Node.js 24 LTS desde el distribuidor oficial siguiendo https://nodejs.org/en/download. Se requiere Node >=22.9; el Node de los repositorios de Ubuntu puede ser anterior. Después:
@@ -11,7 +27,7 @@ Instala Node.js 24 LTS desde el distribuidor oficial siguiendo https://nodejs.or
 sudo apt update
 sudo apt install nginx git python3 python3-venv tesseract-ocr
 sudo useradd --system --home /opt/fontea --shell /usr/sbin/nologin fontea
-sudo git clone https://github.com/ballegrafico-droid/Fontea.git /opt/fontea
+sudo git clone --branch codex/fontea-v1 --single-branch https://github.com/ballegrafico-droid/Fontea.git /opt/fontea
 sudo chown -R fontea:fontea /opt/fontea
 cd /opt/fontea
 sudo -u fontea python3 -m venv .venv
@@ -26,7 +42,7 @@ sudo -u fontea cp .env.example .env
 Si la entrega aún no está subida a GitHub, copia el archivo de entrega a `/opt/fontea` en lugar de clonarlo. No es necesario volver a descargar el catálogo ni los modelos de OCR incluidos en `engine/tessdata`. Los 17 archivos de licencia deben permanecer junto a las fuentes. Configura `.env`:
 
 ```dotenv
-PORT=3001
+PORT=3401
 HOST=127.0.0.1
 PYTHON_BIN=/opt/fontea/.venv/bin/python3
 ENGINE_TIMEOUT_MS=45000
@@ -34,7 +50,7 @@ TRUST_PROXY=1
 TESSERACT_LANG=spa+eng
 ```
 
-`.env` no se versiona. Aquí no hay secretos. No abras el puerto 3001 al exterior cuando uses `TRUST_PROXY=1`: únicamente Nginx debe poder conectarse. Mantén UNA instancia de Node; el límite de concurrencia es por proceso. Para escalar, añade una cola global y mide CPU/RAM primero.
+`.env` no se versiona. Aquí no hay secretos. No abras el puerto 3401 al exterior cuando uses `TRUST_PROXY=1`: únicamente Nginx debe poder conectarse. Mantén UNA instancia de Node; el límite de concurrencia es por proceso. Para escalar, añade una cola global y mide CPU/RAM primero.
 
 ## Servicio systemd
 
@@ -73,7 +89,7 @@ WantedBy=multi-user.target
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable --now fontea
-curl --fail http://127.0.0.1:3001/api/health
+curl --fail http://127.0.0.1:3401/api/health
 sudo journalctl -u fontea -n 50
 ```
 
@@ -81,7 +97,7 @@ sudo journalctl -u fontea -n 50
 
 ## Nginx
 
-Sustituye `fontea.ejemplo.com` por tu dominio. Archivo `/etc/nginx/sites-available/fontea`:
+Sustituye `fontea.ejemplo.com` por tu dominio. Comprueba primero `test ! -e /etc/nginx/sites-available/fontea` y `test ! -e /etc/nginx/sites-enabled/fontea`. Si ya existen, revisa su contenido. Crea un archivo nuevo `/etc/nginx/sites-available/fontea` con:
 
 ```nginx
 server {
@@ -95,7 +111,7 @@ server {
     send_timeout 60s;
 
     location / {
-        proxy_pass http://127.0.0.1:3001;
+        proxy_pass http://127.0.0.1:3401;
         proxy_http_version 1.1;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -118,3 +134,7 @@ sudo systemctl reload nginx
 ```
 
 Configura DNS y HTTPS antes de ofrecer la aplicación a usuarios (por ejemplo, Certbot con el complemento de Nginx, siguiendo https://certbot.eff.org/). El ejemplo HTTP no configura certificados. No se han probado estas instrucciones en un VPS real ni los límites systemd; valida primero en una instancia de pruebas. El proceso web y las pruebas de la aplicación sí se han ejecutado en el entorno de desarrollo.
+
+## Opción sin Node/Python en producción
+
+`npm ci && npm run build:web` produce `dist-web/`, una versión funcional que procesa imágenes en el navegador. Puede servirse desde un **subdominio HTTPS** con Nginx estático (`root /opt/fontea/dist-web;`, `index index.html;` y `location / { try_files $uri $uri/ /index.html; }`), sin puerto de aplicación ni servicio systemd. Configura los tipos MIME de JavaScript y WebAssembly incluyendo `/etc/nginx/mime.types`. No uses caché larga para `index.html`; las rutas de fuentes y modelos deben conservarse. Mantén las licencias incluidas. Requiere navegadores actuales con Workers, OffscreenCanvas, FontFace y WASM. Las mediciones de esa modalidad se documentan por separado; sus resultados pueden diferir del motor Python. No publiques `node_modules`, `.git`, `.env` ni la raíz del proyecto.

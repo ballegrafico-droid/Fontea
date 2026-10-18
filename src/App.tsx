@@ -1,3 +1,4 @@
+import { browserEngine, browserRequest, fetchCatalog } from "./browser/client";
 import { useEffect, useRef, useState } from "react";
 import ReactCrop, { type PercentCrop, type PixelCrop } from "react-image-crop";
 import {
@@ -65,6 +66,8 @@ async function request<T>(
   signal: AbortSignal,
   language?: string,
 ): Promise<T> {
+  if (browserEngine)
+    return browserRequest<T>(operation, image, text, signal, language);
   const form = new FormData();
   form.append("image", image, "recorte.png");
   if (operation === "identify") form.append("text", text);
@@ -245,11 +248,7 @@ export default function App() {
   useEffect(() => {
     if (!catalog) {
       setCatalogError("");
-      fetch("/api/catalog")
-        .then((r) => {
-          if (!r.ok) throw Error();
-          return r.json();
-        })
+      fetchCatalog()
         .then(setCatalog)
         .catch(() =>
           setCatalogError(
@@ -727,7 +726,9 @@ export default function App() {
                     <label htmlFor="ocr-text">¿Qué dice la imagen?</label>
                     <p>
                       {pending === "ocr"
-                        ? "El OCR está leyendo las letras…"
+                        ? browserEngine
+                          ? "Leyendo las letras. La primera vez puede tardar más al preparar el lector…"
+                          : "El OCR está leyendo las letras…"
                         : ocrNote}
                     </p>
                     <input
@@ -820,8 +821,10 @@ export default function App() {
           )}
           <div className="workspace-foot">
             <span>
-              <ShieldCheck size={14} /> Tu imagen se procesa en memoria y no se
-              guarda.
+              <ShieldCheck size={14} />{" "}
+              {browserEngine
+                ? "Tu imagen se analiza en tu navegador y no se envía."
+                : "Tu imagen se procesa en memoria y no se guarda."}
             </span>
             <button onClick={() => setModal("privacy")}>
               Sobre tu privacidad <ArrowUpRight size={12} />
@@ -995,7 +998,7 @@ export default function App() {
         </a>
         <p>Para quienes encuentran belleza en los detalles.</p>
         <div>
-          <span>VERSIÓN 0.2 · CATÁLOGO ABIERTO</span>
+          <span>VERSIÓN 0.3 · CATÁLOGO ABIERTO</span>
           <button onClick={() => setModal("privacy")}>Privacidad</button>
         </div>
       </footer>
@@ -1020,15 +1023,16 @@ export default function App() {
               <span className="eyebrow">TUS IMÁGENES</span>
               <h2>Solo el tiempo necesario.</h2>
               <p>
-                La imagen completa y el recorte permanecen en la memoria del
-                navegador. Al leer o comparar, enviamos el recorte a este
-                servidor para procesarlo en memoria con Python y Tesseract.
+                {browserEngine
+                  ? "La imagen y el recorte se procesan en tu navegador. No se envían al servidor. La primera lectura descarga las fuentes y los recursos del lector; puede tardar más."
+                  : "La imagen completa permanece en el navegador. Al leer o comparar, enviamos el recorte a este servidor para procesarlo en memoria con Python y Tesseract."}
               </p>
               <p>
                 No guardamos las imágenes, el texto ni los resultados. No los
-                enviamos a servicios de inteligencia artificial externos. Al
-                terminar la petición se descartan los datos del proceso. No se
-                requieren cuentas ni claves de API.
+                enviamos a servicios de inteligencia artificial externos. Los
+                datos del análisis permanecen en memoria mientras usas la página
+                y se descartan al cambiar de imagen o cerrarla. No se requieren
+                cuentas ni claves de API.
               </p>
               <p>
                 El servidor y Nginx pueden registrar datos técnicos de acceso

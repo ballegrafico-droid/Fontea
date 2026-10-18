@@ -1,0 +1,112 @@
+{
+  "engine": "Tesseract.js 6 / WASM + actual FontFace contours in Chromium worker",
+  "criteria": "Strict literal OCR including accents. Corrected transcription for matching. Same gate .155 and gap .025; no exact-identity claims.",
+  "cohort": "30 new Pillow/FreeType images, independent rasterizer, fixed before evaluation. Synthetic, not photographs.",
+  "groups": {
+    "original": {
+      "ocrExact": 10,
+      "familyTop1": 14,
+      "variantTop1": 13,
+      "containsExpected": 11,
+      "wrongProposal": 0,
+      "samples": 14,
+      "proposed": 11,
+      "ocrMsMedian": 381.8,
+      "ocrMsP95": 447.4,
+      "identifyMsMedian": 2158.3,
+      "identifyMsP95": 2514.4
+    },
+    "added": {
+      "ocrExact": 7,
+      "familyTop1": 8,
+      "variantTop1": 8,
+      "containsExpected": 5,
+      "wrongProposal": 0,
+      "samples": 8,
+      "proposed": 5,
+      "ocrMsMedian": 365.6,
+      "ocrMsP95": 441.7,
+      "identifyMsMedian": 2099.7,
+      "identifyMsP95": 2215.2
+    },
+    "outside": {
+      "ocrExact": 5,
+      "familyTop1": 0,
+      "variantTop1": 0,
+      "containsExpected": 0,
+      "wrongProposal": 0,
+      "samples": 6,
+      "proposed": 0,
+      "ocrMsMedian": 344.7,
+      "ocrMsP95": 370,
+      "identifyMsMedian": 2026.7,
+      "identifyMsP95": 2221.7
+    },
+    "short": {
+      "ocrExact": 1,
+      "familyTop1": 0,
+      "variantTop1": 0,
+      "containsExpected": 0,
+      "wrongProposal": 0,
+      "samples": 2,
+      "proposed": 0,
+      "ocrMsMedian": 244.7,
+      "ocrMsP95": 232.5,
+      "identifyMsMedian": 617.4,
+      "identifyMsP95": 524.8
+    },
+    "all": {
+      "ocrExact": 23,
+      "familyTop1": 22,
+      "variantTop1": 21,
+      "containsExpected": 16,
+      "wrongProposal": 0,
+      "samples": 30,
+      "proposed": 16,
+      "ocrMsMedian": 369.2,
+      "ocrMsP95": 453.4,
+      "identifyMsMedian": 2124.8,
+      "identifyMsP95": 2514.4
+    }
+  },
+  "ocrErrors": [
+    {
+      "sample": "inter-400-clean",
+      "expected": "Ágil diseño, textura y voz 947",
+      "actual": "Agil diseño, textura y voz 947"
+    },
+    {
+      "sample": "opensans-400-italic-clean",
+      "expected": "Ágil diseño, textura y voz 947",
+      "actual": "Agil diseño, textura y voz 947"
+    },
+    {
+      "sample": "playfairdisplay-700-italic-clean",
+      "expected": "Ágil diseño, textura y voz 947",
+      "actual": "Agil diseño, textura y voz 947"
+    },
+    {
+      "sample": "oswald-400-clean",
+      "expected": "Ágil diseño, textura y voz 947",
+      "actual": "Ágil diseño, textura y voz 94]"
+    },
+    {
+      "sample": "librefranklin-400-clean",
+      "expected": "Ágil diseño, textura y voz 947",
+      "actual": "Agil diseño, textura y voz 947"
+    },
+    {
+      "sample": "Liberation-Sans-clean",
+      "expected": "Ágil diseño, textura y voz 947",
+      "actual": "Agil diseño, textura y voz 947"
+    },
+    {
+      "sample": "short-Ill-short",
+      "expected": "Ill",
+      "actual": ""
+    }
+  ],
+  "wrongProposals": [],
+  "networkErrors": [],
+  "externalRequests": []
+}

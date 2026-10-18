@@ -1,0 +1,107 @@
+{
+  "engine": "Tesseract.js 6 / WASM + actual FontFace contours in Chromium worker",
+  "criteria": "Strict literal OCR including accents. Corrected transcription for matching. Same gate .155 and gap .025; no exact-identity claims.",
+  "cohort": "Unchanged v0.2 115 synthetic held-out images, Chromium renderings. Same rasterizer family as browser matcher; not independent evidence for real photographs.",
+  "groups": {
+    "original": {
+      "ocrExact": 60,
+      "familyTop1": 63,
+      "variantTop1": 63,
+      "containsExpected": 52,
+      "wrongProposal": 0,
+      "samples": 63,
+      "proposed": 52,
+      "ocrMsMedian": 347.3,
+      "ocrMsP95": 493.6,
+      "identifyMsMedian": 1990.2,
+      "identifyMsP95": 2434.9
+    },
+    "added": {
+      "ocrExact": 35,
+      "familyTop1": 36,
+      "variantTop1": 36,
+      "containsExpected": 25,
+      "wrongProposal": 0,
+      "samples": 36,
+      "proposed": 25,
+      "ocrMsMedian": 367.8,
+      "ocrMsP95": 473.6,
+      "identifyMsMedian": 2046.3,
+      "identifyMsP95": 2321.1
+    },
+    "outside": {
+      "ocrExact": 12,
+      "familyTop1": 0,
+      "variantTop1": 0,
+      "containsExpected": 0,
+      "wrongProposal": 0,
+      "samples": 12,
+      "proposed": 0,
+      "ocrMsMedian": 352.4,
+      "ocrMsP95": 392.8,
+      "identifyMsMedian": 1981.7,
+      "identifyMsP95": 2124.4
+    },
+    "short": {
+      "ocrExact": 2,
+      "familyTop1": 0,
+      "variantTop1": 0,
+      "containsExpected": 0,
+      "wrongProposal": 0,
+      "samples": 4,
+      "proposed": 0,
+      "ocrMsMedian": 275.8,
+      "ocrMsP95": 276.3,
+      "identifyMsMedian": 667.6,
+      "identifyMsP95": 684.6
+    },
+    "all": {
+      "ocrExact": 109,
+      "familyTop1": 99,
+      "variantTop1": 99,
+      "containsExpected": 77,
+      "wrongProposal": 0,
+      "samples": 115,
+      "proposed": 77,
+      "ocrMsMedian": 350.9,
+      "ocrMsP95": 491.9,
+      "identifyMsMedian": 1995.9,
+      "identifyMsP95": 2410.6
+    }
+  },
+  "ocrErrors": [
+    {
+      "sample": "lato-400-clean",
+      "expected": "Typography & rhythm 538",
+      "actual": "Typography « rhythm 538"
+    },
+    {
+      "sample": "playfairdisplay-400-clean",
+      "expected": "Typography & rhythm 538",
+      "actual": "Typography $ rhythm 538"
+    },
+    {
+      "sample": "oswald-400-clean",
+      "expected": "Typography & rhythm 538",
+      "actual": "Typography 8. rhythm 538"
+    },
+    {
+      "sample": "librefranklin-400-clean",
+      "expected": "Edición, música y señal 538",
+      "actual": "Edición, música y senal 538"
+    },
+    {
+      "sample": "short-Ill-short",
+      "expected": "Ill",
+      "actual": ""
+    },
+    {
+      "sample": "short-aaa-short",
+      "expected": "aaa",
+      "actual": "ada"
+    }
+  ],
+  "wrongProposals": [],
+  "networkErrors": [],
+  "externalRequests": []
+}

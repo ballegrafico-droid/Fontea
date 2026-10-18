@@ -1,6 +1,6 @@
 {
   "name": "fontea",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,7 +12,9 @@
     "test": "tsx --test tests/server.test.ts",
     "evaluate": "python benchmarks/revision.py --generate --run",
     "catalog:fetch": "python scripts/fetch_catalog.py",
-    "doctor": "python scripts/doctor.py"
+    "doctor": "python scripts/doctor.py",
+    "build:web": "tsc --noEmit && vite build --mode browser --outDir dist-web && node scripts/browser-assets.mjs",
+    "preview:web": "vite preview --outDir dist-web --host 127.0.0.1 --port 4173 --strictPort"
   },
   "dependencies": {
     "express": "^5.1.0",
@@ -22,7 +24,8 @@
     "multer": "^2.0.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-image-crop": "^11.0.10"
+    "react-image-crop": "^11.0.10",
+    "tesseract.js": "^6.0.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",

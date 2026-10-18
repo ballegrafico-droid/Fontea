@@ -1,6 +1,6 @@
 """Browser checks against a running production build. No hosted preview needed."""
 
-import base64, json, pathlib, sys
+import base64, json, os, pathlib, sys
 from playwright.sync_api import sync_playwright, expect
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -13,6 +13,18 @@ with sync_playwright() as p:
     page = browser.new_page(
         viewport={"width": 1440, "height": 1000}, device_scale_factor=1
     )
+    # Private Sites verification: inject only into same-origin requests. Never saved.
+    if os.environ.get("FONTEA_SITES_TOKEN"):
+        token = os.environ["FONTEA_SITES_TOKEN"]
+        page.context.route(
+            BASE + "/**",
+            lambda route: route.continue_(
+                headers={
+                    **route.request.headers,
+                    "OAI-Sites-Authorization": "Bearer " + token,
+                }
+            ),
+        )
     errors = []
     page.on("pageerror", lambda error: errors.append(str(error)))
     page.goto(BASE)
@@ -26,7 +38,17 @@ with sync_playwright() as p:
             "document.documentElement.scrollWidth>innerWidth"
         ), f"overflow {width}"
     checks.append("No horizontal overflow at 320, 390, 768 and 1440 px")
-    page.screenshot(path=str(ROOT / "docs/desktop.png"), full_page=True)
+    page.screenshot(
+        path=str(
+            ROOT
+            / (
+                "docs/browser/desktop.png"
+                if os.environ.get("FONTEA_WEB_QA")
+                else "docs/desktop.png"
+            )
+        ),
+        full_page=True,
+    )
     page.get_by_role("button", name="El catálogo", exact=True).click()
     expect(page.get_by_role("dialog")).to_be_visible()
     expect(page.locator(".catalog-list>div")).to_have_count(17)
@@ -51,7 +73,16 @@ with sync_playwright() as p:
     assert page.locator(".ReactCrop__crop-selection").get_attribute("style") != before
     checks.append("Crop rectangle responds to pointer dragging")
     page.get_by_role("button", name="Seleccionar imagen completa").click()
-    page.locator("#workspace").screenshot(path=str(ROOT / "docs/crop-desktop.png"))
+    page.locator("#workspace").screenshot(
+        path=str(
+            ROOT
+            / (
+                "docs/browser/crop-desktop.png"
+                if os.environ.get("FONTEA_WEB_QA")
+                else "docs/crop-desktop.png"
+            )
+        )
+    )
     page.get_by_role("button", name="Leer el recorte").click()
     expect(page.locator("#ocr-text")).to_have_value(
         "Cada detalle cuenta", timeout=25000
@@ -70,9 +101,25 @@ with sync_playwright() as p:
     official = first.get_by_role("link", name="Fuente oficial")
     assert official.get_attribute("href") == "https://fonts.google.com/specimen/Inter"
     download = first.get_by_role("link", name="Descargar archivo de Inter")
-    response = page.request.get(BASE + download.get_attribute("href"))
+    response = page.request.get(
+        BASE + download.get_attribute("href"),
+        headers=(
+            {"OAI-Sites-Authorization": "Bearer " + os.environ["FONTEA_SITES_TOKEN"]}
+            if os.environ.get("FONTEA_SITES_TOKEN")
+            else {}
+        ),
+    )
     assert response.status == 200
-    page.locator("#results").screenshot(path=str(ROOT / "docs/results-desktop.png"))
+    page.locator("#results").screenshot(
+        path=str(
+            ROOT
+            / (
+                "docs/browser/results-desktop.png"
+                if os.environ.get("FONTEA_WEB_QA")
+                else "docs/results-desktop.png"
+            )
+        )
+    )
     checks.append(
         "Desktop: labelled demo → full crop → real OCR → Inter Bold candidate → overlay → matching official/download links"
     )
@@ -89,7 +136,17 @@ with sync_playwright() as p:
     page.goto(BASE)
     page.set_viewport_size({"width": 390, "height": 844})
     page.evaluate("document.fonts.ready")
-    page.screenshot(path=str(ROOT / "docs/mobile.png"), full_page=True)
+    page.screenshot(
+        path=str(
+            ROOT
+            / (
+                "docs/browser/mobile.png"
+                if os.environ.get("FONTEA_WEB_QA")
+                else "docs/mobile.png"
+            )
+        ),
+        full_page=True,
+    )
     # File selection is separate from the demonstration route.
     page.locator("input[type=file]").set_input_files(
         str(ROOT / "public/demo-inter.png")
@@ -115,7 +172,16 @@ with sync_playwright() as p:
         timeout=50000
     )
     assert not page.evaluate("document.documentElement.scrollWidth>innerWidth")
-    page.locator("#results").screenshot(path=str(ROOT / "docs/results-mobile.png"))
+    page.locator("#results").screenshot(
+        path=str(
+            ROOT
+            / (
+                "docs/browser/results-mobile.png"
+                if os.environ.get("FONTEA_WEB_QA")
+                else "docs/results-mobile.png"
+            )
+        )
+    )
     checks.append(
         "390 px mobile: file upload, clipboard event, crop, OCR, comparison and results without overflow"
     )
@@ -134,17 +200,53 @@ with sync_playwright() as p:
     checks.append(
         "Explicit English priority re-reads the same crop and recovers the documented English control"
     )
+    if os.environ.get("FONTEA_WEB_QA"):
+        # Cancel a real OCR after its recognize message (not just initialization).
+        page.evaluate("""() => {
+          const original=Worker.prototype.postMessage;
+          window.cancelledRealOCR=false;
+          Worker.prototype.postMessage=function(message,...rest){
+            const result=original.call(this,message,...rest);
+            if(message?.action==='recognize'&&!window.cancelledRealOCR){
+              window.cancelledRealOCR=true;
+              setTimeout(()=>[...document.querySelectorAll('button')].find(b=>b.textContent.trim()==='Cancelar operación')?.click(),0);
+              Worker.prototype.postMessage=original;
+            }
+            return result;
+          };
+        }""")
+        page.get_by_role("button", name="Volver a leer", exact=True).click()
+        expect(
+            page.get_by_text(
+                "Operación cancelada. Puedes escribir el texto o volver a recortar.",
+                exact=True,
+            )
+        ).to_be_visible(timeout=25000)
+        assert page.evaluate("window.cancelledRealOCR")
+        page.wait_for_timeout(200)
+        page.get_by_role("button", name="Volver a leer", exact=True).click()
+        expect(page.locator("#ocr-text")).to_have_value(
+            "Typography & rhythm 538", timeout=25000
+        )
+        checks.append(
+            "Real browser OCR cancelled during recognize; terminated Worker releases slot and next OCR succeeds"
+        )
     # No silent fixture fallback on a malformed upload.
     page.locator("input[type=file]").set_input_files(
         {"name": "bad.png", "mimeType": "image/png", "buffer": b"not an image"}
     )
     expect(page.get_by_role("alert")).to_contain_text("Ese formato no es compatible")
-    checks.append(
-        "Malformed upload shows understandable error"
-    )
+    checks.append("Malformed upload shows understandable error")
     assert not errors, errors
     browser.close()
-(ROOT / "docs/ui-checks.json").write_text(
+(
+    ROOT
+    / (
+        "docs/browser/ui-checks.json"
+        if os.environ.get("FONTEA_WEB_QA")
+        else "docs/ui-checks.json"
+    )
+).write_text(
     json.dumps(
         {
             "checks": checks,

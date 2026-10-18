@@ -7,3 +7,5 @@ __pycache__/
 tests/artifacts/
 *.log
 dist-server/
+
+dist-web/
