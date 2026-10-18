@@ -1,0 +1,8 @@
+{
+  "src/browser/matcher.worker.ts": "7c5abb348c9da25d46688f0917d07d90777241da99ca049eacc7ee3beb827fda",
+  "src/browser/local-font-info.ts": "e5a5dc9cb666c68e4ac88dcc0de4e9265fff296764615c49f387d7b8ca8eb2ce",
+  "src/browser/local-font.ts": "8f569c90563348288a99229d0036dd30b38daec6be33ec0620622e4e2196dba1",
+  "src/LocalFontPanel.tsx": "e77387cd7f5c6c0d89ca0415fed8738d79f839cc487a16f3366805d95b062f56",
+  "src/ExternalFonts.tsx": "4121578fa1f407b7e37b5fde74e196ad88bf777822f74cbf41a8d77bc1dd2823",
+  "catalog/manifest.json": "dc6cff5b37b79bd5d60dcedc60c4c5ccf0148bc1bf1c49fc4b5cccf5da52a6d6"
+}

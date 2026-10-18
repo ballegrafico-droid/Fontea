@@ -1,0 +1,64 @@
+{
+  "base": "http://127.0.0.1:4175",
+  "actualProviderCalls": 0,
+  "liveProviderAccuracyTested": false,
+  "realBackendStatus": {
+    "provider": "WhatFontIs",
+    "ready": false,
+    "code": "missing_key",
+    "message": "Falta configurar una clave privada de WhatFontIs en el servidor. La búsqueda comercial no se ha ejecutado."
+  },
+  "fixtureCalls": [
+    {
+      "text": "gráfico",
+      "lineCount": 1,
+      "consent": true,
+      "keys": [
+        "consent",
+        "image",
+        "lineCount",
+        "status",
+        "text"
+      ],
+      "pngBytes": 3615
+    },
+    {
+      "text": "gráfico",
+      "lineCount": 1,
+      "consent": true,
+      "keys": [
+        "consent",
+        "image",
+        "lineCount",
+        "status",
+        "text"
+      ],
+      "pngBytes": 3615
+    },
+    {
+      "text": "gráfico",
+      "lineCount": 1,
+      "consent": true,
+      "keys": [
+        "consent",
+        "image",
+        "lineCount",
+        "status",
+        "text"
+      ],
+      "pngBytes": 3615
+    }
+  ],
+  "checks": [
+    "Actual backend reports missing_key, real OCR reads synthetic gráfico, external search disabled; no POST or invented candidates",
+    "Explicit test fixture: checkbox -> real Worker preparation -> cropped PNG POST -> separate external title/rank/license unknown, no default Bauhaus",
+    "Explicit empty-response fixture clears previous candidates; no fallback to any family",
+    "Explicit quota-error fixture displays readable error, no retry and no fabricated matches",
+    "Actual two-family/two-line image cannot trigger external request after flattened OCR edit"
+  ],
+  "limits": [
+    "Known-font synthetic image uses Inter, not the user logo. No claim of Bauhaus identification.",
+    "Mock responses only test UI/transport; never used by application code or as production fallback.",
+    "No provider key configured. No real external retrieval, timing or commercial accuracy measured."
+  ]
+}

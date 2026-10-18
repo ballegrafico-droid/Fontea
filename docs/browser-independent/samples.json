@@ -1,0 +1,272 @@
+[
+  {
+    "sample": "inter-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "inter-400",
+    "family": "Inter",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "00617c4e4f5a817de4e137a431c7acbac3934ffd7bf74ec662f8c3fa5921b39e"
+  },
+  {
+    "sample": "inter-400-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "inter-400",
+    "family": "Inter",
+    "text": "Café, ritmo y pequeñas letras",
+    "imageSha256": "6b4eede3186a8e2070a2f049c79855766c7008ee0ed3a348fb7cb571ad67dd98"
+  },
+  {
+    "sample": "roboto-700-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "roboto-700",
+    "family": "Roboto",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "2c5a092b65d83c78b629a53a26e0b69e3a73ed5203acd8c01507a28987eb604a"
+  },
+  {
+    "sample": "opensans-400-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "opensans-400-italic",
+    "family": "Open Sans",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "cb4502e5b77e70be79ce01b7ced8aa8abfbe07a24da467a0ed2bcbeb2c818bda"
+  },
+  {
+    "sample": "montserrat-700-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "montserrat-700-italic",
+    "family": "Montserrat",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "e11fb0c9b9b653afd0c54982d53b6849e7d9b64398ae84919cda95a1ffb626c6"
+  },
+  {
+    "sample": "lato-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "lato-400",
+    "family": "Lato",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "3a09e58579fd4664bf1747b44bd7215cf295a0bd94d87821cd211bdacc39380d"
+  },
+  {
+    "sample": "lato-400-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "lato-400",
+    "family": "Lato",
+    "text": "Café, ritmo y pequeñas letras",
+    "imageSha256": "d846683fccbe0a9a26bd3999f944098f6f849360ff3b479976324497436d5bfa"
+  },
+  {
+    "sample": "poppins-700-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "poppins-700",
+    "family": "Poppins",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "8af5160eb3bd1ec5b6a9043dbf3e3173c0f67a917575c729c895eeca7fc6ea45"
+  },
+  {
+    "sample": "lora-400-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "lora-400-italic",
+    "family": "Lora",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "fe412e9d6f1c80fb7e480cd44f61aa5568daadfb96bf4fe0c5b8f6b287128858"
+  },
+  {
+    "sample": "playfairdisplay-700-italic-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "playfairdisplay-700-italic",
+    "family": "Playfair Display",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "ec01344f23c0a3a29cb5ec72944f98c319366c7902aed9283bccad71c2dc8df6"
+  },
+  {
+    "sample": "sourceserif4-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "sourceserif4-400",
+    "family": "Source Serif 4",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "ddbab5a01102625fd1cdf7b8e81da0ad5d03b1f901ec1152bf77bfe2c2c264e5"
+  },
+  {
+    "sample": "sourceserif4-400-degraded",
+    "kind": "degraded",
+    "group": "original",
+    "expected": "sourceserif4-400",
+    "family": "Source Serif 4",
+    "text": "Café, ritmo y pequeñas letras",
+    "imageSha256": "b7175555ce27d3f06dc36ef13d3ed94b924e5c5d91b59b2435e62ccc0c981c13"
+  },
+  {
+    "sample": "robotomono-700-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "robotomono-700",
+    "family": "Roboto Mono",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "91a3af48e68d8105b4d8c41b5f122b60c54c42ca9f289ca79d6c26654eca0702"
+  },
+  {
+    "sample": "oswald-400-clean",
+    "kind": "clean",
+    "group": "original",
+    "expected": "oswald-400",
+    "family": "Oswald",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "780357981c5ca4d57540bd0d51f15e53bd5e6818a0b53d1436441ddf9d8440cc"
+  },
+  {
+    "sample": "nunitosans-700-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "nunitosans-700-italic",
+    "family": "Nunito Sans",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "959d7592383e40db27427b4100dabef8194e670e10b9a9f695aa9541f6942497"
+  },
+  {
+    "sample": "raleway-400-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "raleway-400",
+    "family": "Raleway",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "4c042688bccbca9a1efcbe5ab9d7bb3d1dee0a26e41f2f810f5e22554e0ef742"
+  },
+  {
+    "sample": "raleway-400-degraded",
+    "kind": "degraded",
+    "group": "added",
+    "expected": "raleway-400",
+    "family": "Raleway",
+    "text": "Café, ritmo y pequeñas letras",
+    "imageSha256": "be07a79389228842f291e80d965238e5d004de9c1728b99cf4c25cb146b809c3"
+  },
+  {
+    "sample": "dmsans-700-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "dmsans-700",
+    "family": "DM Sans",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "2d2105c197ef18ea8bc21b209fa8459d78d4ca56e917ecb915b294284bb6357c"
+  },
+  {
+    "sample": "bitter-400-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "bitter-400-italic",
+    "family": "Bitter",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "18c9b4803a1ce57449aff0b84cf876fa7e80193f8d0112fb5ee85c9fd91f8b4b"
+  },
+  {
+    "sample": "firasans-700-italic-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "firasans-700-italic",
+    "family": "Fira Sans",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "3f6441a198f49c8cd2152352d0bd245bed72258170efe8a5e5eb3ba95b8a3c21"
+  },
+  {
+    "sample": "librefranklin-400-clean",
+    "kind": "clean",
+    "group": "added",
+    "expected": "librefranklin-400",
+    "family": "Libre Franklin",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "df65a5b5cab71385b7e5f0c43e5c4265c9ba92c669b2cb94b4bd85aaad5ba9a9"
+  },
+  {
+    "sample": "librefranklin-400-degraded",
+    "kind": "degraded",
+    "group": "added",
+    "expected": "librefranklin-400",
+    "family": "Libre Franklin",
+    "text": "Café, ritmo y pequeñas letras",
+    "imageSha256": "395a52580ef09675b6f7c447fc3c7bca4160a120d2abdbe483296bce3988fe15"
+  },
+  {
+    "sample": "Liberation-Sans-clean",
+    "kind": "clean",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "Liberation Sans",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "b0d7fcc6f36b58cabfe37273fd7f4da1df5eae59302c6efd51dc51b482137299"
+  },
+  {
+    "sample": "Liberation-Serif-clean",
+    "kind": "clean",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "Liberation Serif",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "fe7370b6393edda8730aed469166981bce2519f1766d8b7d00c97d37358deddd"
+  },
+  {
+    "sample": "Nimbus-Sans-clean",
+    "kind": "clean",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "Nimbus Sans",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "5c2c4df1c3cf51d0cc3d47253775d3e33f14768f1268465644ad2c8a27b24c7d"
+  },
+  {
+    "sample": "Nimbus-Roman-clean",
+    "kind": "clean",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "Nimbus Roman",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "3745389779765e06c1125ae9c1d195dc4bd793879a77f7af2ddf33ae456256f1"
+  },
+  {
+    "sample": "URW-Gothic-clean",
+    "kind": "clean",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "URW Gothic",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "faab62a4b750675a6b10dfa50ac40ba088bcfd012f895129fd81bd6073297f14"
+  },
+  {
+    "sample": "P052-clean",
+    "kind": "clean",
+    "group": "outside",
+    "expected": "OUTSIDE",
+    "family": "P052",
+    "text": "Ágil diseño, textura y voz 947",
+    "imageSha256": "be37c3172064f0a43bdbcc5bc0a24bb534130e0f54ad2cd0b8d1a84552e220c7"
+  },
+  {
+    "sample": "short-HHH-short",
+    "kind": "short",
+    "group": "short",
+    "expected": "OUTSIDE",
+    "family": "Inter",
+    "text": "HHH",
+    "imageSha256": "8d0e4d0d4f362c498701061ad093630f6029d6997c67789286da018af2299112"
+  },
+  {
+    "sample": "short-Ill-short",
+    "kind": "short",
+    "group": "short",
+    "expected": "OUTSIDE",
+    "family": "Inter",
+    "text": "Ill",
+    "imageSha256": "be5ccdabe8277c6150475dc152a0fa1469adc6a39cdc45b9458274ddfc15cc54"
+  }
+]

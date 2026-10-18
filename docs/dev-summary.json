@@ -1,0 +1,40 @@
+{
+  "split": "dev",
+  "samples": 26,
+  "catalogFamilies": 11,
+  "catalogVariants": 42,
+  "groups": {
+    "clean": {
+      "samples": 16,
+      "top1FamilyCorrect": 16,
+      "top1VariantCorrect": 16,
+      "proposedCandidates": 16,
+      "candidateIncludesExpected": 16,
+      "ocrExact": 14
+    },
+    "degraded": {
+      "samples": 6,
+      "top1FamilyCorrect": 6,
+      "top1VariantCorrect": 6,
+      "proposedCandidates": 2,
+      "candidateIncludesExpected": 2,
+      "ocrExact": 6
+    },
+    "external-clean": {
+      "samples": 2,
+      "top1FamilyCorrect": 0,
+      "top1VariantCorrect": 0,
+      "proposedCandidates": 0,
+      "candidateIncludesExpected": 0,
+      "ocrExact": 2
+    },
+    "external-degraded": {
+      "samples": 2,
+      "top1FamilyCorrect": 0,
+      "top1VariantCorrect": 0,
+      "proposedCandidates": 0,
+      "candidateIncludesExpected": 0,
+      "ocrExact": 2
+    }
+  }
+}

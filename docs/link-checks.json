@@ -1,0 +1,61 @@
+{
+  "checkedAt": "2026-10-17",
+  "officialPages": [
+    {
+      "url": "https://fonts.google.com/specimen/Inter",
+      "status": 200,
+      "finalUrl": "https://fonts.google.com/specimen/Inter"
+    },
+    {
+      "url": "https://fonts.google.com/specimen/Lato",
+      "status": 200,
+      "finalUrl": "https://fonts.google.com/specimen/Lato"
+    },
+    {
+      "url": "https://fonts.google.com/specimen/Lora",
+      "status": 200,
+      "finalUrl": "https://fonts.google.com/specimen/Lora"
+    },
+    {
+      "url": "https://fonts.google.com/specimen/Montserrat",
+      "status": 200,
+      "finalUrl": "https://fonts.google.com/specimen/Montserrat"
+    },
+    {
+      "url": "https://fonts.google.com/specimen/Open+Sans",
+      "status": 200,
+      "finalUrl": "https://fonts.google.com/specimen/Open+Sans"
+    },
+    {
+      "url": "https://fonts.google.com/specimen/Oswald",
+      "status": 200,
+      "finalUrl": "https://fonts.google.com/specimen/Oswald"
+    },
+    {
+      "url": "https://fonts.google.com/specimen/Playfair+Display",
+      "status": 200,
+      "finalUrl": "https://fonts.google.com/specimen/Playfair+Display"
+    },
+    {
+      "url": "https://fonts.google.com/specimen/Poppins",
+      "status": 200,
+      "finalUrl": "https://fonts.google.com/specimen/Poppins"
+    },
+    {
+      "url": "https://fonts.google.com/specimen/Roboto",
+      "status": 200,
+      "finalUrl": "https://fonts.google.com/specimen/Roboto"
+    },
+    {
+      "url": "https://fonts.google.com/specimen/Roboto+Mono",
+      "status": 200,
+      "finalUrl": "https://fonts.google.com/specimen/Roboto+Mono"
+    },
+    {
+      "url": "https://fonts.google.com/specimen/Source+Serif+4",
+      "status": 200,
+      "finalUrl": "https://fonts.google.com/specimen/Source+Serif+4"
+    }
+  ],
+  "sourceAndLicenses": "Downloaded successfully from the pinned Google Fonts revision; local SHA-256 verified by scripts/doctor.py and tests/server.test.ts."
+}

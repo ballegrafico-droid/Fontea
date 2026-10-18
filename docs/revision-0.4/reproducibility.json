@@ -1,0 +1,12 @@
+{
+  "fontFiles": 165,
+  "fontBytes": 52368776,
+  "families": 117,
+  "variants": 203,
+  "indexSha256": "1631ec124b97c3c0ae5e27551259f8bf718b9270e0db37eb35ebbb29f642dff7",
+  "indexBytes": 2381932,
+  "regeneratedManifestSha256": "dc6cff5b37b79bd5d60dcedc60c4c5ccf0148bc1bf1c49fc4b5cccf5da52a6d6",
+  "frozenManifestSha256": "dc6cff5b37b79bd5d60dcedc60c4c5ccf0148bc1bf1c49fc4b5cccf5da52a6d6",
+  "identicalAfterRegeneration": true,
+  "sourceVerification": "Every added font, licence and METADATA.pb verified against Git blob SHA-1 from the pinned upstream tree, then SHA-256 pinned in catalogue."
+}

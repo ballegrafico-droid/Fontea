@@ -1,0 +1,15 @@
+{
+  "actualProviderCalls": 0,
+  "interceptedProviderRequests": 2,
+  "checks": [
+    "Consent rejected before provider",
+    "Multiple-line hint rejected before provider",
+    "Actual two-line image rejected with forged single-line hint",
+    "Real browser-prepared PNG accepted by Worker; external test fixture returned through actual adapter and D1",
+    "Persistent SQL limit rejects third call without upstream request"
+  ],
+  "limits": [
+    "This exercises the built Cloudflare Worker and real local D1. All outbound requests are intercepted by Miniflare; no API service or paid credit is consumed.",
+    "No commercial recognition quality is claimed; responses are explicit protocol fixtures."
+  ]
+}

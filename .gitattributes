@@ -1,0 +1,6 @@
+# Preserve upstream binaries and license files byte-for-byte.
+catalog/fonts/* -text
+catalog/licenses/* -text -whitespace
+engine/tessdata/* -text -whitespace
+# Reproducible, readable benchmark reports.
+docs/*.csv text eol=lf

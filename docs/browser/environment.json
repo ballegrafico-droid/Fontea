@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-18",
+  "node": "24.19.0",
+  "chromium": "154.0.8037.57",
+  "Tesseract.js": "6.0.1",
+  "tesseract.js-core": "6.1.2",
+  "timing": "Wall time in browser, including worker setup, HTTP-local resource retrieval and result PNGs. First samples overlapped build/API checks; not an isolated load test, nor a controlled speed comparison against historical Python times.",
+  "originalCriterion": "Strict literal text equality; matching uses corrected text. Gate .155, gap .025 unchanged.",
+  "privacy": "No external requests or HTTP errors across 115 runs."
+}

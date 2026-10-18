@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-18",
+  "url": "https://fontea-estudio-2026.icycalf17.chatgpt.site",
+  "access": "owner-private, same ChatGPT account",
+  "validatedRuntimeSourceCommit": "79c46ab5ebf09b0e7aaebbeb74d50f173c1b202f",
+  "deploymentStatus": "succeeded",
+  "hostedUIExitCode": 0,
+  "checks": {
+    "checks": [
+      "No horizontal overflow at 320, 390, 768 and 1440 px",
+      "Catalogue dialog: seventeen real families, keyboard dismissal",
+      "Crop rectangle responds to pointer dragging",
+      "Desktop: labelled demo → full crop → real OCR → Inter Bold candidate → overlay → matching official/download links",
+      "No-identification state for insufficient distinct letters",
+      "390 px mobile: file upload, clipboard event, crop, OCR, comparison and results without overflow",
+      "Explicit English priority re-reads the same crop and recovers the documented English control",
+      "Real browser OCR cancelled during recognize; terminated Worker releases slot and next OCR succeeds",
+      "Malformed upload shows understandable error"
+    ],
+    "javascriptErrors": [],
+    "browser": "System Chromium through Playwright; Linux emulation, not physical mobile devices"
+  },
+  "download": "Inter font bytes fetched through the browser; SHA-256 equals catalogue manifest.",
+  "runtimeAssets": {
+    "assets/index-CfsnaDT9.js": "9be7193a5525e1840abd1675b878888429e5ceae18e2cfb9faf15710d6ca57ae",
+    "assets/index-cvGnUfd9.css": "df183acb2db47390a479d2d11a4e2af74a7e314f8c76eff7cf2df9961854f402",
+    "assets/matcher.worker-D319gqOP.js": "7c43130732c5dab8ed13fedcfd31ca4aa4755a264c8827cbf08f5ec655b2a8d2"
+  },
+  "note": "First verification used APIRequestContext for download and failed on direct IPv6 ENETUNREACH; browser-based download verification passed. Application OCR and matching worked in that first attempt."
+}

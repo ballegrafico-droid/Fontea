@@ -1,0 +1,526 @@
+{
+  "revision": "47d54ca1ebb14fd864695f1d39dc734f39017c33",
+  "verifiedAt": "2026-10-18",
+  "note": "Curated style tags, not exclusive intended use. Original 17 families retained. Only families with verified OFL at pinned revision.",
+  "excludedWithoutPinnedOFL": [
+    "Satisfy",
+    "Yellowtail",
+    "Schoolbell",
+    "Rock Salt",
+    "Just Another Hand",
+    "Permanent Marker",
+    "Homemade Apple",
+    "Walter Turncoat",
+    "Chewy",
+    "Luckiest Guy",
+    "Fontdiner Swanky",
+    "Irish Grover",
+    "Kranky",
+    "Slackey",
+    "Unkempt",
+    "Special Elite",
+    "Ultra"
+  ],
+  "additions": [
+    {
+      "slug": "amaticsc",
+      "family": "Amatic SC",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "architectsdaughter",
+      "family": "Architects Daughter",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "indieflower",
+      "family": "Indie Flower",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "caveat",
+      "family": "Caveat",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "caveatbrush",
+      "family": "Caveat Brush",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "dancingscript",
+      "family": "Dancing Script",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "pacifico",
+      "family": "Pacifico",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "sacramento",
+      "family": "Sacramento",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "greatvibes",
+      "family": "Great Vibes",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "allura",
+      "family": "Allura",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "alexbrush",
+      "family": "Alex Brush",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "kaushanscript",
+      "family": "Kaushan Script",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "marckscript",
+      "family": "Marck Script",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "courgette",
+      "family": "Courgette",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "cookie",
+      "family": "Cookie",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "merienda",
+      "family": "Merienda",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "kalam",
+      "family": "Kalam",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "handlee",
+      "family": "Handlee",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "patrickhand",
+      "family": "Patrick Hand",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "patrickhandsc",
+      "family": "Patrick Hand SC",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "coveredbyyourgrace",
+      "family": "Covered By Your Grace",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "shadowsintolight",
+      "family": "Shadows Into Light",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "shadowsintolighttwo",
+      "family": "Shadows Into Light Two",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "neucha",
+      "family": "Neucha",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "gloriahallelujah",
+      "family": "Gloria Hallelujah",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "gochihand",
+      "family": "Gochi Hand",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "reeniebeanie",
+      "family": "Reenie Beanie",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "waitingforthesunrise",
+      "family": "Waiting for the Sunrise",
+      "tag": "manuscrita"
+    },
+    {
+      "slug": "fredoka",
+      "family": "Fredoka",
+      "tag": "ludica"
+    },
+    {
+      "slug": "baloo2",
+      "family": "Baloo 2",
+      "tag": "ludica"
+    },
+    {
+      "slug": "bubblegumsans",
+      "family": "Bubblegum Sans",
+      "tag": "ludica"
+    },
+    {
+      "slug": "lilitaone",
+      "family": "Lilita One",
+      "tag": "ludica"
+    },
+    {
+      "slug": "bangers",
+      "family": "Bangers",
+      "tag": "ludica"
+    },
+    {
+      "slug": "balsamiqsans",
+      "family": "Balsamiq Sans",
+      "tag": "ludica"
+    },
+    {
+      "slug": "comicneue",
+      "family": "Comic Neue",
+      "tag": "ludica"
+    },
+    {
+      "slug": "boogaloo",
+      "family": "Boogaloo",
+      "tag": "ludica"
+    },
+    {
+      "slug": "chango",
+      "family": "Chango",
+      "tag": "ludica"
+    },
+    {
+      "slug": "coiny",
+      "family": "Coiny",
+      "tag": "ludica"
+    },
+    {
+      "slug": "concertone",
+      "family": "Concert One",
+      "tag": "ludica"
+    },
+    {
+      "slug": "creepster",
+      "family": "Creepster",
+      "tag": "ludica"
+    },
+    {
+      "slug": "eater",
+      "family": "Eater",
+      "tag": "ludica"
+    },
+    {
+      "slug": "fascinate",
+      "family": "Fascinate",
+      "tag": "ludica"
+    },
+    {
+      "slug": "freckleface",
+      "family": "Freckle Face",
+      "tag": "ludica"
+    },
+    {
+      "slug": "frederickathegreat",
+      "family": "Fredericka the Great",
+      "tag": "ludica"
+    },
+    {
+      "slug": "frijole",
+      "family": "Frijole",
+      "tag": "ludica"
+    },
+    {
+      "slug": "gamjaflower",
+      "family": "Gamja Flower",
+      "tag": "ludica"
+    },
+    {
+      "slug": "grandstander",
+      "family": "Grandstander",
+      "tag": "ludica"
+    },
+    {
+      "slug": "hennypenny",
+      "family": "Henny Penny",
+      "tag": "ludica"
+    },
+    {
+      "slug": "jollylodger",
+      "family": "Jolly Lodger",
+      "tag": "ludica"
+    },
+    {
+      "slug": "lifesavers",
+      "family": "Life Savers",
+      "tag": "ludica"
+    },
+    {
+      "slug": "londrinasolid",
+      "family": "Londrina Solid",
+      "tag": "ludica"
+    },
+    {
+      "slug": "londrinasketch",
+      "family": "Londrina Sketch",
+      "tag": "ludica"
+    },
+    {
+      "slug": "loveyalikeasister",
+      "family": "Love Ya Like A Sister",
+      "tag": "ludica"
+    },
+    {
+      "slug": "macondo",
+      "family": "Macondo",
+      "tag": "ludica"
+    },
+    {
+      "slug": "metalmania",
+      "family": "Metal Mania",
+      "tag": "ludica"
+    },
+    {
+      "slug": "miltonian",
+      "family": "Miltonian",
+      "tag": "ludica"
+    },
+    {
+      "slug": "modak",
+      "family": "Modak",
+      "tag": "ludica"
+    },
+    {
+      "slug": "monofett",
+      "family": "Monofett",
+      "tag": "ludica"
+    },
+    {
+      "slug": "mysteryquest",
+      "family": "Mystery Quest",
+      "tag": "ludica"
+    },
+    {
+      "slug": "ribeye",
+      "family": "Ribeye",
+      "tag": "ludica"
+    },
+    {
+      "slug": "ribeyemarrow",
+      "family": "Ribeye Marrow",
+      "tag": "ludica"
+    },
+    {
+      "slug": "risque",
+      "family": "Risque",
+      "tag": "ludica"
+    },
+    {
+      "slug": "rugeboogie",
+      "family": "Ruge Boogie",
+      "tag": "ludica"
+    },
+    {
+      "slug": "rye",
+      "family": "Rye",
+      "tag": "ludica"
+    },
+    {
+      "slug": "sancreek",
+      "family": "Sancreek",
+      "tag": "ludica"
+    },
+    {
+      "slug": "sniglet",
+      "family": "Sniglet",
+      "tag": "ludica"
+    },
+    {
+      "slug": "spicyrice",
+      "family": "Spicy Rice",
+      "tag": "ludica"
+    },
+    {
+      "slug": "titanone",
+      "family": "Titan One",
+      "tag": "ludica"
+    },
+    {
+      "slug": "wendyone",
+      "family": "Wendy One",
+      "tag": "ludica"
+    },
+    {
+      "slug": "acme",
+      "family": "Acme",
+      "tag": "ludica"
+    },
+    {
+      "slug": "abrilfatface",
+      "family": "Abril Fatface",
+      "tag": "display"
+    },
+    {
+      "slug": "alfaslabone",
+      "family": "Alfa Slab One",
+      "tag": "display"
+    },
+    {
+      "slug": "anton",
+      "family": "Anton",
+      "tag": "display"
+    },
+    {
+      "slug": "archivoblack",
+      "family": "Archivo Black",
+      "tag": "display"
+    },
+    {
+      "slug": "bebasneue",
+      "family": "Bebas Neue",
+      "tag": "display"
+    },
+    {
+      "slug": "blackopsone",
+      "family": "Black Ops One",
+      "tag": "display"
+    },
+    {
+      "slug": "bungee",
+      "family": "Bungee",
+      "tag": "display"
+    },
+    {
+      "slug": "cabinsketch",
+      "family": "Cabin Sketch",
+      "tag": "display"
+    },
+    {
+      "slug": "cormorantgaramond",
+      "family": "Cormorant Garamond",
+      "tag": "display"
+    },
+    {
+      "slug": "dmserifdisplay",
+      "family": "DM Serif Display",
+      "tag": "display"
+    },
+    {
+      "slug": "lobster",
+      "family": "Lobster",
+      "tag": "display"
+    },
+    {
+      "slug": "lobstertwo",
+      "family": "Lobster Two",
+      "tag": "display"
+    },
+    {
+      "slug": "righteous",
+      "family": "Righteous",
+      "tag": "display"
+    },
+    {
+      "slug": "rowdies",
+      "family": "Rowdies",
+      "tag": "display"
+    },
+    {
+      "slug": "russoone",
+      "family": "Russo One",
+      "tag": "display"
+    },
+    {
+      "slug": "yesevaone",
+      "family": "Yeseva One",
+      "tag": "display"
+    },
+    {
+      "slug": "zillaslab",
+      "family": "Zilla Slab",
+      "tag": "display"
+    },
+    {
+      "slug": "josefinsans",
+      "family": "Josefin Sans",
+      "tag": "display"
+    },
+    {
+      "slug": "barrio",
+      "family": "Barrio",
+      "tag": "ludica"
+    },
+    {
+      "slug": "knewave",
+      "family": "Knewave",
+      "tag": "ludica"
+    },
+    {
+      "slug": "margarine",
+      "family": "Margarine",
+      "tag": "ludica"
+    },
+    {
+      "slug": "originalsurfer",
+      "family": "Original Surfer",
+      "tag": "ludica"
+    },
+    {
+      "slug": "atma",
+      "family": "Atma",
+      "tag": "ludica"
+    },
+    {
+      "slug": "pangolin",
+      "family": "Pangolin",
+      "tag": "ludica"
+    },
+    {
+      "slug": "shortstack",
+      "family": "Short Stack",
+      "tag": "ludica"
+    },
+    {
+      "slug": "itim",
+      "family": "Itim",
+      "tag": "ludica"
+    },
+    {
+      "slug": "delius",
+      "family": "Delius",
+      "tag": "ludica"
+    },
+    {
+      "slug": "deliusswashcaps",
+      "family": "Delius Swash Caps",
+      "tag": "ludica"
+    },
+    {
+      "slug": "deliusunicase",
+      "family": "Delius Unicase",
+      "tag": "ludica"
+    },
+    {
+      "slug": "mali",
+      "family": "Mali",
+      "tag": "ludica"
+    }
+  ]
+}

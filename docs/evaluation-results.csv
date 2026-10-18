@@ -1,0 +1,80 @@
+sample,kind,expected,expectedFamily,text,ocr,ocrExact,top1,distance,familyCorrect,variantCorrect,proposed,candidateIncludesExpected,seconds
+inter-400-clean,clean,inter-400,Inter,Diseño y memoria 826,Diseno y memoria 826,False,inter-400,0.1336,True,True,True,True,1.999
+inter-400-degraded,degraded,inter-400,Inter,Ritmo visual elegante,Ritmo visual elegante,True,inter-400,0.1421,True,True,True,True,1.866
+inter-700-clean,clean,inter-700,Inter,Diseño y memoria 826,Diseno y memoria 826,False,inter-700,0.079,True,True,True,True,1.931
+inter-400-italic-clean,clean,inter-400-italic,Inter,Diseño y memoria 826,Diseno y memoria 826,False,inter-400-italic,0.1125,True,True,True,True,1.709
+inter-400-italic-degraded,degraded,inter-400-italic,Inter,Ritmo visual elegante,Ritmo visual elegante,True,inter-400-italic,0.1315,True,True,True,True,1.307
+inter-700-italic-clean,clean,inter-700-italic,Inter,Diseño y memoria 826,Diseno y memoria 826,False,inter-700-italic,0.0656,True,True,True,True,1.52
+roboto-400-clean,clean,roboto-400,Roboto,Diseño y memoria 826,Diseno y memoria 826,False,roboto-400,0.1036,True,True,True,True,1.508
+roboto-400-degraded,degraded,roboto-400,Roboto,Ritmo visual elegante,Ritmo visual elegante,True,roboto-700,0.241,True,False,False,False,1.434
+roboto-700-clean,clean,roboto-700,Roboto,Diseño y memoria 826,Diseno y memoria 826,False,roboto-700,0.0547,True,True,True,True,1.407
+roboto-400-italic-clean,clean,roboto-400-italic,Roboto,Diseño y memoria 826,Diseno y memoria 826,False,roboto-400-italic,0.1316,True,True,True,True,1.265
+roboto-400-italic-degraded,degraded,roboto-400-italic,Roboto,Ritmo visual elegante,Ritmo visual elegante,True,roboto-400-italic,0.1528,True,True,True,True,1.248
+roboto-700-italic-clean,clean,roboto-700-italic,Roboto,Diseño y memoria 826,Diseno y memoria 826,False,roboto-700-italic,0.0575,True,True,True,True,1.275
+opensans-400-clean,clean,opensans-400,Open Sans,Diseño y memoria 826,Diseno y memoria 826,False,opensans-400,0.0942,True,True,True,True,1.297
+opensans-400-degraded,degraded,opensans-400,Open Sans,Ritmo visual elegante,Ritmo visual elegante,True,opensans-400,0.1289,True,True,True,True,1.328
+opensans-700-clean,clean,opensans-700,Open Sans,Diseño y memoria 826,Diseno y memoria 826,False,opensans-700,0.0818,True,True,True,True,1.321
+opensans-400-italic-clean,clean,opensans-400-italic,Open Sans,Diseño y memoria 826,Diseno y memoria 826,False,opensans-400-italic,0.0884,True,True,True,True,1.283
+opensans-400-italic-degraded,degraded,opensans-400-italic,Open Sans,Ritmo visual elegante,Ritmo visual elegante,True,opensans-400-italic,0.1328,True,True,True,True,1.234
+opensans-700-italic-clean,clean,opensans-700-italic,Open Sans,Diseño y memoria 826,Diseno y memoria 826,False,opensans-700-italic,0.0703,True,True,True,True,1.444
+montserrat-400-clean,clean,montserrat-400,Montserrat,Diseño y memoria 826,Diseno y memoria 826,False,montserrat-400,0.1587,True,True,False,False,1.445
+montserrat-400-degraded,degraded,montserrat-400,Montserrat,Ritmo visual elegante,Ritmo visual elegante,True,montserrat-400,0.2126,True,True,False,False,1.462
+montserrat-700-clean,clean,montserrat-700,Montserrat,Diseño y memoria 826,Diseno y memoria 826,False,montserrat-700,0.0746,True,True,True,True,1.611
+montserrat-400-italic-clean,clean,montserrat-400-italic,Montserrat,Diseño y memoria 826,Diseno y memoria 826,False,montserrat-400-italic,0.1183,True,True,True,True,2.379
+montserrat-400-italic-degraded,degraded,montserrat-400-italic,Montserrat,Ritmo visual elegante,Ritmo visual elegante,True,montserrat-400-italic,0.1914,True,True,False,False,1.919
+montserrat-700-italic-clean,clean,montserrat-700-italic,Montserrat,Diseño y memoria 826,Diseno y memoria 826,False,montserrat-700-italic,0.1024,True,True,True,True,1.977
+lato-400-clean,clean,lato-400,Lato,Diseño y memoria 826,Diseno y memoria 826,False,lato-400,0.1628,True,True,False,False,1.448
+lato-400-degraded,degraded,lato-400,Lato,Ritmo visual elegante,Ritmo visual elegante,True,lato-400,0.165,True,True,False,False,1.412
+lato-700-clean,clean,lato-700,Lato,Diseño y memoria 826,Diseno y memoria 826,False,lato-700,0.1459,True,True,True,True,1.352
+lato-400-italic-clean,clean,lato-400-italic,Lato,Diseño y memoria 826,Diseno y memoria 826,False,lato-400-italic,0.1634,True,True,False,False,1.304
+lato-400-italic-degraded,degraded,lato-400-italic,Lato,Ritmo visual elegante,Ritmo visual elegante,True,lato-400-italic,0.2139,True,True,False,False,1.286
+lato-700-italic-clean,clean,lato-700-italic,Lato,Diseño y memoria 826,Diseno y memoria 826,False,lato-700-italic,0.1288,True,True,True,True,1.322
+poppins-400-clean,clean,poppins-400,Poppins,Diseño y memoria 826,Diseno y memoria 826,False,poppins-400,0.0877,True,True,True,True,1.558
+poppins-400-degraded,degraded,poppins-400,Poppins,Ritmo visual elegante,Ritmo visual elegante,True,poppins-400,0.1997,True,True,False,False,1.38
+poppins-700-clean,clean,poppins-700,Poppins,Diseño y memoria 826,Diseho y memoria 826,False,poppins-700,0.0673,True,True,True,True,1.371
+poppins-400-italic-clean,clean,poppins-400-italic,Poppins,Diseño y memoria 826,Disenhlo y memoria 826,False,poppins-400-italic,0.0874,True,True,False,False,1.426
+poppins-400-italic-degraded,degraded,poppins-400-italic,Poppins,Ritmo visual elegante,Ritmo visual elegante,True,poppins-400-italic,0.1702,True,True,False,False,1.406
+poppins-700-italic-clean,clean,poppins-700-italic,Poppins,Diseño y memoria 826,Disefio y memoria 826,False,poppins-700-italic,0.0564,True,True,True,True,1.534
+lora-400-clean,clean,lora-400,Lora,Diseño y memoria 826,Diseno y memoria 826,False,lora-400,0.1073,True,True,True,True,1.365
+lora-400-degraded,degraded,lora-400,Lora,Ritmo visual elegante,Ritmo visual elegante,True,lora-400,0.2287,True,True,False,False,1.333
+lora-700-clean,clean,lora-700,Lora,Diseño y memoria 826,Diseno y memoria 826,False,lora-700,0.0734,True,True,False,False,1.372
+lora-400-italic-clean,clean,lora-400-italic,Lora,Diseño y memoria 826,Diseno y memoria 826,False,lora-400-italic,0.0837,True,True,True,True,1.305
+lora-400-italic-degraded,degraded,lora-400-italic,Lora,Ritmo visual elegante,Ritmo visual elegante,True,lora-400-italic,0.1601,True,True,False,False,1.242
+lora-700-italic-clean,clean,lora-700-italic,Lora,Diseño y memoria 826,Diseno y memoria 826,False,lora-700-italic,0.0593,True,True,True,True,1.41
+playfairdisplay-400-clean,clean,playfairdisplay-400,Playfair Display,Diseño y memoria 826,Diseno y memoria 826,False,playfairdisplay-400,0.1925,True,True,False,False,1.462
+playfairdisplay-400-degraded,degraded,playfairdisplay-400,Playfair Display,Ritmo visual elegante,Ritmo visual elegante,True,playfairdisplay-400,0.2654,True,True,False,False,1.351
+playfairdisplay-700-clean,clean,playfairdisplay-700,Playfair Display,Diseño y memoria 826,Diseno y memoria 826,False,playfairdisplay-700,0.1659,True,True,False,False,1.446
+playfairdisplay-400-italic-clean,clean,playfairdisplay-400-italic,Playfair Display,Diseño y memoria 826,Diseno y memoria 826,False,playfairdisplay-400-italic,0.1107,True,True,True,True,1.326
+playfairdisplay-400-italic-degraded,degraded,playfairdisplay-400-italic,Playfair Display,Ritmo visual elegante,Ritmo visual elegante,True,playfairdisplay-400-italic,0.2835,True,True,False,False,1.306
+playfairdisplay-700-italic-clean,clean,playfairdisplay-700-italic,Playfair Display,Diseño y memoria 826,Diseno y memoria 826,False,playfairdisplay-700-italic,0.06,True,True,True,True,1.417
+sourceserif4-400-clean,clean,sourceserif4-400,Source Serif 4,Diseño y memoria 826,Diseno y memoria 826,False,sourceserif4-400,0.1234,True,True,True,True,1.575
+sourceserif4-400-degraded,degraded,sourceserif4-400,Source Serif 4,Ritmo visual elegante,Ritmo visual elegante,True,sourceserif4-400,0.2539,True,True,False,False,1.835
+sourceserif4-700-clean,clean,sourceserif4-700,Source Serif 4,Diseño y memoria 826,Diseno y memoria 826,False,sourceserif4-700,0.0996,True,True,True,True,1.281
+sourceserif4-400-italic-clean,clean,sourceserif4-400-italic,Source Serif 4,Diseño y memoria 826,Diseno y memoria 826,False,sourceserif4-400-italic,0.1122,True,True,True,True,1.37
+sourceserif4-400-italic-degraded,degraded,sourceserif4-400-italic,Source Serif 4,Ritmo visual elegante,Ritmo visual elegante,True,sourceserif4-400-italic,0.27,True,True,False,False,1.199
+sourceserif4-700-italic-clean,clean,sourceserif4-700-italic,Source Serif 4,Diseño y memoria 826,Diseno y memoria 826,False,sourceserif4-700-italic,0.1043,True,True,True,True,1.283
+robotomono-400-clean,clean,robotomono-400,Roboto Mono,Diseño y memoria 826,Diseno y memoria 826,False,robotomono-400,0.0854,True,True,True,True,1.393
+robotomono-400-degraded,degraded,robotomono-400,Roboto Mono,Ritmo visual elegante,Ritmo visual elegante,True,robotomono-700,0.1857,True,False,False,False,1.449
+robotomono-700-clean,clean,robotomono-700,Roboto Mono,Diseño y memoria 826,Diseno y memoria 826,False,robotomono-700,0.0667,True,True,True,True,1.384
+robotomono-400-italic-clean,clean,robotomono-400-italic,Roboto Mono,Diseño y memoria 826,Diseno y memoria 826,False,robotomono-400-italic,0.0686,True,True,True,True,1.384
+robotomono-400-italic-degraded,degraded,robotomono-400-italic,Roboto Mono,Ritmo visual elegante,Ritmo visual elegante,True,robotomono-400-italic,0.1289,True,True,True,True,1.4
+robotomono-700-italic-clean,clean,robotomono-700-italic,Roboto Mono,Diseño y memoria 826,Diseno y memoria 826,False,robotomono-700-italic,0.0921,True,True,True,True,1.365
+oswald-400-clean,clean,oswald-400,Oswald,Diseño y memoria 826,Diseno y memoria 826,False,oswald-400,0.0869,True,True,True,True,1.289
+oswald-400-degraded,degraded,oswald-400,Oswald,Ritmo visual elegante,Ritmo visual elegante,True,oswald-400,0.1806,True,True,False,False,1.195
+oswald-700-clean,clean,oswald-700,Oswald,Diseño y memoria 826,Diseno y memoria 826,False,oswald-700,0.0736,True,True,True,True,1.976
+Liberation-Sans-external-clean,external-clean,OUTSIDE,Liberation Sans,Diseño y memoria 826,Diseno y memoria 826,False,roboto-400,0.3201,False,False,False,False,1.54
+Liberation-Sans-external-degraded,external-degraded,OUTSIDE,Liberation Sans,Ritmo visual elegante,Ritmo visual elegante,True,roboto-400,0.2413,False,False,False,False,1.358
+Liberation-Serif-external-clean,external-clean,OUTSIDE,Liberation Serif,Diseño y memoria 826,Diseno y memoria 826,False,lora-700,0.3892,False,False,False,False,1.392
+Liberation-Serif-external-degraded,external-degraded,OUTSIDE,Liberation Serif,Ritmo visual elegante,Ritmo visual elegante,True,sourceserif4-700,0.3687,False,False,False,False,1.348
+Nimbus-Sans-external-clean,external-clean,OUTSIDE,Nimbus Sans,Diseño y memoria 826,Diseno y memoria 826,False,roboto-400-italic,0.3029,False,False,False,False,1.354
+Nimbus-Sans-external-degraded,external-degraded,OUTSIDE,Nimbus Sans,Ritmo visual elegante,Ritmo visual elegante,True,roboto-400,0.2864,False,False,False,False,1.31
+Nimbus-Roman-external-clean,external-clean,OUTSIDE,Nimbus Roman,Diseño y memoria 826,Disenho y memoria 826,False,lora-700,0.3821,False,False,False,False,1.307
+Nimbus-Roman-external-degraded,external-degraded,OUTSIDE,Nimbus Roman,Ritmo visual elegante,Ritmo visual elegante,True,sourceserif4-700,0.4071,False,False,False,False,1.293
+URW-Gothic-external-clean,external-clean,OUTSIDE,URW Gothic,Diseño y memoria 826,Diseno y memoria 826,False,montserrat-400,0.3786,False,False,False,False,1.512
+URW-Gothic-external-degraded,external-degraded,OUTSIDE,URW Gothic,Ritmo visual elegante,Ritmo visual elegante,True,poppins-400,0.4568,False,False,False,False,1.477
+P052-external-clean,external-clean,OUTSIDE,P052,Diseño y memoria 826,Diseno y memoria 826,False,sourceserif4-400,0.395,False,False,False,False,1.315
+P052-external-degraded,external-degraded,OUTSIDE,P052,Ritmo visual elegante,Ritmo visual elegante,True,sourceserif4-700,0.3315,False,False,False,False,1.348
+short-HHH,short,inter-400,Inter,HHH,HHH,True,inter-400,0.0278,True,True,False,False,0
+short-Ill,short,inter-400,Inter,Ill,,False,inter-400,0.0014,True,True,False,False,0
+short-aaa,short,inter-400,Inter,aaa,daa,False,inter-400,0.0761,True,True,False,False,0
+short-OOO,short,inter-400,Inter,OOO,OOO,True,inter-400,0.0654,True,True,False,False,0

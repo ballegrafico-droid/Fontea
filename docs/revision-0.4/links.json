@@ -1,0 +1,708 @@
+{
+  "checkedAt": "2026-10-18T18:45:41.776343+00:00",
+  "note": "OFL verified from pinned licence bytes and hashes, not inferred from status. Family names originate in pinned upstream metadata.",
+  "links": [
+    {
+      "family": "Inter",
+      "url": "https://fonts.google.com/specimen/Inter",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Inter"
+    },
+    {
+      "family": "Roboto",
+      "url": "https://fonts.google.com/specimen/Roboto",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Roboto"
+    },
+    {
+      "family": "Open Sans",
+      "url": "https://fonts.google.com/specimen/Open+Sans",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Open+Sans"
+    },
+    {
+      "family": "Montserrat",
+      "url": "https://fonts.google.com/specimen/Montserrat",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Montserrat"
+    },
+    {
+      "family": "Lato",
+      "url": "https://fonts.google.com/specimen/Lato",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Lato"
+    },
+    {
+      "family": "Poppins",
+      "url": "https://fonts.google.com/specimen/Poppins",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Poppins"
+    },
+    {
+      "family": "Lora",
+      "url": "https://fonts.google.com/specimen/Lora",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Lora"
+    },
+    {
+      "family": "Playfair Display",
+      "url": "https://fonts.google.com/specimen/Playfair+Display",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Playfair+Display"
+    },
+    {
+      "family": "Source Serif 4",
+      "url": "https://fonts.google.com/specimen/Source+Serif+4",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Source+Serif+4"
+    },
+    {
+      "family": "Roboto Mono",
+      "url": "https://fonts.google.com/specimen/Roboto+Mono",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Roboto+Mono"
+    },
+    {
+      "family": "Oswald",
+      "url": "https://fonts.google.com/specimen/Oswald",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Oswald"
+    },
+    {
+      "family": "Nunito Sans",
+      "url": "https://fonts.google.com/specimen/Nunito+Sans",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Nunito+Sans"
+    },
+    {
+      "family": "Raleway",
+      "url": "https://fonts.google.com/specimen/Raleway",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Raleway"
+    },
+    {
+      "family": "DM Sans",
+      "url": "https://fonts.google.com/specimen/DM+Sans",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/DM+Sans"
+    },
+    {
+      "family": "Bitter",
+      "url": "https://fonts.google.com/specimen/Bitter",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Bitter"
+    },
+    {
+      "family": "Fira Sans",
+      "url": "https://fonts.google.com/specimen/Fira+Sans",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Fira+Sans"
+    },
+    {
+      "family": "Libre Franklin",
+      "url": "https://fonts.google.com/specimen/Libre+Franklin",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Libre+Franklin"
+    },
+    {
+      "family": "Amatic SC",
+      "url": "https://fonts.google.com/specimen/Amatic+SC",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Amatic+SC"
+    },
+    {
+      "family": "Architects Daughter",
+      "url": "https://fonts.google.com/specimen/Architects+Daughter",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Architects+Daughter"
+    },
+    {
+      "family": "Indie Flower",
+      "url": "https://fonts.google.com/specimen/Indie+Flower",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Indie+Flower"
+    },
+    {
+      "family": "Caveat",
+      "url": "https://fonts.google.com/specimen/Caveat",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Caveat"
+    },
+    {
+      "family": "Caveat Brush",
+      "url": "https://fonts.google.com/specimen/Caveat+Brush",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Caveat+Brush"
+    },
+    {
+      "family": "Dancing Script",
+      "url": "https://fonts.google.com/specimen/Dancing+Script",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Dancing+Script"
+    },
+    {
+      "family": "Pacifico",
+      "url": "https://fonts.google.com/specimen/Pacifico",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Pacifico"
+    },
+    {
+      "family": "Sacramento",
+      "url": "https://fonts.google.com/specimen/Sacramento",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Sacramento"
+    },
+    {
+      "family": "Great Vibes",
+      "url": "https://fonts.google.com/specimen/Great+Vibes",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Great+Vibes"
+    },
+    {
+      "family": "Allura",
+      "url": "https://fonts.google.com/specimen/Allura",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Allura"
+    },
+    {
+      "family": "Alex Brush",
+      "url": "https://fonts.google.com/specimen/Alex+Brush",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Alex+Brush"
+    },
+    {
+      "family": "Kaushan Script",
+      "url": "https://fonts.google.com/specimen/Kaushan+Script",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Kaushan+Script"
+    },
+    {
+      "family": "Marck Script",
+      "url": "https://fonts.google.com/specimen/Marck+Script",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Marck+Script"
+    },
+    {
+      "family": "Courgette",
+      "url": "https://fonts.google.com/specimen/Courgette",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Courgette"
+    },
+    {
+      "family": "Cookie",
+      "url": "https://fonts.google.com/specimen/Cookie",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Cookie"
+    },
+    {
+      "family": "Merienda",
+      "url": "https://fonts.google.com/specimen/Merienda",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Merienda"
+    },
+    {
+      "family": "Kalam",
+      "url": "https://fonts.google.com/specimen/Kalam",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Kalam"
+    },
+    {
+      "family": "Handlee",
+      "url": "https://fonts.google.com/specimen/Handlee",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Handlee"
+    },
+    {
+      "family": "Patrick Hand",
+      "url": "https://fonts.google.com/specimen/Patrick+Hand",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Patrick+Hand"
+    },
+    {
+      "family": "Patrick Hand SC",
+      "url": "https://fonts.google.com/specimen/Patrick+Hand+SC",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Patrick+Hand+SC"
+    },
+    {
+      "family": "Covered By Your Grace",
+      "url": "https://fonts.google.com/specimen/Covered+By+Your+Grace",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Covered+By+Your+Grace"
+    },
+    {
+      "family": "Shadows Into Light",
+      "url": "https://fonts.google.com/specimen/Shadows+Into+Light",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Shadows+Into+Light"
+    },
+    {
+      "family": "Shadows Into Light Two",
+      "url": "https://fonts.google.com/specimen/Shadows+Into+Light+Two",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Shadows+Into+Light+Two"
+    },
+    {
+      "family": "Neucha",
+      "url": "https://fonts.google.com/specimen/Neucha",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Neucha"
+    },
+    {
+      "family": "Gloria Hallelujah",
+      "url": "https://fonts.google.com/specimen/Gloria+Hallelujah",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Gloria+Hallelujah"
+    },
+    {
+      "family": "Gochi Hand",
+      "url": "https://fonts.google.com/specimen/Gochi+Hand",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Gochi+Hand"
+    },
+    {
+      "family": "Reenie Beanie",
+      "url": "https://fonts.google.com/specimen/Reenie+Beanie",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Reenie+Beanie"
+    },
+    {
+      "family": "Waiting for the Sunrise",
+      "url": "https://fonts.google.com/specimen/Waiting+for+the+Sunrise",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Waiting+for+the+Sunrise"
+    },
+    {
+      "family": "Fredoka",
+      "url": "https://fonts.google.com/specimen/Fredoka",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Fredoka"
+    },
+    {
+      "family": "Baloo 2",
+      "url": "https://fonts.google.com/specimen/Baloo+2",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Baloo+2"
+    },
+    {
+      "family": "Bubblegum Sans",
+      "url": "https://fonts.google.com/specimen/Bubblegum+Sans",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Bubblegum+Sans"
+    },
+    {
+      "family": "Lilita One",
+      "url": "https://fonts.google.com/specimen/Lilita+One",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Lilita+One"
+    },
+    {
+      "family": "Bangers",
+      "url": "https://fonts.google.com/specimen/Bangers",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Bangers"
+    },
+    {
+      "family": "Balsamiq Sans",
+      "url": "https://fonts.google.com/specimen/Balsamiq+Sans",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Balsamiq+Sans"
+    },
+    {
+      "family": "Comic Neue",
+      "url": "https://fonts.google.com/specimen/Comic+Neue",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Comic+Neue"
+    },
+    {
+      "family": "Boogaloo",
+      "url": "https://fonts.google.com/specimen/Boogaloo",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Boogaloo"
+    },
+    {
+      "family": "Chango",
+      "url": "https://fonts.google.com/specimen/Chango",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Chango"
+    },
+    {
+      "family": "Coiny",
+      "url": "https://fonts.google.com/specimen/Coiny",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Coiny"
+    },
+    {
+      "family": "Concert One",
+      "url": "https://fonts.google.com/specimen/Concert+One",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Concert+One"
+    },
+    {
+      "family": "Creepster",
+      "url": "https://fonts.google.com/specimen/Creepster",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Creepster"
+    },
+    {
+      "family": "Eater",
+      "url": "https://fonts.google.com/specimen/Eater",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Eater"
+    },
+    {
+      "family": "Fascinate",
+      "url": "https://fonts.google.com/specimen/Fascinate",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Fascinate"
+    },
+    {
+      "family": "Freckle Face",
+      "url": "https://fonts.google.com/specimen/Freckle+Face",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Freckle+Face"
+    },
+    {
+      "family": "Fredericka the Great",
+      "url": "https://fonts.google.com/specimen/Fredericka+the+Great",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Fredericka+the+Great"
+    },
+    {
+      "family": "Frijole",
+      "url": "https://fonts.google.com/specimen/Frijole",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Frijole"
+    },
+    {
+      "family": "Gamja Flower",
+      "url": "https://fonts.google.com/specimen/Gamja+Flower",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Gamja+Flower"
+    },
+    {
+      "family": "Grandstander",
+      "url": "https://fonts.google.com/specimen/Grandstander",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Grandstander"
+    },
+    {
+      "family": "Henny Penny",
+      "url": "https://fonts.google.com/specimen/Henny+Penny",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Henny+Penny"
+    },
+    {
+      "family": "Jolly Lodger",
+      "url": "https://fonts.google.com/specimen/Jolly+Lodger",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Jolly+Lodger"
+    },
+    {
+      "family": "Life Savers",
+      "url": "https://fonts.google.com/specimen/Life+Savers",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Life+Savers"
+    },
+    {
+      "family": "Londrina Solid",
+      "url": "https://fonts.google.com/specimen/Londrina+Solid",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Londrina+Solid"
+    },
+    {
+      "family": "Londrina Sketch",
+      "url": "https://fonts.google.com/specimen/Londrina+Sketch",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Londrina+Sketch"
+    },
+    {
+      "family": "Love Ya Like A Sister",
+      "url": "https://fonts.google.com/specimen/Love+Ya+Like+A+Sister",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Love+Ya+Like+A+Sister"
+    },
+    {
+      "family": "Macondo",
+      "url": "https://fonts.google.com/specimen/Macondo",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Macondo"
+    },
+    {
+      "family": "Metal Mania",
+      "url": "https://fonts.google.com/specimen/Metal+Mania",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Metal+Mania"
+    },
+    {
+      "family": "Miltonian",
+      "url": "https://fonts.google.com/specimen/Miltonian",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Miltonian"
+    },
+    {
+      "family": "Modak",
+      "url": "https://fonts.google.com/specimen/Modak",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Modak"
+    },
+    {
+      "family": "Monofett",
+      "url": "https://fonts.google.com/specimen/Monofett",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Monofett"
+    },
+    {
+      "family": "Mystery Quest",
+      "url": "https://fonts.google.com/specimen/Mystery+Quest",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Mystery+Quest"
+    },
+    {
+      "family": "Ribeye",
+      "url": "https://fonts.google.com/specimen/Ribeye",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Ribeye"
+    },
+    {
+      "family": "Ribeye Marrow",
+      "url": "https://fonts.google.com/specimen/Ribeye+Marrow",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Ribeye+Marrow"
+    },
+    {
+      "family": "Risque",
+      "url": "https://fonts.google.com/specimen/Risque",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Risque"
+    },
+    {
+      "family": "Ruge Boogie",
+      "url": "https://fonts.google.com/specimen/Ruge+Boogie",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Ruge+Boogie"
+    },
+    {
+      "family": "Rye",
+      "url": "https://fonts.google.com/specimen/Rye",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Rye"
+    },
+    {
+      "family": "Sancreek",
+      "url": "https://fonts.google.com/specimen/Sancreek",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Sancreek"
+    },
+    {
+      "family": "Sniglet",
+      "url": "https://fonts.google.com/specimen/Sniglet",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Sniglet"
+    },
+    {
+      "family": "Spicy Rice",
+      "url": "https://fonts.google.com/specimen/Spicy+Rice",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Spicy+Rice"
+    },
+    {
+      "family": "Titan One",
+      "url": "https://fonts.google.com/specimen/Titan+One",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Titan+One"
+    },
+    {
+      "family": "Wendy One",
+      "url": "https://fonts.google.com/specimen/Wendy+One",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Wendy+One"
+    },
+    {
+      "family": "Acme",
+      "url": "https://fonts.google.com/specimen/Acme",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Acme"
+    },
+    {
+      "family": "Abril Fatface",
+      "url": "https://fonts.google.com/specimen/Abril+Fatface",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Abril+Fatface"
+    },
+    {
+      "family": "Alfa Slab One",
+      "url": "https://fonts.google.com/specimen/Alfa+Slab+One",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Alfa+Slab+One"
+    },
+    {
+      "family": "Anton",
+      "url": "https://fonts.google.com/specimen/Anton",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Anton"
+    },
+    {
+      "family": "Archivo Black",
+      "url": "https://fonts.google.com/specimen/Archivo+Black",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Archivo+Black"
+    },
+    {
+      "family": "Bebas Neue",
+      "url": "https://fonts.google.com/specimen/Bebas+Neue",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Bebas+Neue"
+    },
+    {
+      "family": "Black Ops One",
+      "url": "https://fonts.google.com/specimen/Black+Ops+One",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Black+Ops+One"
+    },
+    {
+      "family": "Bungee",
+      "url": "https://fonts.google.com/specimen/Bungee",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Bungee"
+    },
+    {
+      "family": "Cabin Sketch",
+      "url": "https://fonts.google.com/specimen/Cabin+Sketch",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Cabin+Sketch"
+    },
+    {
+      "family": "Cormorant Garamond",
+      "url": "https://fonts.google.com/specimen/Cormorant+Garamond",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Cormorant+Garamond"
+    },
+    {
+      "family": "DM Serif Display",
+      "url": "https://fonts.google.com/specimen/DM+Serif+Display",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/DM+Serif+Display"
+    },
+    {
+      "family": "Lobster",
+      "url": "https://fonts.google.com/specimen/Lobster",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Lobster"
+    },
+    {
+      "family": "Lobster Two",
+      "url": "https://fonts.google.com/specimen/Lobster+Two",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Lobster+Two"
+    },
+    {
+      "family": "Righteous",
+      "url": "https://fonts.google.com/specimen/Righteous",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Righteous"
+    },
+    {
+      "family": "Rowdies",
+      "url": "https://fonts.google.com/specimen/Rowdies",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Rowdies"
+    },
+    {
+      "family": "Russo One",
+      "url": "https://fonts.google.com/specimen/Russo+One",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Russo+One"
+    },
+    {
+      "family": "Yeseva One",
+      "url": "https://fonts.google.com/specimen/Yeseva+One",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Yeseva+One"
+    },
+    {
+      "family": "Zilla Slab",
+      "url": "https://fonts.google.com/specimen/Zilla+Slab",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Zilla+Slab"
+    },
+    {
+      "family": "Josefin Sans",
+      "url": "https://fonts.google.com/specimen/Josefin+Sans",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Josefin+Sans"
+    },
+    {
+      "family": "Barrio",
+      "url": "https://fonts.google.com/specimen/Barrio",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Barrio"
+    },
+    {
+      "family": "Knewave",
+      "url": "https://fonts.google.com/specimen/Knewave",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Knewave"
+    },
+    {
+      "family": "Margarine",
+      "url": "https://fonts.google.com/specimen/Margarine",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Margarine"
+    },
+    {
+      "family": "Original Surfer",
+      "url": "https://fonts.google.com/specimen/Original+Surfer",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Original+Surfer"
+    },
+    {
+      "family": "Atma",
+      "url": "https://fonts.google.com/specimen/Atma",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Atma"
+    },
+    {
+      "family": "Pangolin",
+      "url": "https://fonts.google.com/specimen/Pangolin",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Pangolin"
+    },
+    {
+      "family": "Short Stack",
+      "url": "https://fonts.google.com/specimen/Short+Stack",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Short+Stack"
+    },
+    {
+      "family": "Itim",
+      "url": "https://fonts.google.com/specimen/Itim",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Itim"
+    },
+    {
+      "family": "Delius",
+      "url": "https://fonts.google.com/specimen/Delius",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Delius"
+    },
+    {
+      "family": "Delius Swash Caps",
+      "url": "https://fonts.google.com/specimen/Delius+Swash+Caps",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Delius+Swash+Caps"
+    },
+    {
+      "family": "Delius Unicase",
+      "url": "https://fonts.google.com/specimen/Delius+Unicase",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Delius+Unicase"
+    },
+    {
+      "family": "Mali",
+      "url": "https://fonts.google.com/specimen/Mali",
+      "status": 200,
+      "resolvedUrl": "https://fonts.google.com/specimen/Mali"
+    }
+  ]
+}

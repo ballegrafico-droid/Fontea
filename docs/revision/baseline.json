@@ -1,0 +1,9 @@
+{
+  "commit": "21f1e73a67fc69b1fef9811c33084effc3798fe5",
+  "coreSha256": "5764e43ad3201ba1e6619eebbf639ccd5bce151f2bfb65e4bdead9bb019ffb2b",
+  "catalogSha256": "0af4548ccef412c807986a58a6ebfa89fc2de9d083f4870255229a0c9295caeb",
+  "activeOcr": "spa+eng",
+  "baselineOcr": "eng+spa",
+  "matchingThreshold": 0.155,
+  "matchingGap": 0.025
+}

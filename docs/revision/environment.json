@@ -1,0 +1,11 @@
+{
+  "python": "3.12.14",
+  "Pillow": "12.3.0",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "node": "v24.19.0",
+  "chromium": "Chromium 154.0.8037.57 built on Debian GNU/Linux 13 (trixie)",
+  "tesseract": "tesseract 5.5.0",
+  "timing": "Same host, counterbalanced per image, OPENBLAS/OMP threads=1. Not an isolated VPS load test."
+}

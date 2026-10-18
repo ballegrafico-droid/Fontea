@@ -1,0 +1,331 @@
+{
+  "note": "Cold Python process per observation, corrected text, no OCR. Wall time inside identify; peak RSS includes imports. Not HTTP time or total Node/Nginx memory. Same fixed subset, alternating order.",
+  "rows": [
+    {
+      "ms": 2898.78486300222,
+      "peakRssBytes": 132874240,
+      "status": "candidates",
+      "top1": "inter-400",
+      "candidates": [
+        "inter-400"
+      ],
+      "comparedVariants": 66,
+      "engine": "before",
+      "sample": "old-inter-400-clean",
+      "group": "original",
+      "expected": "inter-400"
+    },
+    {
+      "ms": 2165.3379759991367,
+      "peakRssBytes": 129380352,
+      "status": "candidates",
+      "top1": "inter-400",
+      "candidates": [
+        "inter-400"
+      ],
+      "comparedVariants": 32,
+      "engine": "after",
+      "sample": "old-inter-400-clean",
+      "group": "original",
+      "expected": "inter-400"
+    },
+    {
+      "ms": 2217.122363999806,
+      "peakRssBytes": 123396096,
+      "status": "candidates",
+      "top1": "sourceserif4-400",
+      "candidates": [
+        "sourceserif4-400"
+      ],
+      "comparedVariants": 32,
+      "engine": "after",
+      "sample": "old-sourceserif4-400-clean",
+      "group": "original",
+      "expected": "sourceserif4-400"
+    },
+    {
+      "ms": 2970.5289349985833,
+      "peakRssBytes": 128892928,
+      "status": "candidates",
+      "top1": "sourceserif4-400",
+      "candidates": [
+        "sourceserif4-400"
+      ],
+      "comparedVariants": 66,
+      "engine": "before",
+      "sample": "old-sourceserif4-400-clean",
+      "group": "original",
+      "expected": "sourceserif4-400"
+    },
+    {
+      "ms": 2855.3172149986494,
+      "peakRssBytes": 125128704,
+      "status": "candidates",
+      "top1": "poppins-400-italic",
+      "candidates": [
+        "poppins-400-italic"
+      ],
+      "comparedVariants": 66,
+      "engine": "before",
+      "sample": "old-poppins-400-italic-clean",
+      "group": "original",
+      "expected": "poppins-400-italic"
+    },
+    {
+      "ms": 1752.022805998422,
+      "peakRssBytes": 117551104,
+      "status": "candidates",
+      "top1": "poppins-400-italic",
+      "candidates": [
+        "poppins-400-italic"
+      ],
+      "comparedVariants": 32,
+      "engine": "after",
+      "sample": "old-poppins-400-italic-clean",
+      "group": "original",
+      "expected": "poppins-400-italic"
+    },
+    {
+      "ms": 2078.255155996885,
+      "peakRssBytes": 124526592,
+      "status": "candidates",
+      "top1": "sourceserif4-700",
+      "candidates": [
+        "sourceserif4-700"
+      ],
+      "comparedVariants": 32,
+      "engine": "after",
+      "sample": "old-sourceserif4-700-clean",
+      "group": "original",
+      "expected": "sourceserif4-700"
+    },
+    {
+      "ms": 2661.6289039993717,
+      "peakRssBytes": 125743104,
+      "status": "candidates",
+      "top1": "sourceserif4-700",
+      "candidates": [
+        "sourceserif4-700"
+      ],
+      "comparedVariants": 66,
+      "engine": "before",
+      "sample": "old-sourceserif4-700-clean",
+      "group": "original",
+      "expected": "sourceserif4-700"
+    },
+    {
+      "ms": 2549.050483001338,
+      "peakRssBytes": 128991232,
+      "status": "unidentified",
+      "top1": "oswald-700",
+      "candidates": [],
+      "comparedVariants": 66,
+      "engine": "before",
+      "sample": "new-amaticsc-700-clean",
+      "group": "added",
+      "expected": "amaticsc-700"
+    },
+    {
+      "ms": 1372.253894001915,
+      "peakRssBytes": 108244992,
+      "status": "candidates",
+      "top1": "amaticsc-700",
+      "candidates": [
+        "amaticsc-700"
+      ],
+      "comparedVariants": 32,
+      "engine": "after",
+      "sample": "new-amaticsc-700-clean",
+      "group": "added",
+      "expected": "amaticsc-700"
+    },
+    {
+      "ms": 1389.267758000642,
+      "peakRssBytes": 107118592,
+      "status": "unidentified",
+      "top1": "handlee-400",
+      "candidates": [],
+      "comparedVariants": 32,
+      "engine": "after",
+      "sample": "new-handlee-400-clean",
+      "group": "added",
+      "expected": "handlee-400"
+    },
+    {
+      "ms": 2350.1454910001485,
+      "peakRssBytes": 122236928,
+      "status": "unidentified",
+      "top1": "bitter-700-italic",
+      "candidates": [],
+      "comparedVariants": 66,
+      "engine": "before",
+      "sample": "new-handlee-400-clean",
+      "group": "added",
+      "expected": "handlee-400"
+    },
+    {
+      "ms": 3215.3880369987746,
+      "peakRssBytes": 130154496,
+      "status": "unidentified",
+      "top1": "firasans-700",
+      "candidates": [],
+      "comparedVariants": 66,
+      "engine": "before",
+      "sample": "new-freckleface-400-clean",
+      "group": "added",
+      "expected": "freckleface-400"
+    },
+    {
+      "ms": 1823.0184970016126,
+      "peakRssBytes": 113385472,
+      "status": "candidates",
+      "top1": "freckleface-400",
+      "candidates": [
+        "freckleface-400"
+      ],
+      "comparedVariants": 32,
+      "engine": "after",
+      "sample": "new-freckleface-400-clean",
+      "group": "added",
+      "expected": "freckleface-400"
+    },
+    {
+      "ms": 1564.28290400072,
+      "peakRssBytes": 113102848,
+      "status": "candidates",
+      "top1": "josefinsans-700",
+      "candidates": [
+        "josefinsans-700"
+      ],
+      "comparedVariants": 32,
+      "engine": "after",
+      "sample": "new-josefinsans-700-clean",
+      "group": "added",
+      "expected": "josefinsans-700"
+    },
+    {
+      "ms": 2424.561656000151,
+      "peakRssBytes": 122576896,
+      "status": "unidentified",
+      "top1": "poppins-700",
+      "candidates": [],
+      "comparedVariants": 66,
+      "engine": "before",
+      "sample": "new-josefinsans-700-clean",
+      "group": "added",
+      "expected": "josefinsans-700"
+    },
+    {
+      "ms": 3010.79952299915,
+      "peakRssBytes": 131588096,
+      "status": "unidentified",
+      "top1": "inter-400",
+      "candidates": [],
+      "comparedVariants": 66,
+      "engine": "before",
+      "sample": "outside-0",
+      "group": "outside",
+      "expected": "OUTSIDE"
+    },
+    {
+      "ms": 1707.8025529990555,
+      "peakRssBytes": 119316480,
+      "status": "unidentified",
+      "top1": "inter-400",
+      "candidates": [],
+      "comparedVariants": 32,
+      "engine": "after",
+      "sample": "outside-0",
+      "group": "outside",
+      "expected": "OUTSIDE"
+    },
+    {
+      "ms": 1564.5824879975407,
+      "peakRssBytes": 115073024,
+      "status": "unidentified",
+      "top1": "dmserifdisplay-400",
+      "candidates": [],
+      "comparedVariants": 32,
+      "engine": "after",
+      "sample": "outside-7",
+      "group": "outside",
+      "expected": "OUTSIDE"
+    },
+    {
+      "ms": 2702.8058469986718,
+      "peakRssBytes": 130191360,
+      "status": "unidentified",
+      "top1": "sourceserif4-700",
+      "candidates": [],
+      "comparedVariants": 66,
+      "engine": "before",
+      "sample": "outside-7",
+      "group": "outside",
+      "expected": "OUTSIDE"
+    },
+    {
+      "ms": 1952.9898340006184,
+      "peakRssBytes": 130297856,
+      "status": "unidentified",
+      "top1": "librefranklin-400",
+      "candidates": [],
+      "comparedVariants": 66,
+      "engine": "before",
+      "sample": "multiline-0",
+      "group": "multiline",
+      "expected": "NEEDS_CROP"
+    },
+    {
+      "ms": 8.528657002898399,
+      "peakRssBytes": 52166656,
+      "status": "needs_crop",
+      "top1": null,
+      "candidates": [],
+      "comparedVariants": 0,
+      "engine": "after",
+      "sample": "multiline-0",
+      "group": "multiline",
+      "expected": "NEEDS_CROP"
+    },
+    {
+      "ms": 9.031835001223953,
+      "peakRssBytes": 54661120,
+      "status": "needs_crop",
+      "top1": null,
+      "candidates": [],
+      "comparedVariants": 0,
+      "engine": "after",
+      "sample": "multiline-7",
+      "group": "multiline",
+      "expected": "NEEDS_CROP"
+    },
+    {
+      "ms": 2676.420824998786,
+      "peakRssBytes": 146092032,
+      "status": "unidentified",
+      "top1": "librefranklin-700",
+      "candidates": [],
+      "comparedVariants": 66,
+      "engine": "before",
+      "sample": "multiline-7",
+      "group": "multiline",
+      "expected": "NEEDS_CROP"
+    }
+  ],
+  "summary": {
+    "before": {
+      "samples": 12,
+      "msMedian": 2689.613335998729,
+      "msMax": 3215.3880369987746,
+      "peakRssBytesMedian": 129572864.0,
+      "peakRssBytesMax": 146092032
+    },
+    "after": {
+      "samples": 12,
+      "msMedian": 1636.192520498298,
+      "msMax": 2217.122363999806,
+      "peakRssBytesMedian": 114229248.0,
+      "peakRssBytesMax": 129380352
+    }
+  }
+}

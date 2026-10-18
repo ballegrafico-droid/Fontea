@@ -1,0 +1,50 @@
+{
+  "name": "fontea",
+  "version": "0.6.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "node --env-file-if-exists=.env --import tsx --watch server/index.ts",
+    "dev:client": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build && tsc -p tsconfig.server.json",
+    "start": "node --env-file-if-exists=.env dist-server/index.js",
+    "test": "tsx --test tests/*.test.ts",
+    "evaluate": "python benchmarks/revision.py --generate --run",
+    "catalog:fetch": "python scripts/fetch_catalog.py",
+    "doctor": "python scripts/doctor.py",
+    "build:web": "tsc --noEmit && vite build --mode browser --outDir out && node scripts/browser-assets.mjs",
+    "preview:web": "vite preview --outDir out --host 127.0.0.1 --port 4173 --strictPort",
+    "catalog:expand": "python scripts/expand_catalog.py && python scripts/build_glyph_index.py",
+    "evaluate:revision04": "python benchmarks/revision04_samples.py && python benchmarks/revision04.py --base http://127.0.0.1:4174",
+    "build:site": "node scripts/build-hosting.mjs",
+    "preview:site": "node scripts/preview-hosting.mjs"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "lucide-react": "^0.468.0",
+    "multer": "^2.0.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-image-crop": "^11.0.10",
+    "tesseract.js": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.3",
+    "concurrently": "^9.2.1",
+    "prettier": "^3.9.10",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.7"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "src/App.tsx": "6a52b5a7d884ab3de741632f0d467a72cf45a5c090f2025ecfaa6238543876b9",
+  "src/ExternalFonts.tsx": "ba304d9db33fa30a714491fee443b18990e5ab3dd2d21df824f54561b8e9c4ac",
+  "src/browser/external.ts": "60f5586f89a313a4bd069bccd7611cca76251f9654bfe96612d074fd661226dc",
+  "src/browser/matcher.worker.ts": "369c3907da1b23796944f61eade5c17061d8a7c15e16045b3835fa4ae1911e80",
+  "server/external.ts": "d6f9128847635ef19408d744d0ecd2a5395707fd7e0fac14c95dd61b7d4d3b4e",
+  "server/providers/whatfontis.ts": "391ffd88921ff21521a9ce66c0516f49dc8d38144eda943104db573ae62b0895",
+  "server/providers/png-check.ts": "584ffc3db9a2eae5de95dda0479c0c39898030f3e80f036b68b7746ae05b43ff",
+  "server/providers/node-quota.ts": "9d436762a5033c3535749e9197fccd25e64ffe8668abd7c2722c4e570504fcc5",
+  "hosting/worker.ts": "ed993c948ca6ca797ad8027b04a0c31283914fa270005ff01a699f8afd853bf8",
+  "hosting/vite.config.ts": "0e4f0c700f35e00dae2e45d5310f826dfafb237b531b038fb4c0e95c7867978d",
+  ".openai/hosting.json": "988bd1d024b9168f9ced98f2f7b86648c3efae75360dd4b133b1c05a486e9f3a",
+  "drizzle/0000_external_quota.sql": "b457d4035151a44fd0dc1af0c5cc2696c2266d0f0ea334999fb023b4622aaf29"
+}
