@@ -1,0 +1,31 @@
+{
+  "url": "https://fontea-estudio-2026.icycalf17.chatgpt.site",
+  "runtimeSourceCommit": "0314ccb6733d9314e1663cf871b2144f8a847c83",
+  "checks": [
+    "Hosted real OCR, private TTF comparison, axes and overlay, no font/image upload in browser mode",
+    "13 private-worker cases including outside-catalog TTF and OTF, wrong file, insufficient samples and three multiline gates",
+    "320/390/768/1440 widths, crop/paste/search, links, cancellation, recrop one line from two fonts"
+  ],
+  "assets": [
+    {
+      "path": "/index.html",
+      "status": 200,
+      "sha256": "1fc09a519f07638acca40b8c4a94774238982b5debae2435bf4e5ca370655ad8"
+    },
+    {
+      "path": "/assets/index-DRNha-M1.js",
+      "status": 200,
+      "sha256": "90bad450506b3a3c5c9458f9250836272bdc77c7a7455895b4e7df4c7146492e"
+    },
+    {
+      "path": "/assets/index-DlxU7w0q.css",
+      "status": 200,
+      "sha256": "1e7d0ce555f7f6f9aca48f1224af71fcf1b3aec20620c0ef027e8ce8d7d21776"
+    },
+    {
+      "path": "/assets/matcher.worker-C96ga9qC.js",
+      "status": 200,
+      "sha256": "9b6d0c9510679b421d99302feb785083cbbea32c79b2ab99942d7ee345fcb38e"
+    }
+  ]
+}
