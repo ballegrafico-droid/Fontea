@@ -1,0 +1,291 @@
+{
+  "note": "Six additional variable-weight counterexamples. The true weight is absent in both catalogues, even when the family is covered. Any original proposal is an unresolved false variant proposal, despite the UI never claiming exact identity. No gate was tuned on these results.",
+  "rows": [
+    {
+      "status": "candidates",
+      "candidates": [
+        {
+          "id": "inter-400",
+          "family": "Inter",
+          "weight": 400,
+          "distance": 0.1536
+        }
+      ],
+      "alternatives": [
+        {
+          "id": "inter-700",
+          "distance": 0.2542
+        },
+        {
+          "id": "dmsans-700",
+          "distance": 0.2986
+        },
+        {
+          "id": "dmsans-400",
+          "distance": 0.3097
+        },
+        {
+          "id": "roboto-400",
+          "distance": 0.311
+        }
+      ],
+      "engine": "before",
+      "sample": "uncatalogued-inter-400-475",
+      "trueFamily": "Inter",
+      "trueWeight": 475,
+      "cataloguedVariant": false
+    },
+    {
+      "status": "unidentified",
+      "candidates": [],
+      "alternatives": [
+        {
+          "id": "inter-400",
+          "distance": 0.1536
+        }
+      ],
+      "engine": "after",
+      "sample": "uncatalogued-inter-400-475",
+      "trueFamily": "Inter",
+      "trueWeight": 475,
+      "cataloguedVariant": false
+    },
+    {
+      "status": "candidates",
+      "candidates": [
+        {
+          "id": "roboto-700",
+          "family": "Roboto",
+          "weight": 700,
+          "distance": 0.1087
+        }
+      ],
+      "alternatives": [
+        {
+          "id": "inter-700",
+          "distance": 0.2059
+        },
+        {
+          "id": "nunitosans-700",
+          "distance": 0.2075
+        },
+        {
+          "id": "roboto-400",
+          "distance": 0.2195
+        },
+        {
+          "id": "dmsans-700",
+          "distance": 0.2207
+        }
+      ],
+      "engine": "before",
+      "sample": "uncatalogued-roboto-700-625",
+      "trueFamily": "Roboto",
+      "trueWeight": 625,
+      "cataloguedVariant": false
+    },
+    {
+      "status": "candidates",
+      "candidates": [
+        {
+          "id": "roboto-700",
+          "family": "Roboto",
+          "weight": 700,
+          "distance": 0.1087
+        }
+      ],
+      "alternatives": [],
+      "engine": "after",
+      "sample": "uncatalogued-roboto-700-625",
+      "trueFamily": "Roboto",
+      "trueWeight": 625,
+      "cataloguedVariant": false
+    },
+    {
+      "status": "unidentified",
+      "candidates": [],
+      "alternatives": [
+        {
+          "id": "raleway-700",
+          "distance": 0.1853
+        },
+        {
+          "id": "opensans-400",
+          "distance": 0.2766
+        },
+        {
+          "id": "dmsans-700",
+          "distance": 0.295
+        },
+        {
+          "id": "roboto-400",
+          "distance": 0.3061
+        }
+      ],
+      "engine": "before",
+      "sample": "uncatalogued-raleway-400-575",
+      "trueFamily": "Raleway",
+      "trueWeight": 575,
+      "cataloguedVariant": false
+    },
+    {
+      "status": "unidentified",
+      "candidates": [],
+      "alternatives": [
+        {
+          "id": "raleway-700",
+          "distance": 0.1853
+        }
+      ],
+      "engine": "after",
+      "sample": "uncatalogued-raleway-400-575",
+      "trueFamily": "Raleway",
+      "trueWeight": 575,
+      "cataloguedVariant": false
+    },
+    {
+      "status": "unidentified",
+      "candidates": [],
+      "alternatives": [
+        {
+          "id": "opensans-700",
+          "distance": 0.2692
+        },
+        {
+          "id": "firasans-700-italic",
+          "distance": 0.2884
+        },
+        {
+          "id": "poppins-700-italic",
+          "distance": 0.2961
+        },
+        {
+          "id": "raleway-700-italic",
+          "distance": 0.3077
+        }
+      ],
+      "engine": "before",
+      "sample": "uncatalogued-fredoka-700-550",
+      "trueFamily": "Fredoka",
+      "trueWeight": 550,
+      "cataloguedVariant": false
+    },
+    {
+      "status": "unidentified",
+      "candidates": [],
+      "alternatives": [
+        {
+          "id": "fredoka-700",
+          "distance": 0.1932
+        }
+      ],
+      "engine": "after",
+      "sample": "uncatalogued-fredoka-700-550",
+      "trueFamily": "Fredoka",
+      "trueWeight": 550,
+      "cataloguedVariant": false
+    },
+    {
+      "status": "unidentified",
+      "candidates": [],
+      "alternatives": [
+        {
+          "id": "sourceserif4-700-italic",
+          "distance": 0.5015
+        },
+        {
+          "id": "oswald-700",
+          "distance": 0.5382
+        },
+        {
+          "id": "sourceserif4-700",
+          "distance": 0.539
+        },
+        {
+          "id": "bitter-700-italic",
+          "distance": 0.539
+        }
+      ],
+      "engine": "before",
+      "sample": "uncatalogued-caveat-400-575",
+      "trueFamily": "Caveat",
+      "trueWeight": 575,
+      "cataloguedVariant": false
+    },
+    {
+      "status": "unidentified",
+      "candidates": [],
+      "alternatives": [
+        {
+          "id": "caveat-700",
+          "distance": 0.1543
+        },
+        {
+          "id": "caveat-400",
+          "distance": 0.1699
+        }
+      ],
+      "engine": "after",
+      "sample": "uncatalogued-caveat-400-575",
+      "trueFamily": "Caveat",
+      "trueWeight": 575,
+      "cataloguedVariant": false
+    },
+    {
+      "status": "candidates",
+      "candidates": [
+        {
+          "id": "nunitosans-700",
+          "family": "Nunito Sans",
+          "weight": 700,
+          "distance": 0.0772
+        }
+      ],
+      "alternatives": [
+        {
+          "id": "lato-700",
+          "distance": 0.1859
+        },
+        {
+          "id": "inter-700",
+          "distance": 0.2364
+        },
+        {
+          "id": "nunitosans-700-italic",
+          "distance": 0.2406
+        },
+        {
+          "id": "roboto-700",
+          "distance": 0.2458
+        }
+      ],
+      "engine": "before",
+      "sample": "uncatalogued-nunitosans-700-675",
+      "trueFamily": "Nunito Sans",
+      "trueWeight": 675,
+      "cataloguedVariant": false
+    },
+    {
+      "status": "candidates",
+      "candidates": [
+        {
+          "id": "nunitosans-700",
+          "family": "Nunito Sans",
+          "weight": 700,
+          "distance": 0.0772
+        }
+      ],
+      "alternatives": [
+        {
+          "id": "lato-700",
+          "distance": 0.1859
+        }
+      ],
+      "engine": "after",
+      "sample": "uncatalogued-nunitosans-700-675",
+      "trueFamily": "Nunito Sans",
+      "trueWeight": 675,
+      "cataloguedVariant": false
+    }
+  ]
+}

@@ -1,13 +1,14 @@
 {
   "checks": [
     "No horizontal overflow at 320, 390, 768 and 1440 px",
-    "Catalogue dialog: seventeen real families, keyboard dismissal",
+    "Catalogue dialog: 117 real families, keyboard dismissal",
     "Crop rectangle responds to pointer dragging",
     "Desktop: labelled demo → full crop → real OCR → Inter Bold candidate → overlay → matching official/download links",
-    "No-identification state for insufficient distinct letters",
+    "No-identification state for insufficient distinct letters, without unhelpful alternatives",
     "390 px mobile: file upload, clipboard event, crop, OCR, comparison and results without overflow",
     "Explicit English priority re-reads the same crop and recovers the documented English control",
     "Real browser OCR cancelled during recognize; terminated Worker releases slot and next OCR succeeds",
+    "Two-family/two-line image requires recropping; editing flattened OCR cannot enable comparison",
     "Malformed upload shows understandable error"
   ],
   "javascriptErrors": [],

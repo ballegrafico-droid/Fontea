@@ -1765,3 +1765,60 @@ button.text-button {
 .ocr-controls .text-button {
   margin-left: auto;
 }
+.crop-guidance {
+  background: #f4f0dc;
+  border: 1px solid #c8b968;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+.crop-guidance strong {
+  font-size: 18px;
+  color: #302d17;
+}
+.crop-guidance p {
+  color: #55523e;
+  line-height: 1.55;
+  margin: 10px 0 16px;
+}
+.empty-alternatives {
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+  color: #686b60;
+}
+.empty-alternatives h3 {
+  color: #303328;
+  margin-bottom: 8px;
+}
+.catalog-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+.catalog-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+  min-width: 160px;
+  font-size: 12px;
+}
+.catalog-controls input,
+.catalog-controls select {
+  border: 1px solid #d3d5c9;
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  min-width: 0;
+  width: 100%;
+  font: inherit;
+  font-size: 14px;
+  color: #303328;
+}
+.variant-caution {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #61664f;
+  margin: 4px 0 16px;
+}

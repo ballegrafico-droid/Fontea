@@ -26,19 +26,17 @@ app.use(
     },
   }),
 );
-app.use(
-  "/api",
-  rateLimit({
-    windowMs: 60_000,
-    limit: 20,
-    standardHeaders: "draft-8",
-    legacyHeaders: false,
-    message: {
-      error:
-        "Has realizado muchas peticiones. Espera un minuto e inténtalo de nuevo.",
-    },
-  }),
-);
+export const apiLimiter = rateLimit({
+  windowMs: 60_000,
+  limit: 20,
+  standardHeaders: "draft-8",
+  legacyHeaders: false,
+  message: {
+    error:
+      "Has realizado muchas peticiones. Espera un minuto e inténtalo de nuevo.",
+  },
+});
+app.use("/api", apiLimiter);
 const manifest = JSON.parse(
   fs.readFileSync(path.join(root, "catalog/manifest.json"), "utf8"),
 );
@@ -52,6 +50,7 @@ app.get("/api/catalog", (_req, res) =>
       id: f.id,
       family: f.family,
       variant: f.variant,
+      tag: f.tag,
       officialUrl: f.officialUrl,
       license: f.license,
       licenseUrl: f.licenseUrl,
@@ -63,9 +62,9 @@ const upload = multer({
   limits: {
     fileSize: 8 * 1024 * 1024,
     files: 1,
-    fields: 1,
+    fields: 2,
     fieldSize: 1024,
-    parts: 2,
+    parts: 3,
   },
 });
 let busy = false;
@@ -143,6 +142,18 @@ app.post("/api/:operation", (req, res, next) => {
         .json({ error: "Elige español o inglés como idioma prioritario." });
       return;
     }
+    if (
+      req.params.operation === "identify" &&
+      req.body?.lineCount !== undefined &&
+      (!/^\d{1,3}$/.test(req.body.lineCount) ||
+        Number(req.body.lineCount) > 100)
+    ) {
+      release();
+      res
+        .status(400)
+        .json({ error: "La información de líneas del recorte no es válida." });
+      return;
+    }
     child = spawn(
       process.env.PYTHON_BIN || "python3",
       [path.join(root, "engine/worker.py")],
@@ -215,10 +226,19 @@ app.post("/api/:operation", (req, res, next) => {
         image: req.file.buffer.toString("base64"),
         text: req.body?.text,
         language: req.body?.language,
+        lineCount: Number(req.body?.lineCount) || 0,
       }),
     );
   });
 });
+app.use(
+  "/catalog-index",
+  express.static(path.join(root, "catalog/index"), {
+    immutable: true,
+    maxAge: "1y",
+    dotfiles: "deny",
+  }),
+);
 app.use(
   "/fonts",
   express.static(path.join(root, "catalog/fonts"), {

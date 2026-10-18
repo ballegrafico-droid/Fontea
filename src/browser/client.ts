@@ -5,7 +5,12 @@ export async function fetchCatalog() {
   if (!r.ok) throw Error("No se ha podido cargar el catálogo.");
   return r.json();
 }
-let activeJob: symbol | undefined;
+type ActiveJob = {
+  cancelled: boolean;
+  settled: Promise<void>;
+  release: () => void;
+};
+let activeJob: ActiveJob | undefined;
 async function preparedOCR(image: Blob) {
   const b = await createImageBitmap(image),
     scale = Math.min(1, 2200 / b.width, 500 / b.height);
@@ -78,15 +83,47 @@ export async function browserRequest<T>(
   text: string,
   signal: AbortSignal,
   language = "spa+eng",
+  lineCount = 0,
 ): Promise<T> {
+  if (activeJob?.cancelled) {
+    const previous = activeJob;
+    await new Promise<void>((resolve, reject) => {
+      if (signal.aborted) {
+        reject(new DOMException("Operación cancelada.", "AbortError"));
+        return;
+      }
+      const stop = () =>
+        reject(new DOMException("Operación cancelada.", "AbortError"));
+      const timer = setTimeout(
+        () =>
+          reject(
+            Error(
+              "El lector anterior aún se está cerrando. Espera unos segundos e inténtalo de nuevo.",
+            ),
+          ),
+        30000,
+      );
+      signal.addEventListener("abort", stop, { once: true });
+      previous.settled.then(() => {
+        clearTimeout(timer);
+        signal.removeEventListener("abort", stop);
+        signal.aborted ? stop() : resolve();
+      });
+    });
+  }
   if (activeJob)
     throw Error(
       "El analizador está ocupado. Espera unos segundos e inténtalo de nuevo.",
     );
   if (image.size > 8 * 1024 * 1024) throw Error("El recorte supera los 8 MB.");
-  const job = Symbol("analysis");
+  let resolveRelease = () => {};
+  const settled = new Promise<void>((resolve) => {
+    resolveRelease = resolve;
+  });
+  const job: ActiveJob = { cancelled: false, settled, release: resolveRelease };
   activeJob = job;
   const release = () => {
+    job.release();
     if (activeJob === job) activeJob = undefined;
   };
   let stopReason: Error | undefined;
@@ -98,6 +135,7 @@ export async function browserRequest<T>(
   let kill: () => void = () => {};
   let rejectAbort: (reason: unknown) => void = () => {};
   const abort = () => {
+    job.cancelled = true;
     stopReason = new DOMException("Operación cancelada.", "AbortError");
     kill();
     rejectAbort(stopReason);
@@ -107,6 +145,7 @@ export async function browserRequest<T>(
     rejectAbort = reject;
   });
   const timer = setTimeout(() => {
+    job.cancelled = true;
     stopReason = Error(
       "El análisis ha tardado demasiado. Prueba un recorte más corto.",
     );
@@ -143,7 +182,7 @@ export async function browserRequest<T>(
             ),
           );
         };
-        worker.postMessage({ image, text, catalog });
+        worker.postMessage({ image, text, catalog, lineCount });
       });
     }
     if (operation !== "ocr") throw Error("Operación no disponible.");

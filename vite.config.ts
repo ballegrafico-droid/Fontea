@@ -11,6 +11,6 @@ export default defineConfig(({ mode }) => {
       strictPort: true,
       proxy: { "/api": backend, "/fonts": backend, "/licenses": backend },
     },
-    preview: { host: "127.0.0.1", strictPort: true },
+    preview: { host: "127.0.0.1", strictPort: true, proxy: {} },
   };
 });

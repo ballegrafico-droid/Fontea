@@ -1,0 +1,10 @@
+{
+  "src/browser/matcher.worker.ts": "45b1b6ee206708fb2eec476d19bb97d4e590dc97027f6824376b23d51e16b995",
+  "src/browser/retrieval.ts": "7605790bf09a53e320ab68aaa322711baf16622f4466643cbfd3fe47cab6fbbb",
+  "src/browser/regions.ts": "40aa201ed4d902ed2a0fcab8c41d272e0760b9ac0aa571ef1477bc750c208782",
+  "engine/core.py": "66f8b6d60f9ab16143a04bb31fc4e06c0960654d02e63d92655fc3ea18931ad2",
+  "engine/retrieval.py": "2922828144038f60ca07900879d7302bab481b5993dfd64a4e982ca1524a281c",
+  "engine/regions.py": "80cab8892ecd6a4dd3c6a937bfc631ecdcbf3208694e7b9851afd75e24eb4a13",
+  "catalog/manifest.json": "dc6cff5b37b79bd5d60dcedc60c4c5ccf0148bc1bf1c49fc4b5cccf5da52a6d6",
+  "benchmarks/revision04_samples.py": "47509d51deab419dcbded798973ef6ed439d3eab55981b53815b87ea6ad6470e"
+}

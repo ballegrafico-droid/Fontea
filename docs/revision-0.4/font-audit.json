@@ -1,0 +1,992 @@
+[
+  {
+    "file": "inter-Inter[opsz,wght].ttf",
+    "status": 200,
+    "bytes": 876576,
+    "ok": true
+  },
+  {
+    "file": "inter-Inter-Italic[opsz,wght].ttf",
+    "status": 200,
+    "bytes": 906596,
+    "ok": true
+  },
+  {
+    "file": "roboto-Roboto[wdth,wght].ttf",
+    "status": 200,
+    "bytes": 488584,
+    "ok": true
+  },
+  {
+    "file": "roboto-Roboto-Italic[wdth,wght].ttf",
+    "status": 200,
+    "bytes": 530944,
+    "ok": true
+  },
+  {
+    "file": "opensans-OpenSans[wdth,wght].ttf",
+    "status": 200,
+    "bytes": 532636,
+    "ok": true
+  },
+  {
+    "file": "opensans-OpenSans-Italic[wdth,wght].ttf",
+    "status": 200,
+    "bytes": 583992,
+    "ok": true
+  },
+  {
+    "file": "montserrat-Montserrat[wght].ttf",
+    "status": 200,
+    "bytes": 744936,
+    "ok": true
+  },
+  {
+    "file": "montserrat-Montserrat-Italic[wght].ttf",
+    "status": 200,
+    "bytes": 762376,
+    "ok": true
+  },
+  {
+    "file": "lato-Lato-Regular.ttf",
+    "status": 200,
+    "bytes": 656568,
+    "ok": true
+  },
+  {
+    "file": "lato-Lato-Bold.ttf",
+    "status": 200,
+    "bytes": 656544,
+    "ok": true
+  },
+  {
+    "file": "lato-Lato-Italic.ttf",
+    "status": 200,
+    "bytes": 722900,
+    "ok": true
+  },
+  {
+    "file": "lato-Lato-BoldItalic.ttf",
+    "status": 200,
+    "bytes": 698364,
+    "ok": true
+  },
+  {
+    "file": "poppins-Poppins-Regular.ttf",
+    "status": 200,
+    "bytes": 160316,
+    "ok": true
+  },
+  {
+    "file": "poppins-Poppins-Bold.ttf",
+    "status": 200,
+    "bytes": 155996,
+    "ok": true
+  },
+  {
+    "file": "poppins-Poppins-Italic.ttf",
+    "status": 200,
+    "bytes": 184544,
+    "ok": true
+  },
+  {
+    "file": "poppins-Poppins-BoldItalic.ttf",
+    "status": 200,
+    "bytes": 179108,
+    "ok": true
+  },
+  {
+    "file": "lora-Lora[wght].ttf",
+    "status": 200,
+    "bytes": 212196,
+    "ok": true
+  },
+  {
+    "file": "lora-Lora-Italic[wght].ttf",
+    "status": 200,
+    "bytes": 221232,
+    "ok": true
+  },
+  {
+    "file": "playfairdisplay-PlayfairDisplay[wght].ttf",
+    "status": 200,
+    "bytes": 300724,
+    "ok": true
+  },
+  {
+    "file": "playfairdisplay-PlayfairDisplay-Italic[wght].ttf",
+    "status": 200,
+    "bytes": 278688,
+    "ok": true
+  },
+  {
+    "file": "sourceserif4-SourceSerif4[opsz,wght].ttf",
+    "status": 200,
+    "bytes": 1209508,
+    "ok": true
+  },
+  {
+    "file": "sourceserif4-SourceSerif4-Italic[opsz,wght].ttf",
+    "status": 200,
+    "bytes": 855432,
+    "ok": true
+  },
+  {
+    "file": "robotomono-RobotoMono[wght].ttf",
+    "status": 200,
+    "bytes": 183700,
+    "ok": true
+  },
+  {
+    "file": "robotomono-RobotoMono-Italic[wght].ttf",
+    "status": 200,
+    "bytes": 196792,
+    "ok": true
+  },
+  {
+    "file": "oswald-Oswald[wght].ttf",
+    "status": 200,
+    "bytes": 172088,
+    "ok": true
+  },
+  {
+    "file": "nunitosans-NunitoSans[YTLC,opsz,wdth,wght].ttf",
+    "status": 200,
+    "bytes": 571240,
+    "ok": true
+  },
+  {
+    "file": "nunitosans-NunitoSans-Italic[YTLC,opsz,wdth,wght].ttf",
+    "status": 200,
+    "bytes": 558412,
+    "ok": true
+  },
+  {
+    "file": "raleway-Raleway[wght].ttf",
+    "status": 200,
+    "bytes": 312352,
+    "ok": true
+  },
+  {
+    "file": "raleway-Raleway-Italic[wght].ttf",
+    "status": 200,
+    "bytes": 318476,
+    "ok": true
+  },
+  {
+    "file": "dmsans-DMSans[opsz,wght].ttf",
+    "status": 200,
+    "bytes": 240164,
+    "ok": true
+  },
+  {
+    "file": "dmsans-DMSans-Italic[opsz,wght].ttf",
+    "status": 200,
+    "bytes": 285040,
+    "ok": true
+  },
+  {
+    "file": "bitter-Bitter[wght].ttf",
+    "status": 200,
+    "bytes": 328636,
+    "ok": true
+  },
+  {
+    "file": "bitter-Bitter-Italic[wght].ttf",
+    "status": 200,
+    "bytes": 317652,
+    "ok": true
+  },
+  {
+    "file": "firasans-FiraSans-Regular.ttf",
+    "status": 200,
+    "bytes": 456996,
+    "ok": true
+  },
+  {
+    "file": "firasans-FiraSans-Bold.ttf",
+    "status": 200,
+    "bytes": 489720,
+    "ok": true
+  },
+  {
+    "file": "firasans-FiraSans-Italic.ttf",
+    "status": 200,
+    "bytes": 472396,
+    "ok": true
+  },
+  {
+    "file": "firasans-FiraSans-BoldItalic.ttf",
+    "status": 200,
+    "bytes": 506864,
+    "ok": true
+  },
+  {
+    "file": "librefranklin-LibreFranklin[wght].ttf",
+    "status": 200,
+    "bytes": 187436,
+    "ok": true
+  },
+  {
+    "file": "librefranklin-LibreFranklin-Italic[wght].ttf",
+    "status": 200,
+    "bytes": 206092,
+    "ok": true
+  },
+  {
+    "file": "amaticsc-AmaticSC-Bold.ttf",
+    "status": 200,
+    "bytes": 156180,
+    "ok": true
+  },
+  {
+    "file": "amaticsc-AmaticSC-Regular.ttf",
+    "status": 200,
+    "bytes": 151624,
+    "ok": true
+  },
+  {
+    "file": "architectsdaughter-ArchitectsDaughter-Regular.ttf",
+    "status": 200,
+    "bytes": 43352,
+    "ok": true
+  },
+  {
+    "file": "indieflower-IndieFlower-Regular.ttf",
+    "status": 200,
+    "bytes": 108196,
+    "ok": true
+  },
+  {
+    "file": "caveat-Caveat[wght].ttf",
+    "status": 200,
+    "bytes": 403648,
+    "ok": true
+  },
+  {
+    "file": "caveatbrush-CaveatBrush-Regular.ttf",
+    "status": 200,
+    "bytes": 295568,
+    "ok": true
+  },
+  {
+    "file": "dancingscript-DancingScript[wght].ttf",
+    "status": 200,
+    "bytes": 133636,
+    "ok": true
+  },
+  {
+    "file": "pacifico-Pacifico-Regular.ttf",
+    "status": 200,
+    "bytes": 329380,
+    "ok": true
+  },
+  {
+    "file": "sacramento-Sacramento-Regular.ttf",
+    "status": 200,
+    "bytes": 79696,
+    "ok": true
+  },
+  {
+    "file": "greatvibes-GreatVibes-Regular.ttf",
+    "status": 200,
+    "bytes": 457588,
+    "ok": true
+  },
+  {
+    "file": "allura-Allura-Regular.ttf",
+    "status": 200,
+    "bytes": 246632,
+    "ok": true
+  },
+  {
+    "file": "alexbrush-AlexBrush-Regular.ttf",
+    "status": 200,
+    "bytes": 116244,
+    "ok": true
+  },
+  {
+    "file": "kaushanscript-KaushanScript-Regular.ttf",
+    "status": 200,
+    "bytes": 210672,
+    "ok": true
+  },
+  {
+    "file": "marckscript-MarckScript-Regular.ttf",
+    "status": 200,
+    "bytes": 83664,
+    "ok": true
+  },
+  {
+    "file": "courgette-Courgette-Regular.ttf",
+    "status": 200,
+    "bytes": 122072,
+    "ok": true
+  },
+  {
+    "file": "cookie-Cookie-Regular.ttf",
+    "status": 200,
+    "bytes": 43800,
+    "ok": true
+  },
+  {
+    "file": "merienda-Merienda[wght].ttf",
+    "status": 200,
+    "bytes": 226360,
+    "ok": true
+  },
+  {
+    "file": "kalam-Kalam-Bold.ttf",
+    "status": 200,
+    "bytes": 460896,
+    "ok": true
+  },
+  {
+    "file": "kalam-Kalam-Regular.ttf",
+    "status": 200,
+    "bytes": 427360,
+    "ok": true
+  },
+  {
+    "file": "handlee-Handlee-Regular.ttf",
+    "status": 200,
+    "bytes": 39132,
+    "ok": true
+  },
+  {
+    "file": "patrickhand-PatrickHand-Regular.ttf",
+    "status": 200,
+    "bytes": 214772,
+    "ok": true
+  },
+  {
+    "file": "patrickhandsc-PatrickHandSC-Regular.ttf",
+    "status": 200,
+    "bytes": 167376,
+    "ok": true
+  },
+  {
+    "file": "coveredbyyourgrace-CoveredByYourGrace.ttf",
+    "status": 200,
+    "bytes": 57040,
+    "ok": true
+  },
+  {
+    "file": "shadowsintolight-ShadowsIntoLight.ttf",
+    "status": 200,
+    "bytes": 54304,
+    "ok": true
+  },
+  {
+    "file": "shadowsintolighttwo-ShadowsIntoLightTwo-Regular.ttf",
+    "status": 200,
+    "bytes": 39396,
+    "ok": true
+  },
+  {
+    "file": "neucha-Neucha.ttf",
+    "status": 200,
+    "bytes": 141432,
+    "ok": true
+  },
+  {
+    "file": "gloriahallelujah-GloriaHallelujah.ttf",
+    "status": 200,
+    "bytes": 59812,
+    "ok": true
+  },
+  {
+    "file": "gochihand-GochiHand-Regular.ttf",
+    "status": 200,
+    "bytes": 37352,
+    "ok": true
+  },
+  {
+    "file": "reeniebeanie-ReenieBeanie.ttf",
+    "status": 200,
+    "bytes": 147036,
+    "ok": true
+  },
+  {
+    "file": "waitingforthesunrise-WaitingfortheSunrise.ttf",
+    "status": 200,
+    "bytes": 59240,
+    "ok": true
+  },
+  {
+    "file": "fredoka-Fredoka[wdth,wght].ttf",
+    "status": 200,
+    "bytes": 159184,
+    "ok": true
+  },
+  {
+    "file": "baloo2-Baloo2[wght].ttf",
+    "status": 200,
+    "bytes": 683200,
+    "ok": true
+  },
+  {
+    "file": "bubblegumsans-BubblegumSans-Regular.ttf",
+    "status": 200,
+    "bytes": 38844,
+    "ok": true
+  },
+  {
+    "file": "lilitaone-LilitaOne-Regular.ttf",
+    "status": 200,
+    "bytes": 28092,
+    "ok": true
+  },
+  {
+    "file": "bangers-Bangers-Regular.ttf",
+    "status": 200,
+    "bytes": 93148,
+    "ok": true
+  },
+  {
+    "file": "balsamiqsans-BalsamiqSans-Bold.ttf",
+    "status": 200,
+    "bytes": 369860,
+    "ok": true
+  },
+  {
+    "file": "balsamiqsans-BalsamiqSans-BoldItalic.ttf",
+    "status": 200,
+    "bytes": 351304,
+    "ok": true
+  },
+  {
+    "file": "balsamiqsans-BalsamiqSans-Italic.ttf",
+    "status": 200,
+    "bytes": 379924,
+    "ok": true
+  },
+  {
+    "file": "balsamiqsans-BalsamiqSans-Regular.ttf",
+    "status": 200,
+    "bytes": 407528,
+    "ok": true
+  },
+  {
+    "file": "comicneue-ComicNeue-Bold.ttf",
+    "status": 200,
+    "bytes": 55716,
+    "ok": true
+  },
+  {
+    "file": "comicneue-ComicNeue-BoldItalic.ttf",
+    "status": 200,
+    "bytes": 55928,
+    "ok": true
+  },
+  {
+    "file": "comicneue-ComicNeue-Italic.ttf",
+    "status": 200,
+    "bytes": 54392,
+    "ok": true
+  },
+  {
+    "file": "comicneue-ComicNeue-Regular.ttf",
+    "status": 200,
+    "bytes": 57248,
+    "ok": true
+  },
+  {
+    "file": "boogaloo-Boogaloo-Regular.ttf",
+    "status": 200,
+    "bytes": 33960,
+    "ok": true
+  },
+  {
+    "file": "chango-Chango-Regular.ttf",
+    "status": 200,
+    "bytes": 40732,
+    "ok": true
+  },
+  {
+    "file": "coiny-Coiny-Regular.ttf",
+    "status": 200,
+    "bytes": 156520,
+    "ok": true
+  },
+  {
+    "file": "concertone-ConcertOne-Regular.ttf",
+    "status": 200,
+    "bytes": 71028,
+    "ok": true
+  },
+  {
+    "file": "creepster-Creepster-Regular.ttf",
+    "status": 200,
+    "bytes": 62724,
+    "ok": true
+  },
+  {
+    "file": "eater-Eater-Regular.ttf",
+    "status": 200,
+    "bytes": 83928,
+    "ok": true
+  },
+  {
+    "file": "fascinate-Fascinate-Regular.ttf",
+    "status": 200,
+    "bytes": 51900,
+    "ok": true
+  },
+  {
+    "file": "freckleface-FreckleFace-Regular.ttf",
+    "status": 200,
+    "bytes": 121088,
+    "ok": true
+  },
+  {
+    "file": "frederickathegreat-FrederickatheGreat-Regular.ttf",
+    "status": 200,
+    "bytes": 486016,
+    "ok": true
+  },
+  {
+    "file": "frijole-Frijole-Regular.ttf",
+    "status": 200,
+    "bytes": 227860,
+    "ok": true
+  },
+  {
+    "file": "gamjaflower-GamjaFlower-Regular.ttf",
+    "status": 200,
+    "bytes": 12615444,
+    "ok": true
+  },
+  {
+    "file": "grandstander-Grandstander-Italic[wght].ttf",
+    "status": 200,
+    "bytes": 185092,
+    "ok": true
+  },
+  {
+    "file": "grandstander-Grandstander[wght].ttf",
+    "status": 200,
+    "bytes": 183056,
+    "ok": true
+  },
+  {
+    "file": "hennypenny-HennyPenny-Regular.ttf",
+    "status": 200,
+    "bytes": 92596,
+    "ok": true
+  },
+  {
+    "file": "jollylodger-JollyLodger-Regular.ttf",
+    "status": 200,
+    "bytes": 39800,
+    "ok": true
+  },
+  {
+    "file": "lifesavers-LifeSavers-Bold.ttf",
+    "status": 200,
+    "bytes": 222528,
+    "ok": true
+  },
+  {
+    "file": "lifesavers-LifeSavers-Regular.ttf",
+    "status": 200,
+    "bytes": 217792,
+    "ok": true
+  },
+  {
+    "file": "londrinasolid-LondrinaSolid-Regular.ttf",
+    "status": 200,
+    "bytes": 92132,
+    "ok": true
+  },
+  {
+    "file": "londrinasketch-LondrinaSketch-Regular.ttf",
+    "status": 200,
+    "bytes": 332856,
+    "ok": true
+  },
+  {
+    "file": "loveyalikeasister-LoveYaLikeASister.ttf",
+    "status": 200,
+    "bytes": 271924,
+    "ok": true
+  },
+  {
+    "file": "macondo-Macondo-Regular.ttf",
+    "status": 200,
+    "bytes": 48776,
+    "ok": true
+  },
+  {
+    "file": "metalmania-MetalMania-Regular.ttf",
+    "status": 200,
+    "bytes": 254568,
+    "ok": true
+  },
+  {
+    "file": "miltonian-Miltonian-Regular.ttf",
+    "status": 200,
+    "bytes": 126804,
+    "ok": true
+  },
+  {
+    "file": "modak-Modak-Regular.ttf",
+    "status": 200,
+    "bytes": 650188,
+    "ok": true
+  },
+  {
+    "file": "monofett-Monofett-Regular.ttf",
+    "status": 200,
+    "bytes": 72328,
+    "ok": true
+  },
+  {
+    "file": "mysteryquest-MysteryQuest-Regular.ttf",
+    "status": 200,
+    "bytes": 42124,
+    "ok": true
+  },
+  {
+    "file": "ribeye-Ribeye-Regular.ttf",
+    "status": 200,
+    "bytes": 78492,
+    "ok": true
+  },
+  {
+    "file": "ribeyemarrow-RibeyeMarrow-Regular.ttf",
+    "status": 200,
+    "bytes": 84896,
+    "ok": true
+  },
+  {
+    "file": "risque-Risque-Regular.ttf",
+    "status": 200,
+    "bytes": 59392,
+    "ok": true
+  },
+  {
+    "file": "rugeboogie-RugeBoogie-Regular.ttf",
+    "status": 200,
+    "bytes": 329956,
+    "ok": true
+  },
+  {
+    "file": "rye-Rye-Regular.ttf",
+    "status": 200,
+    "bytes": 183244,
+    "ok": true
+  },
+  {
+    "file": "sancreek-Sancreek-Regular.ttf",
+    "status": 200,
+    "bytes": 93252,
+    "ok": true
+  },
+  {
+    "file": "sniglet-Sniglet-Regular.ttf",
+    "status": 200,
+    "bytes": 75212,
+    "ok": true
+  },
+  {
+    "file": "spicyrice-SpicyRice-Regular.ttf",
+    "status": 200,
+    "bytes": 67244,
+    "ok": true
+  },
+  {
+    "file": "titanone-TitanOne-Regular.ttf",
+    "status": 200,
+    "bytes": 55712,
+    "ok": true
+  },
+  {
+    "file": "wendyone-WendyOne-Regular.ttf",
+    "status": 200,
+    "bytes": 22772,
+    "ok": true
+  },
+  {
+    "file": "acme-Acme-Regular.ttf",
+    "status": 200,
+    "bytes": 23292,
+    "ok": true
+  },
+  {
+    "file": "abrilfatface-AbrilFatface-Regular.ttf",
+    "status": 200,
+    "bytes": 67364,
+    "ok": true
+  },
+  {
+    "file": "alfaslabone-AlfaSlabOne-Regular.ttf",
+    "status": 200,
+    "bytes": 97376,
+    "ok": true
+  },
+  {
+    "file": "anton-Anton-Regular.ttf",
+    "status": 200,
+    "bytes": 170812,
+    "ok": true
+  },
+  {
+    "file": "archivoblack-ArchivoBlack-Regular.ttf",
+    "status": 200,
+    "bytes": 90988,
+    "ok": true
+  },
+  {
+    "file": "bebasneue-BebasNeue-Regular.ttf",
+    "status": 200,
+    "bytes": 61400,
+    "ok": true
+  },
+  {
+    "file": "blackopsone-BlackOpsOne-Regular.ttf",
+    "status": 200,
+    "bytes": 166532,
+    "ok": true
+  },
+  {
+    "file": "bungee-Bungee-Regular.ttf",
+    "status": 200,
+    "bytes": 118996,
+    "ok": true
+  },
+  {
+    "file": "cabinsketch-CabinSketch-Bold.ttf",
+    "status": 200,
+    "bytes": 271012,
+    "ok": true
+  },
+  {
+    "file": "cabinsketch-CabinSketch-Regular.ttf",
+    "status": 200,
+    "bytes": 156232,
+    "ok": true
+  },
+  {
+    "file": "cormorantgaramond-CormorantGaramond-Italic[wght].ttf",
+    "status": 200,
+    "bytes": 715644,
+    "ok": true
+  },
+  {
+    "file": "cormorantgaramond-CormorantGaramond[wght].ttf",
+    "status": 200,
+    "bytes": 1195560,
+    "ok": true
+  },
+  {
+    "file": "dmserifdisplay-DMSerifDisplay-Italic.ttf",
+    "status": 200,
+    "bytes": 71208,
+    "ok": true
+  },
+  {
+    "file": "dmserifdisplay-DMSerifDisplay-Regular.ttf",
+    "status": 200,
+    "bytes": 76580,
+    "ok": true
+  },
+  {
+    "file": "lobster-Lobster-Regular.ttf",
+    "status": 200,
+    "bytes": 406076,
+    "ok": true
+  },
+  {
+    "file": "lobstertwo-LobsterTwo-Bold.ttf",
+    "status": 200,
+    "bytes": 241104,
+    "ok": true
+  },
+  {
+    "file": "lobstertwo-LobsterTwo-BoldItalic.ttf",
+    "status": 200,
+    "bytes": 235632,
+    "ok": true
+  },
+  {
+    "file": "lobstertwo-LobsterTwo-Italic.ttf",
+    "status": 200,
+    "bytes": 249896,
+    "ok": true
+  },
+  {
+    "file": "lobstertwo-LobsterTwo-Regular.ttf",
+    "status": 200,
+    "bytes": 254332,
+    "ok": true
+  },
+  {
+    "file": "righteous-Righteous-Regular.ttf",
+    "status": 200,
+    "bytes": 43104,
+    "ok": true
+  },
+  {
+    "file": "rowdies-Rowdies-Bold.ttf",
+    "status": 200,
+    "bytes": 76280,
+    "ok": true
+  },
+  {
+    "file": "rowdies-Rowdies-Regular.ttf",
+    "status": 200,
+    "bytes": 76352,
+    "ok": true
+  },
+  {
+    "file": "russoone-RussoOne-Regular.ttf",
+    "status": 200,
+    "bytes": 39124,
+    "ok": true
+  },
+  {
+    "file": "yesevaone-YesevaOne-Regular.ttf",
+    "status": 200,
+    "bytes": 108016,
+    "ok": true
+  },
+  {
+    "file": "zillaslab-ZillaSlab-Bold.ttf",
+    "status": 200,
+    "bytes": 273044,
+    "ok": true
+  },
+  {
+    "file": "zillaslab-ZillaSlab-BoldItalic.ttf",
+    "status": 200,
+    "bytes": 280236,
+    "ok": true
+  },
+  {
+    "file": "zillaslab-ZillaSlab-Italic.ttf",
+    "status": 200,
+    "bytes": 277732,
+    "ok": true
+  },
+  {
+    "file": "zillaslab-ZillaSlab-Regular.ttf",
+    "status": 200,
+    "bytes": 270104,
+    "ok": true
+  },
+  {
+    "file": "josefinsans-JosefinSans-Italic[wght].ttf",
+    "status": 200,
+    "bytes": 130984,
+    "ok": true
+  },
+  {
+    "file": "josefinsans-JosefinSans[wght].ttf",
+    "status": 200,
+    "bytes": 118588,
+    "ok": true
+  },
+  {
+    "file": "barrio-Barrio-Regular.ttf",
+    "status": 200,
+    "bytes": 225524,
+    "ok": true
+  },
+  {
+    "file": "knewave-Knewave-Regular.ttf",
+    "status": 200,
+    "bytes": 32460,
+    "ok": true
+  },
+  {
+    "file": "margarine-Margarine-Regular.ttf",
+    "status": 200,
+    "bytes": 148820,
+    "ok": true
+  },
+  {
+    "file": "originalsurfer-OriginalSurfer-Regular.ttf",
+    "status": 200,
+    "bytes": 57792,
+    "ok": true
+  },
+  {
+    "file": "atma-Atma-Bold.ttf",
+    "status": 200,
+    "bytes": 216512,
+    "ok": true
+  },
+  {
+    "file": "atma-Atma-Regular.ttf",
+    "status": 200,
+    "bytes": 220344,
+    "ok": true
+  },
+  {
+    "file": "pangolin-Pangolin-Regular.ttf",
+    "status": 200,
+    "bytes": 593408,
+    "ok": true
+  },
+  {
+    "file": "shortstack-ShortStack-Regular.ttf",
+    "status": 200,
+    "bytes": 68152,
+    "ok": true
+  },
+  {
+    "file": "itim-Itim-Regular.ttf",
+    "status": 200,
+    "bytes": 371384,
+    "ok": true
+  },
+  {
+    "file": "delius-Delius-Regular.ttf",
+    "status": 200,
+    "bytes": 77488,
+    "ok": true
+  },
+  {
+    "file": "deliusswashcaps-DeliusSwashCaps-Regular.ttf",
+    "status": 200,
+    "bytes": 63052,
+    "ok": true
+  },
+  {
+    "file": "deliusunicase-DeliusUnicase-Bold.ttf",
+    "status": 200,
+    "bytes": 36120,
+    "ok": true
+  },
+  {
+    "file": "deliusunicase-DeliusUnicase-Regular.ttf",
+    "status": 200,
+    "bytes": 32904,
+    "ok": true
+  },
+  {
+    "file": "mali-Mali-Bold.ttf",
+    "status": 200,
+    "bytes": 112176,
+    "ok": true
+  },
+  {
+    "file": "mali-Mali-BoldItalic.ttf",
+    "status": 200,
+    "bytes": 115724,
+    "ok": true
+  },
+  {
+    "file": "mali-Mali-Italic.ttf",
+    "status": 200,
+    "bytes": 115980,
+    "ok": true
+  },
+  {
+    "file": "mali-Mali-Regular.ttf",
+    "status": 200,
+    "bytes": 112756,
+    "ok": true
+  }
+]

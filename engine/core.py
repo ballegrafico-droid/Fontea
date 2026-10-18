@@ -6,6 +6,8 @@ from functools import lru_cache
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageOps, UnidentifiedImageError
 from scipy import ndimage
+from regions import line_bands
+from retrieval import retrieve
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CATALOG = json.loads((ROOT / "catalog/manifest.json").read_text())
@@ -101,29 +103,31 @@ def preprocess(im):
     if h < 6 or w < 8 or mask.mean() > 0.85:
         raise InputError("El recorte no contiene una línea de texto legible.")
     # Very large, dense blocks are not treated as lettering.
-    active = mask.sum(axis=1) > max(1, w * 0.008)
-    runs = ndimage.label(active)[1]
+    bands = line_bands(mask)
     return mask, {
         "inkHeight": h,
         "contrast": round(contrast),
-        "possibleMultiline": bool(runs > 3),
+        "possibleMultiline": len(bands) > 1,
+        "detectedLines": len(bands),
     }
 
 
 @lru_cache(maxsize=100)
-def load_font(font_id, size=96, optical=None):
+def load_font(font_id, size=96, optical=None, probe_weight=None):
     entry = next(f for f in CATALOG["fonts"] if f["id"] == font_id)
     font = ImageFont.truetype(str(ROOT / "catalog/fonts" / entry["file"]), size)
     if entry["axes"]:
         axes = entry["axes"].copy()
         if optical is not None and "opsz" in axes:
             axes["opsz"] = optical
+        if probe_weight is not None and "wght" in axes:
+            axes["wght"] = probe_weight
         font.set_variation_by_axes(list(axes.values()))
     return font
 
 
-def render(entry, text, tracking=0, size=96, optical=None):
-    font = load_font(entry["id"], size, optical)
+def render(entry, text, tracking=0, size=96, optical=None, probe_weight=None):
+    font = load_font(entry["id"], size, optical, probe_weight)
     box = font.getbbox(text)
     w = max(
         1,
@@ -249,7 +253,8 @@ def ocr(im, language=None):
     }
 
 
-def identify(im, text):
+def identify(im, text, line_count=0):
+    explicit_lines = "\n" in text or "\r" in text
     text = " ".join(text.split())
     if not 3 <= len(text) <= 80:
         raise InputError("Escribe entre 3 y 80 caracteres de una sola línea.")
@@ -258,6 +263,26 @@ def identify(im, text):
             "Esta versión compara texto del alfabeto latino. Evita emojis y otros alfabetos."
         )
     source, quality = preprocess(im)
+    if explicit_lines or line_count > 1 or quality["possibleMultiline"]:
+        return {
+            "status": "needs_crop",
+            "text": text,
+            "candidates": [],
+            "alternatives": [],
+            "reasons": [
+                "Se detectan varias líneas. Selecciona una sola línea y una sola tipografía. Analiza cada fragmento por separado."
+            ],
+            "quality": quality,
+            "normalizedSource": contour_png(normalized(source), (0, 144, 155)),
+            "catalog": {
+                "name": CATALOG["name"],
+                "families": len(set(f["family"] for f in CATALOG["fonts"])),
+                "variants": len(CATALOG["fonts"]),
+                "revision": CATALOG["revision"],
+            },
+            "search": {"shortlistedVariants": 0, "comparedVariants": 0},
+            "method": "No se ha comparado: el recorte requiere una sola línea.",
+        }
     distinct = len(set(c.lower() for c in text if c.isalpha()))
     reasons = []
     if distinct < 5:
@@ -274,8 +299,23 @@ def identify(im, text):
         reasons.append(
             "Puede haber varias líneas o ruido. Recorta una sola línea y una sola fuente."
         )
+    search = (
+        retrieve(source, text, CATALOG)
+        if not reasons
+        else {
+            "ids": [],
+            "indexedVariants": len(CATALOG["fonts"]),
+            "indexBytes": 0,
+            "coarseMs": 0,
+        }
+    )
+    selected = set(search["ids"])
+    search["selectedIds"] = search.pop("ids")
+    search["shortlistedVariants"] = len(selected)
     ranked = []
     for entry in CATALOG["fonts"]:
+        if entry["id"] not in selected:
+            continue
         best = None
         for optical in entry.get("opticalSizes", [None]):
             for tracking in (-0.8, 0, 0.8):
@@ -285,12 +325,56 @@ def identify(im, text):
                     best = (d, rendered, tracking)
         ranked.append((best[0], entry, best[1], best[2]))
     ranked.sort(key=lambda row: row[0])
+    search["top1"] = (
+        {
+            "id": ranked[0][1]["id"],
+            "family": ranked[0][1]["family"],
+            "distance": ranked[0][0],
+        }
+        if ranked
+        else None
+    )
+    search["variableWeightChecks"] = 0
+    if not reasons and ranked and ranked[0][0] <= 0.155:
+        best, entry = ranked[0][0], ranked[0][1]
+        supports_intermediate = "wght" in entry["axes"] and all(
+            any(
+                f["file"] == entry["file"] and f["weight"] == weight
+                for f in CATALOG["fonts"]
+            )
+            for weight in (400, 700)
+        )
+        if supports_intermediate:
+            probe_distance = math.inf
+            for weight in (450, 500, 550, 600, 650):
+                search["variableWeightChecks"] += 1
+                for optical in entry.get("opticalSizes", [None]):
+                    for tracking in (-0.8, 0, 0.8):
+                        probe_distance = min(
+                            probe_distance,
+                            distance(
+                                source,
+                                render(
+                                    entry,
+                                    text,
+                                    tracking,
+                                    optical=optical,
+                                    probe_weight=weight,
+                                ),
+                            ),
+                        )
+            if probe_distance + 0.025 < best:
+                reasons.append(
+                    "El mismo archivo encaja mejor con un peso no incluido entre las variantes del catálogo. No hay evidencia suficiente para proponer la variante original; se muestran solo alternativas."
+                )
     # Conservative retrieval gate, tuned only on the documented development split.
     # Passing it establishes a catalogue candidate, never proof of exact identity.
-    accepted = not reasons and ranked[0][0] <= 0.155
+    accepted = not reasons and bool(ranked) and ranked[0][0] <= 0.155
     candidates = []
     alternatives = []
     for d, entry, rendered, tracking in ranked[:6]:
+        if d > 0.20:
+            continue
         public = {
             k: v
             for k, v in entry.items()
@@ -313,7 +397,12 @@ def identify(im, text):
         )
         if accepted and d <= 0.155 and d - ranked[0][0] < 0.025 and len(candidates) < 3:
             candidates.append(public)
-        else:
+        elif abs(
+            math.log(
+                (source.shape[1] / source.shape[0])
+                / (rendered.shape[1] / rendered.shape[0])
+            )
+        ) <= math.log(1.2):
             alternatives.append(public)
     if not accepted:
         reasons.append(
@@ -334,11 +423,12 @@ def identify(im, text):
         "quality": quality,
         "text": text,
         "normalizedSource": contour_png(normalized(source), (0, 144, 155)),
+        "search": {**search, "comparedVariants": len(ranked)},
         "catalog": {
             "name": CATALOG["name"],
             "families": len(set(f["family"] for f in CATALOG["fonts"])),
             "variants": len(CATALOG["fonts"]),
             "revision": CATALOG["revision"],
         },
-        "method": "Distancia de contornos, superposición y proporciones. Menor es más parecido; no es una probabilidad. Umbral experimental: 0,155.",
+        "method": "Búsqueda inicial con índice de glifos y comparación detallada de hasta 32 variantes reales. Distancia de contornos: no es una probabilidad. Umbral de candidatas 0,155; alternativas solo hasta 0,20. Una selección puede omitir la fuente correcta.",
     }

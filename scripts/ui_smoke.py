@@ -51,10 +51,16 @@ with sync_playwright() as p:
     )
     page.get_by_role("button", name="El catálogo", exact=True).click()
     expect(page.get_by_role("dialog")).to_be_visible()
-    expect(page.locator(".catalog-list>div")).to_have_count(17)
+    expect(page.locator(".catalog-list>div")).to_have_count(117)
+    page.get_by_placeholder("Nombre de la familia").fill("Fredoka")
+    expect(page.locator(".catalog-list>div")).to_have_count(1)
+    page.get_by_placeholder("Nombre de la familia").fill("")
+    page.locator(".catalog-controls select").select_option("manuscrita")
+    assert page.locator(".catalog-list>div").count() >= 20
+    page.locator(".catalog-controls select").select_option("")
     page.keyboard.press("Escape")
     expect(page.get_by_role("dialog")).not_to_be_visible()
-    checks.append("Catalogue dialog: seventeen real families, keyboard dismissal")
+    checks.append("Catalogue dialog: 117 real families, keyboard dismissal")
     page.get_by_role(
         "button", name="Prueba un ejemplo de demostración", exact=False
     ).click()
@@ -139,7 +145,12 @@ with sync_playwright() as p:
     expect(
         page.get_by_role("heading", name="Candidatos a la fuente original")
     ).not_to_be_visible()
-    checks.append("No-identification state for insufficient distinct letters")
+    expect(
+        page.get_by_role("heading", name="No encontramos alternativas útiles.")
+    ).to_be_visible()
+    checks.append(
+        "No-identification state for insufficient distinct letters, without unhelpful alternatives"
+    )
     page.goto(BASE)
     page.set_viewport_size({"width": 390, "height": 844})
     page.evaluate("document.fonts.ready")
@@ -238,6 +249,26 @@ with sync_playwright() as p:
         checks.append(
             "Real browser OCR cancelled during recognize; terminated Worker releases slot and next OCR succeeds"
         )
+    # A real two-family image must block search even after editing flattened text.
+    page.locator("input[type=file]").set_input_files(
+        str(ROOT / "public/ejemplos/demostracion-varias-tipografias.png")
+    )
+    page.get_by_role("button", name="Seleccionar imagen completa").click()
+    page.get_by_role("button", name="Leer el recorte").click()
+    expect(page.get_by_text("Selecciona una sola línea.", exact=True)).to_be_visible(
+        timeout=25000
+    )
+    expect(page.get_by_role("button", name="Buscar en el catálogo")).to_be_disabled()
+    page.locator("#ocr-text").fill("Juegos en el campo Una aventura entre letras")
+    expect(page.get_by_role("button", name="Buscar en el catálogo")).to_be_disabled()
+    page.locator("#workspace").screenshot(
+        path=str(ROOT / "docs/revision-0.4/multiline-mobile.png")
+    )
+    page.get_by_role("button", name="Seleccionar una línea", exact=True).click()
+    expect(page.get_by_role("button", name="Leer el recorte")).to_be_visible()
+    checks.append(
+        "Two-family/two-line image requires recropping; editing flattened OCR cannot enable comparison"
+    )
     # No silent fixture fallback on a malformed upload.
     page.locator("input[type=file]").set_input_files(
         {"name": "bad.png", "mimeType": "image/png", "buffer": b"not an image"}

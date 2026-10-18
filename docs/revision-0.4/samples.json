@@ -1,0 +1,922 @@
+[
+  {
+    "sample": "old-inter-400-clean",
+    "text": "Bright farms & gentle stories 692",
+    "expected": "inter-400",
+    "family": "Inter",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "f576123eeb9ef1a915bb3e19136815103d6d6ce9e057d95c8b836ec4d344840c"
+  },
+  {
+    "sample": "old-roboto-400-degraded",
+    "text": "Árboles, sueños y juegos 692",
+    "expected": "roboto-400",
+    "family": "Roboto",
+    "group": "original",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "609b000259df28bd8ef0bc7632ff88ff7afc48fbcbb607f1931c33ede800c1d2"
+  },
+  {
+    "sample": "old-opensans-400-clean",
+    "text": "Bright farms & gentle stories 692",
+    "expected": "opensans-400",
+    "family": "Open Sans",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "2d19563247d0dc566ed7de37c60a4e2aa4146f2c0be4455b8917bfe7260faae1"
+  },
+  {
+    "sample": "old-montserrat-400-clean",
+    "text": "Árboles, sueños y juegos 692",
+    "expected": "montserrat-400",
+    "family": "Montserrat",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "a09fb8af870c58e85b77a7e8c09058b183e9ffb4476bc69507ea6e746ba9a5d0"
+  },
+  {
+    "sample": "old-lato-400-degraded",
+    "text": "Bright farms & gentle stories 692",
+    "expected": "lato-400",
+    "family": "Lato",
+    "group": "original",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "2e6b000e1c7018237fc6ae309e83135972ae10f551b151deedb0d7ba7765b13c"
+  },
+  {
+    "sample": "old-poppins-400-clean",
+    "text": "Árboles, sueños y juegos 692",
+    "expected": "poppins-400",
+    "family": "Poppins",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "ecd7b6e41e3d1ea50b8dfad241841e61fb170eb9a1a7c9d99eae2b9589162c36"
+  },
+  {
+    "sample": "old-lora-400-clean",
+    "text": "Bright farms & gentle stories 692",
+    "expected": "lora-400",
+    "family": "Lora",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "fd54bbee33eb044d5fdc628001bc180a9c801b002150657a350abb7c8ce35b0f"
+  },
+  {
+    "sample": "old-playfairdisplay-400-degraded",
+    "text": "Árboles, sueños y juegos 692",
+    "expected": "playfairdisplay-400",
+    "family": "Playfair Display",
+    "group": "original",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "47cf910409e3285d56fed9c2fe76264c07f8673fdcf2b4967d6d5b1d45d344cc"
+  },
+  {
+    "sample": "old-sourceserif4-400-clean",
+    "text": "Bright farms & gentle stories 692",
+    "expected": "sourceserif4-400",
+    "family": "Source Serif 4",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "72b67f49dfb709a9ff3ee80b9da2eab6fee6e60ec7d6e7fc4fad9cca8ac0f974"
+  },
+  {
+    "sample": "old-robotomono-400-clean",
+    "text": "Árboles, sueños y juegos 692",
+    "expected": "robotomono-400",
+    "family": "Roboto Mono",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "b80388abcd08a74b962a3e3ea98d3638f5cc8ac244e3e4daaf2bc74efb2b9165"
+  },
+  {
+    "sample": "old-oswald-400-degraded",
+    "text": "Bright farms & gentle stories 692",
+    "expected": "oswald-400",
+    "family": "Oswald",
+    "group": "original",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "ed8ca04be8fdad29115c85ccd3c9ec552a7cee765768cf8c65cc293e0c8536cf"
+  },
+  {
+    "sample": "old-nunitosans-400-clean",
+    "text": "Árboles, sueños y juegos 692",
+    "expected": "nunitosans-400",
+    "family": "Nunito Sans",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "c3801f28fa961eac03d9e1df2cb486eac6de880eb8d157c61ad6f2dec22e79dc"
+  },
+  {
+    "sample": "old-raleway-400-clean",
+    "text": "Bright farms & gentle stories 692",
+    "expected": "raleway-400",
+    "family": "Raleway",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "0dcdc81fa5da56ab3f003587ca06a8c925818aa3ed7bb3994856b3875123832f"
+  },
+  {
+    "sample": "old-dmsans-400-degraded",
+    "text": "Árboles, sueños y juegos 692",
+    "expected": "dmsans-400",
+    "family": "DM Sans",
+    "group": "original",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "00b5a69e1a024ce20b33ff749d0e370c42153f39e7f61778b5552ab1e1b4ac0a"
+  },
+  {
+    "sample": "old-bitter-400-clean",
+    "text": "Bright farms & gentle stories 692",
+    "expected": "bitter-400",
+    "family": "Bitter",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "be949079d6ae854af664e1b4650454c3e799d837d75d1bd207d00931b7ad6de3"
+  },
+  {
+    "sample": "old-firasans-400-clean",
+    "text": "Árboles, sueños y juegos 692",
+    "expected": "firasans-400",
+    "family": "Fira Sans",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "4a7f5262c14f41ccbcbbfeadadfd66d3559fa58977a9358296a6e4415160df23"
+  },
+  {
+    "sample": "old-librefranklin-400-degraded",
+    "text": "Bright farms & gentle stories 692",
+    "expected": "librefranklin-400",
+    "family": "Libre Franklin",
+    "group": "original",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "7e24e5669024e06979984d5a5e787944008bb73e182eca7800bee890f827cbda"
+  },
+  {
+    "sample": "old-inter-700-clean",
+    "text": "Árboles, sueños y juegos 692",
+    "expected": "inter-700",
+    "family": "Inter",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "969676a5728763826d72874637d55d90d32d6d18d61311df2fd2e0d1ae54cc00"
+  },
+  {
+    "sample": "old-roboto-400-italic-clean",
+    "text": "Bright farms & gentle stories 692",
+    "expected": "roboto-400-italic",
+    "family": "Roboto",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "0477ec48ca16f783d044e88e5bc74bbe1af10728ec2326b5179b1b814935b440"
+  },
+  {
+    "sample": "old-opensans-700-italic-degraded",
+    "text": "Árboles, sueños y juegos 692",
+    "expected": "opensans-700-italic",
+    "family": "Open Sans",
+    "group": "original",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "8a1a22a68e64d6c6e45603a9b69c7da6f5959049e1c167ab3696e75e4987cc46"
+  },
+  {
+    "sample": "old-lato-700-clean",
+    "text": "Bright farms & gentle stories 692",
+    "expected": "lato-700",
+    "family": "Lato",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "b744b007416bfdd232c9382b95aadcfdf55d19157f20a3e2846e1017ca813b3e"
+  },
+  {
+    "sample": "old-poppins-400-italic-clean",
+    "text": "Árboles, sueños y juegos 692",
+    "expected": "poppins-400-italic",
+    "family": "Poppins",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "585be899445d90651f31cedc1166a6fc009f2446a88b3e13dd6c0ac6a16bb555"
+  },
+  {
+    "sample": "old-lora-700-italic-degraded",
+    "text": "Bright farms & gentle stories 692",
+    "expected": "lora-700-italic",
+    "family": "Lora",
+    "group": "original",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "62ce73734a29edf143db9179bc7fbd5a041b64835089f563606d33efc35adf0a"
+  },
+  {
+    "sample": "old-sourceserif4-700-clean",
+    "text": "Árboles, sueños y juegos 692",
+    "expected": "sourceserif4-700",
+    "family": "Source Serif 4",
+    "group": "original",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "1c492ab4d6a09139f54a10e0cfe7875d7043cc97caeafc47335ccf1a640822e7"
+  },
+  {
+    "sample": "new-amaticsc-700-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "amaticsc-700",
+    "family": "Amatic SC",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "80d615ce80427fb041fd5277447dc75f86845f3ee7442d58e4e9ca51ae3e6d75"
+  },
+  {
+    "sample": "new-indieflower-400-degraded",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "indieflower-400",
+    "family": "Indie Flower",
+    "group": "added",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "f35fb38cd320e6e77115921065100277eaf6df2684ceeb9b8af088bad1f541ce"
+  },
+  {
+    "sample": "new-dancingscript-400-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "dancingscript-400",
+    "family": "Dancing Script",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "5d873b2034a08359a3f28949a0934347418c9e1563d01f2eee23f974ad18b713"
+  },
+  {
+    "sample": "new-sacramento-400-clean",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "sacramento-400",
+    "family": "Sacramento",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "a80b73e5f003b84b9d83e3fadcd00d12da0313b77e2b6331c48843e438d47aed"
+  },
+  {
+    "sample": "new-alexbrush-400-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "alexbrush-400",
+    "family": "Alex Brush",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "e4be6540a2c871ddd0207d36ca9b07d901fde5166b7875ad01308d7ef769eeb2"
+  },
+  {
+    "sample": "new-marckscript-400-degraded",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "marckscript-400",
+    "family": "Marck Script",
+    "group": "added",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "f42d53798744ef044474281f234d57f07a0fd4d7b65cffaec56515205c2056a3"
+  },
+  {
+    "sample": "new-merienda-400-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "merienda-400",
+    "family": "Merienda",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "0a180b16df220eaae9b2c112d7bc63304fe3243ff6ded7f70d1f0b79f1a73ee7"
+  },
+  {
+    "sample": "new-handlee-400-clean",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "handlee-400",
+    "family": "Handlee",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "54e4320dc08249852216eda71e3af182f6bc05bfa8e49159335aca0f4ba8ba7c"
+  },
+  {
+    "sample": "new-coveredbyyourgrace-400-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "coveredbyyourgrace-400",
+    "family": "Covered By Your Grace",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "042fe95830143855441cbc06d577595f10262e008d3b3953ee2b1b52833d226e"
+  },
+  {
+    "sample": "new-shadowsintolighttwo-400-degraded",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "shadowsintolighttwo-400",
+    "family": "Shadows Into Light Two",
+    "group": "added",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "194daf0e81439b3f745f053762feb44922a1b76ec1ae310b41ccba7ad487851a"
+  },
+  {
+    "sample": "new-gochihand-400-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "gochihand-400",
+    "family": "Gochi Hand",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "208c72c7f54e5eac788feb496979f278aa6e1c0dd9d55db58fc60cd51b62a3cd"
+  },
+  {
+    "sample": "new-waitingforthesunrise-300-clean",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "waitingforthesunrise-300",
+    "family": "Waiting for the Sunrise",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "6694c33fcb003d2de33cfefa99284d1a275d816ffa924f9ad1f567cfa1ff3411"
+  },
+  {
+    "sample": "new-fredoka-400-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "fredoka-400",
+    "family": "Fredoka",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "3921499db24f42d269d0bb609d1ef25b76ea48c08ca3cb87d35d3fb1af729129"
+  },
+  {
+    "sample": "new-bangers-400-degraded",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "bangers-400",
+    "family": "Bangers",
+    "group": "added",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "d5d781399826d61e14f3f4cf91c128f12ad5cf4433bab4305bbafec001fbf9e4"
+  },
+  {
+    "sample": "new-boogaloo-400-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "boogaloo-400",
+    "family": "Boogaloo",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "0e179786d32e5dbdfe79ca45616b159bceebf27cf91ee830a40ba13d27c750d1"
+  },
+  {
+    "sample": "new-creepster-400-clean",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "creepster-400",
+    "family": "Creepster",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "9a570a6ae1b8e8dd5abddcb0413728e7c45892139801c52217dc949a5e73e877"
+  },
+  {
+    "sample": "new-freckleface-400-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "freckleface-400",
+    "family": "Freckle Face",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "500975afb2f10cc27e1e69e2e792975186b91e5256dbd16f45784bcf29b93bd8"
+  },
+  {
+    "sample": "new-grandstander-700-italic-degraded",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "grandstander-700-italic",
+    "family": "Grandstander",
+    "group": "added",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "dd8173cdb81d591c790bff5fa9c0cb953cf36c8c4bf85759b7876a19acf73287"
+  },
+  {
+    "sample": "new-lifesavers-700-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "lifesavers-700",
+    "family": "Life Savers",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "a95984e598b94e1d944074b40a32dea49adda20e4db9b7979e764d6168cec6e0"
+  },
+  {
+    "sample": "new-macondo-400-clean",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "macondo-400",
+    "family": "Macondo",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "d0bfbdb2fa3ed4317d6ce6c22c93fc7611e18cd5e0fe9110eec8578e0f8b3289"
+  },
+  {
+    "sample": "new-modak-400-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "modak-400",
+    "family": "Modak",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "5ecda38a8a9de7dd8dbc1ca72949dc42f8ebd7f3fe5da03b6640708114cdb917"
+  },
+  {
+    "sample": "new-ribeyemarrow-400-degraded",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "ribeyemarrow-400",
+    "family": "Ribeye Marrow",
+    "group": "added",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "4dc2d04365675caaf03c45e9b81c7129ba1a4c2882198204e19fa3df12fedd16"
+  },
+  {
+    "sample": "new-rye-400-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "rye-400",
+    "family": "Rye",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "aef810b6efac080e2d0238fe7fc8a743abc8e805187158027caab773577af482"
+  },
+  {
+    "sample": "new-titanone-400-clean",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "titanone-400",
+    "family": "Titan One",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "776e2d122e70259c861b0ce8e50db50de14732a85d73e6707d8c823d2a3a6a71"
+  },
+  {
+    "sample": "new-barrio-400-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "barrio-400",
+    "family": "Barrio",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "d30c4d1fdbf2452bae137fb8b869ece44a7ddb328a7b57cbcf560ae3e36a2bf8"
+  },
+  {
+    "sample": "new-atma-400-degraded",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "atma-400",
+    "family": "Atma",
+    "group": "added",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "ddee1b29d908c46a7e6c17b5a6fc4abed5ce9b32f0dd265fabae79cfd8debb3b"
+  },
+  {
+    "sample": "new-itim-400-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "itim-400",
+    "family": "Itim",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "2ac37075c512fcd570c945ab78c2cee251fc52ba41854cfc4b5537851c749327"
+  },
+  {
+    "sample": "new-mali-400-clean",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "mali-400",
+    "family": "Mali",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "c73839760eaeee0b3d6d67b4624495822c2eee28e2aadc4ee709a24a65431dce"
+  },
+  {
+    "sample": "new-abrilfatface-400-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "abrilfatface-400",
+    "family": "Abril Fatface",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "bada30c7f082dea3107b069eaeddaec67283484d5416b86f059630cfae1ca807"
+  },
+  {
+    "sample": "new-bungee-400-degraded",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "bungee-400",
+    "family": "Bungee",
+    "group": "added",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "90856a2597b652a14cf926af8bf64caac580922cde71bb52170646c5206bd131"
+  },
+  {
+    "sample": "new-lobstertwo-400-italic-clean",
+    "text": "Playful letters & forest tales 481",
+    "expected": "lobstertwo-400-italic",
+    "family": "Lobster Two",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "bdd43ae30065e02216cfad1be96c240bc2d60a4360c66314f9b66e63748d6088"
+  },
+  {
+    "sample": "new-josefinsans-700-clean",
+    "text": "Fiesta, globos y jardín 481",
+    "expected": "josefinsans-700",
+    "family": "Josefin Sans",
+    "group": "added",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "7084751b3960616111724e7be40f1e71b7ea7ab3d24db2ad67b7be0073299c24"
+  },
+  {
+    "sample": "outside-0",
+    "text": "Bosque, lápices y canciones 746",
+    "expected": "OUTSIDE",
+    "family": "Liberation Sans",
+    "group": "outside",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "61078366bbaa1c617d637c714d4e76e340d586ed45e4c53676477cde91287ce3"
+  },
+  {
+    "sample": "outside-1",
+    "text": "Bosque, lápices y canciones 746",
+    "expected": "OUTSIDE",
+    "family": "Liberation Serif",
+    "group": "outside",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "28c047ba9e8c0c7c89f12ddb7c14db0858c9ae257ae9996b10db00345b78eee6"
+  },
+  {
+    "sample": "outside-2",
+    "text": "Bosque, lápices y canciones 746",
+    "expected": "OUTSIDE",
+    "family": "Nimbus Sans",
+    "group": "outside",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "b577264668957d584754e8bcae66ba49fdf88d687adede93b51bb00f031e4946"
+  },
+  {
+    "sample": "outside-3",
+    "text": "Bosque, lápices y canciones 746",
+    "expected": "OUTSIDE",
+    "family": "Nimbus Roman",
+    "group": "outside",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "287bc3ced5661e1e6b8160bb9a29873b3b8e2c5f331570d949634ed0117f0445"
+  },
+  {
+    "sample": "outside-4",
+    "text": "Bosque, lápices y canciones 746",
+    "expected": "OUTSIDE",
+    "family": "URW Gothic",
+    "group": "outside",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "1e9948f8ce8723429ca1e97846fd3b13b67d8aa8b2296ea4dacd69906e7d3a6a"
+  },
+  {
+    "sample": "outside-5",
+    "text": "Bosque, lápices y canciones 746",
+    "expected": "OUTSIDE",
+    "family": "P052",
+    "group": "outside",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "845f9b12c9ccc0aac5b3bef09efc860deab936d70820135385da60b4a6fd3760"
+  },
+  {
+    "sample": "outside-6",
+    "text": "Bosque, lápices y canciones 746",
+    "expected": "OUTSIDE",
+    "family": "Liberation Sans",
+    "group": "outside",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "00ef5009e2e9dca5af19bfe0ed2864a8591679fee00611186c67f05a35b1e379"
+  },
+  {
+    "sample": "outside-7",
+    "text": "Bosque, lápices y canciones 746",
+    "expected": "OUTSIDE",
+    "family": "Liberation Serif",
+    "group": "outside",
+    "kind": "degraded",
+    "split": "evaluation",
+    "sha256": "f39eb878120163418f81863761c61b25edf47b347d6b3df4f94a5a1d89cef311"
+  },
+  {
+    "sample": "multiline-0",
+    "text": "Nubes de colores Fiesta en el campo",
+    "expected": "NEEDS_CROP",
+    "family": "Inter",
+    "group": "multiline",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "08bd88241b062821378b30a314c858f1aa7b44fb44286467a6193d9e1dbf1911"
+  },
+  {
+    "sample": "multiline-1",
+    "text": "Nubes de colores Fiesta en el campo",
+    "expected": "NEEDS_CROP",
+    "family": "MIXED",
+    "group": "multiline",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "07487bfedb2d567224b7c69e8bc8df523f896dc2517a0782f9692bdccd81f94b"
+  },
+  {
+    "sample": "multiline-2",
+    "text": "Nubes de colores Fiesta en el campo",
+    "expected": "NEEDS_CROP",
+    "family": "Lora",
+    "group": "multiline",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "5cb49fa63dfa4664612b83a61e60fc7a6be8b7c544e35dd5a9de9107fe1e41f7"
+  },
+  {
+    "sample": "multiline-3",
+    "text": "Nubes de colores Fiesta en el campo",
+    "expected": "NEEDS_CROP",
+    "family": "MIXED",
+    "group": "multiline",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "6776c04679f4853d4205afd27093accd8e2300fa60a474db9b2af584cb0986c3"
+  },
+  {
+    "sample": "multiline-4",
+    "text": "Nubes de colores Fiesta en el campo",
+    "expected": "NEEDS_CROP",
+    "family": "Raleway",
+    "group": "multiline",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "73b225c5335fe2b7b21a3c54d8558519e06ea8dce781fb576e1a59228e158c5c"
+  },
+  {
+    "sample": "multiline-5",
+    "text": "Nubes de colores Fiesta en el campo",
+    "expected": "NEEDS_CROP",
+    "family": "MIXED",
+    "group": "multiline",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "ab83ec2d2f2b91f45bb387c806b3636359b26c3d3e6e001d84c83ef9741fff70"
+  },
+  {
+    "sample": "multiline-6",
+    "text": "Nubes de colores Fiesta en el campo Historias y juegos",
+    "expected": "NEEDS_CROP",
+    "family": "Roboto",
+    "group": "multiline",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "5aa34b400c6542b1b5cb7d4b18a7160a5017f48e5357b0845503631e6820b948"
+  },
+  {
+    "sample": "multiline-7",
+    "text": "Nubes de colores Fiesta en el campo Historias y juegos",
+    "expected": "NEEDS_CROP",
+    "family": "MIXED",
+    "group": "multiline",
+    "kind": "clean",
+    "split": "evaluation",
+    "sha256": "3ac055539b58445086f6c9c79366898239d4bd3c6a3bb46f4c8a229835494e60"
+  },
+  {
+    "sample": "short-0",
+    "text": "HHH",
+    "expected": "NONE",
+    "family": "Inter",
+    "group": "insufficient",
+    "kind": "short",
+    "split": "evaluation",
+    "sha256": "92ee1b5e953c608485825fa726d1dfdc9970168a39065874a6d746d89523a5bc"
+  },
+  {
+    "sample": "short-1",
+    "text": "Ill",
+    "expected": "NONE",
+    "family": "Inter",
+    "group": "insufficient",
+    "kind": "short",
+    "split": "evaluation",
+    "sha256": "93711bcb5ea77e96c588794dce334f547e82168e5f9ab27d4996694daac99bb0"
+  },
+  {
+    "sample": "low-resolution",
+    "text": "Pequeñas letras del bosque",
+    "expected": "NONE",
+    "family": "Inter",
+    "group": "insufficient",
+    "kind": "low-resolution",
+    "split": "evaluation",
+    "sha256": "72b84546c0d36398d9f498062e2332f8e9761730c88841099fe5e718c7fcfbed"
+  },
+  {
+    "sample": "low-contrast",
+    "text": "Pequeñas letras del bosque",
+    "expected": "NONE",
+    "family": "Inter",
+    "group": "insufficient",
+    "kind": "low-contrast",
+    "split": "evaluation",
+    "sha256": "aec98b90a83816e847473553b7148775b15635baf79ea6e6a41d053529b0f937"
+  },
+  {
+    "sample": "development-0",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "inter-400",
+    "family": "Inter",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "a4f76ba2782c37c50d28da4b736ceeae041ed6799de90814c426044a7d14ee81"
+  },
+  {
+    "sample": "development-1",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "roboto-400",
+    "family": "Roboto",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "c598bd2e61828ab320b390b6bb5b1b721f0b16975ac2754208ff256f483fca81"
+  },
+  {
+    "sample": "development-2",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "opensans-400",
+    "family": "Open Sans",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "c8fa7f76d0acab452ea6ea65a41ef26f685d67dd44ba3f297bb3850db3fbc5a7"
+  },
+  {
+    "sample": "development-3",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "montserrat-400",
+    "family": "Montserrat",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "1201e5ec836494d6798250d9f951b8f97a69e46ce5b5cc67d2f7a9b13951e94b"
+  },
+  {
+    "sample": "development-4",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "lato-400",
+    "family": "Lato",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "7eb62619a5066b934a4573078a236e6f436e8d293df54932ff57faa7cc99a556"
+  },
+  {
+    "sample": "development-5",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "poppins-400",
+    "family": "Poppins",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "ba4ad7bb5d3551d207880b90c349c90339cc7ac78e521147daeee50543fee0c5"
+  },
+  {
+    "sample": "development-6",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "amaticsc-700",
+    "family": "Amatic SC",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "e1a9259fabcf0e5d9eee5362b22a8a5f9e57985a0fb0b8a1dcc23a47f8a2c014"
+  },
+  {
+    "sample": "development-7",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "sacramento-400",
+    "family": "Sacramento",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "44a25e2a0649d13f0be7a9c006e5cb9774f31a9b75fc060615d480692dec5b9a"
+  },
+  {
+    "sample": "development-8",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "merienda-400",
+    "family": "Merienda",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "abc03f26dee0efd259e9eefdac7cfbe330ea3d220cda05034e20a03fa1a2b639"
+  },
+  {
+    "sample": "development-9",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "shadowsintolighttwo-400",
+    "family": "Shadows Into Light Two",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "e6aef5d811424ab04e2b7ae56e59eff3521d47831275887ef95981110f316124"
+  },
+  {
+    "sample": "development-10",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "fredoka-400",
+    "family": "Fredoka",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "83002ebb3122e3e204f29129e390c9cd2e537e2e4f3fabffcfb68eae5230e2a3"
+  },
+  {
+    "sample": "development-11",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "creepster-400",
+    "family": "Creepster",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "87cbe3e1026807eb230e68e4598cec3b2844a523d888b5e2c682a924a2a0bb6c"
+  },
+  {
+    "sample": "development-12",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "lifesavers-700",
+    "family": "Life Savers",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "b1b46fa1a7c8f963728d7b6e037f619195a997cc71bba4ecfc28ab72baed4a9e"
+  },
+  {
+    "sample": "development-13",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "ribeyemarrow-400",
+    "family": "Ribeye Marrow",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "547316cc3e1ffc7e3cf309ac99a5c68a3d1996b9af35227b7d70125861000961"
+  },
+  {
+    "sample": "development-14",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "barrio-400",
+    "family": "Barrio",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "0edd5a9f84930e8f4c6ed548a694b16aaff1e36325e272dd845e4fd513657998"
+  },
+  {
+    "sample": "development-15",
+    "text": "AVATAR, ritmo y alegría 135",
+    "expected": "mali-400",
+    "family": "Mali",
+    "group": "development",
+    "kind": "clean",
+    "split": "development",
+    "sha256": "732f49b89fc02ad3dcc790b35425b5b761f6878511d993786962b160ccf8ce5a"
+  }
+]

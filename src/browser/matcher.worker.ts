@@ -1,3 +1,5 @@
+import { retrieve } from "./retrieval";
+import { lineBands } from "./regions";
 // Browser catalogue retrieval: actual FontFace files, measured contour distance.
 // No identity probability and no claim of exact identification.
 type Mask = { w: number; h: number; data: Uint8Array };
@@ -12,7 +14,12 @@ type Entry = {
   licenseFile: string;
   [key: string]: unknown;
 };
-type Catalog = { name: string; revision: string; fonts: Entry[] };
+type Catalog = {
+  name: string;
+  revision: string;
+  fonts: Entry[];
+  index: { file: string; sha256: string; variants: number };
+};
 const scope = self as unknown as {
   fonts: FontFaceSet;
   postMessage: (value: unknown) => void;
@@ -263,23 +270,20 @@ async function source(blob: Blob) {
   const m = trim({ w: c.width, h: c.height, data: clean });
   if (m.h < 6 || m.w < 8)
     throw Error("El recorte no contiene una línea de texto legible.");
-  let runs = 0,
-    active = false;
-  for (let y = 0; y < m.h; y++) {
-    let n = 0;
-    for (let xx = 0; xx < m.w; xx++) n += m.data[y * m.w + xx];
-    const on = n > Math.max(1, m.w * 0.008);
-    if (on && !active) runs++;
-    active = on;
-  }
+  const bands = lineBands(m);
   return {
     m,
-    quality: { inkHeight: m.h, contrast, possibleMultiline: runs > 3 },
+    quality: {
+      inkHeight: m.h,
+      contrast,
+      possibleMultiline: bands.length > 1,
+      detectedLines: bands.length,
+    },
   };
 }
 const files = new Map<string, Promise<ArrayBuffer>>();
 async function face(entry: Entry, optical: number | null) {
-  const url = "/fonts/" + encodeURIComponent(entry.file);
+  const url = "/fonts/" + encodeURIComponent(entry.file).replaceAll("%2C", ",");
   if (!files.has(url))
     files.set(
       url,
@@ -346,7 +350,13 @@ async function png(m: Mask, color?: number[]) {
     s += String.fromCharCode(...a.subarray(i, i + 8192));
   return "data:image/png;base64," + btoa(s);
 }
-async function identify(blob: Blob, text: string, catalog: Catalog) {
+async function identify(
+  blob: Blob,
+  text: string,
+  catalog: Catalog,
+  lineCount = 0,
+) {
+  const explicitLines = /[\r\n]/.test(text);
   text = text.replace(/\s+/g, " ").trim();
   if (text.length < 3 || text.length > 80)
     throw Error("Escribe entre 3 y 80 caracteres de una sola línea.");
@@ -359,6 +369,26 @@ async function identify(blob: Blob, text: string, catalog: Catalog) {
   const { m, quality } = await source(blob),
     src = prepared(m),
     reasons: string[] = [];
+  if (explicitLines || lineCount > 1 || quality.possibleMultiline)
+    return {
+      status: "needs_crop",
+      candidates: [],
+      alternatives: [],
+      text,
+      quality,
+      reasons: [
+        "Se detectan varias líneas. Selecciona una sola línea y una sola tipografía. Analiza cada fragmento por separado.",
+      ],
+      normalizedSource: await png(src.normalized, [0, 144, 155]),
+      catalog: {
+        name: catalog.name,
+        families: new Set(catalog.fonts.map((f) => f.family)).size,
+        variants: catalog.fonts.length,
+        revision: catalog.revision,
+      },
+      search: { shortlistedVariants: 0, comparedVariants: 0 },
+      method: "No se ha comparado: el recorte requiere una sola línea.",
+    };
   if (new Set([...text.toLowerCase()].filter((c) => /\p{L}/u.test(c))).size < 5)
     reasons.push(
       "Hay pocas letras diferentes. Añade una muestra con al menos cinco letras distintas.",
@@ -379,7 +409,17 @@ async function identify(blob: Blob, text: string, catalog: Catalog) {
     rendered: Mask;
     tracking: number;
   }[] = [];
+  const search = reasons.length
+    ? {
+        ids: [],
+        indexedVariants: catalog.fonts.length,
+        indexBytes: 0,
+        coarseMs: 0,
+      }
+    : await retrieve(m, text, catalog.fonts, catalog.index);
+  const selected = new Set(search.ids);
   for (const entry of catalog.fonts) {
+    if (!selected.has(entry.id)) continue;
     let best:
       { d: number; entry: Entry; rendered: Mask; tracking: number } | undefined;
     for (const optical of entry.opticalSizes ?? [null]) {
@@ -397,11 +437,49 @@ async function identify(blob: Blob, text: string, catalog: Catalog) {
     if (best) ranked.push(best);
   }
   ranked.sort((a, b) => a.d - b.d);
-  if (!ranked.length) throw Error("No hay fuentes disponibles para comparar.");
-  const accepted = !reasons.length && ranked[0].d <= 0.155,
+  let weightChecks = 0;
+  if (!reasons.length && ranked[0] && ranked[0].d <= 0.155) {
+    const best = ranked[0],
+      entry = best.entry;
+    const supportsIntermediate =
+      entry.axes.wght !== undefined &&
+      [400, 700].every((weight) =>
+        catalog.fonts.some((f) => f.file === entry.file && f.weight === weight),
+      );
+    if (supportsIntermediate) {
+      let probeDistance = Infinity;
+      for (const weight of [450, 500, 550, 600, 650]) {
+        const probe = {
+          ...entry,
+          id: entry.id + "_probe" + weight,
+          weight,
+          axes: { ...entry.axes, wght: weight },
+        };
+        weightChecks++;
+        for (const optical of entry.opticalSizes ?? [null]) {
+          const { ff, family } = await face(probe, optical);
+          try {
+            for (const tracking of [-0.8, 0, 0.8])
+              probeDistance = Math.min(
+                probeDistance,
+                distance(src, render(probe, text, family, tracking)),
+              );
+          } finally {
+            scope.fonts.delete(ff);
+          }
+        }
+      }
+      if (probeDistance + 0.025 < best.d)
+        reasons.push(
+          "El mismo archivo encaja mejor con un peso no incluido entre las variantes del catálogo. No hay evidencia suficiente para proponer la variante original; se muestran solo alternativas.",
+        );
+    }
+  }
+  const accepted = !reasons.length && ranked.length > 0 && ranked[0].d <= 0.155,
     candidates: Record<string, unknown>[] = [],
     alternatives: Record<string, unknown>[] = [];
   for (const row of ranked.slice(0, 6)) {
+    if (row.d > 0.2) continue;
     const { file, axes, sha256, sourceUrl, licenseFile, ...pub } = row.entry;
     const f = {
       ...pub,
@@ -411,7 +489,7 @@ async function identify(blob: Blob, text: string, catalog: Catalog) {
         normalize(row.rendered, src.normalized.w),
         [196, 30, 132],
       ),
-      downloadUrl: "/fonts/" + encodeURIComponent(file),
+      downloadUrl: "/fonts/" + encodeURIComponent(file).replaceAll("%2C", ","),
       localLicenseUrl: "/licenses/" + encodeURIComponent(licenseFile),
       tracking: row.tracking,
     };
@@ -422,7 +500,11 @@ async function identify(blob: Blob, text: string, catalog: Catalog) {
       candidates.length < 3
     )
       candidates.push(f);
-    else alternatives.push(f);
+    else if (
+      Math.abs(Math.log(m.w / m.h / (row.rendered.w / row.rendered.h))) <=
+      Math.log(1.2)
+    )
+      alternatives.push(f);
   }
   if (!accepted)
     reasons.push(
@@ -443,6 +525,23 @@ async function identify(blob: Blob, text: string, catalog: Catalog) {
     quality,
     text,
     normalizedSource: await png(src.normalized, [0, 144, 155]),
+    search: {
+      variableWeightChecks: weightChecks,
+      top1: ranked[0]
+        ? {
+            id: ranked[0].entry.id,
+            family: ranked[0].entry.family,
+            distance: ranked[0].d,
+          }
+        : null,
+      indexedVariants: search.indexedVariants,
+      shortlistedVariants: selected.size,
+      comparedVariants: ranked.length,
+      indexBytes: search.indexBytes,
+      coarseMs: search.coarseMs,
+      fontFiles: files.size,
+      selectedIds: search.ids,
+    },
     catalog: {
       name: catalog.name,
       families: new Set(catalog.fonts.map((f) => f.family)).size,
@@ -450,12 +549,17 @@ async function identify(blob: Blob, text: string, catalog: Catalog) {
       revision: catalog.revision,
     },
     method:
-      "Comparación local de contornos, superposición y proporciones con las fuentes reales del catálogo. Menor distancia indica más parecido, no una probabilidad. Umbral experimental: 0,155; no confirma identidad exacta.",
+      "Índice de glifos y comparación detallada de hasta 32 variantes reales. Menor distancia indica más parecido, no probabilidad. Candidatas hasta 0,155; alternativas hasta 0,20 y proporciones compatibles. Se comprueban pesos variables intermedios para evitar proponer una variante no sustentada. La búsqueda inicial puede omitir una fuente.",
   };
 }
 scope.onmessage = async (e) => {
   try {
-    const result = await identify(e.data.image, e.data.text, e.data.catalog);
+    const result = await identify(
+      e.data.image,
+      e.data.text,
+      e.data.catalog,
+      e.data.lineCount,
+    );
     scope.postMessage({ ok: true, result });
   } catch (error) {
     scope.postMessage({

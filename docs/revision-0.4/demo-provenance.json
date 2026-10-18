@@ -1,0 +1,25 @@
+[
+  {
+    "file": "demostracion-fredoka-700.png",
+    "font": "fredoka-700",
+    "text": "Cuentos en el bosque"
+  },
+  {
+    "file": "demostracion-caveat-400.png",
+    "font": "caveat-400",
+    "text": "Una aventura entre letras"
+  },
+  {
+    "file": "demostracion-balsamiqsans-700.png",
+    "font": "balsamiqsans-700",
+    "text": "Juegos en el campo"
+  },
+  {
+    "file": "demostracion-varias-tipografias.png",
+    "fonts": [
+      "balsamiqsans-700",
+      "caveat-400"
+    ],
+    "expected": "needs_crop, no font comparison"
+  }
+]

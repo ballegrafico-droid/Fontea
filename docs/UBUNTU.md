@@ -39,7 +39,7 @@ sudo -u fontea env PYTHON_BIN=/opt/fontea/.venv/bin/python3 npm test
 sudo -u fontea cp .env.example .env
 ```
 
-Si la entrega aún no está subida a GitHub, copia el archivo de entrega a `/opt/fontea` en lugar de clonarlo. No es necesario volver a descargar el catálogo ni los modelos de OCR incluidos en `engine/tessdata`. Los 17 archivos de licencia deben permanecer junto a las fuentes. Configura `.env`:
+Si la entrega aún no está subida a GitHub, copia el archivo de entrega a `/opt/fontea` en lugar de clonarlo. No es necesario volver a descargar el catálogo ni los modelos de OCR incluidos en `engine/tessdata`. Los 117 archivos de licencia deben permanecer junto a las fuentes. Configura `.env`:
 
 ```dotenv
 PORT=3401
@@ -138,3 +138,5 @@ Configura DNS y HTTPS antes de ofrecer la aplicación a usuarios (por ejemplo, C
 ## Opción sin Node/Python en producción
 
 `npm ci && npm run build:web` produce `out/`, una versión funcional que procesa imágenes en el navegador. Puede servirse desde un **subdominio HTTPS** con Nginx estático (`root /opt/fontea/out;`, `index index.html;` y `location / { try_files $uri $uri/ /index.html; }`), sin puerto de aplicación ni servicio systemd. Configura los tipos MIME de JavaScript y WebAssembly incluyendo `/etc/nginx/mime.types`. No uses caché larga para `index.html`; las rutas de fuentes y modelos deben conservarse. Mantén las licencias incluidas. Requiere navegadores actuales con Workers, OffscreenCanvas, FontFace y WASM. Las mediciones de esa modalidad se documentan por separado; sus resultados pueden diferir del motor Python. No publiques `node_modules`, `.git`, `.env` ni la raíz del proyecto.
+
+El índice de `catalog/index/` debe acompañar al manifiesto. El servidor lo sirve en `/catalog-index`; la compilación estática lo copia con nombre basado en SHA. No reconstruyas el índice en cada arranque ni descargues fuentes al analizar. Si amplías el catálogo, ejecuta los scripts de ampliación/índice antes de compilar y vuelve a evaluar. La memoria medida en Chromium emulado no equivale a la RAM necesaria del proceso Node/Python; mide tu carga antes de ajustar los límites systemd.

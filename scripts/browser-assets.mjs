@@ -23,6 +23,10 @@ for (const entry of catalog.fonts) {
 }
 for (const entry of ocr.sources)
   await verify(path.join("engine/tessdata", entry.file), entry.sha256);
+await verify(
+  path.join("catalog/index", catalog.index.file),
+  catalog.index.sha256,
+);
 const out = "out";
 await fs.mkdir(path.join(out, "ocr/core"), { recursive: true });
 await fs.cp("catalog/fonts", path.join(out, "fonts"), { recursive: true });
@@ -30,6 +34,11 @@ await fs.cp("catalog/licenses", path.join(out, "licenses"), {
   recursive: true,
 });
 await fs.copyFile("catalog/manifest.json", path.join(out, "catalog.json"));
+await fs.mkdir(path.join(out, "catalog-index"), { recursive: true });
+await fs.copyFile(
+  path.join("catalog/index", catalog.index.file),
+  path.join(out, "catalog-index", catalog.index.file),
+);
 await fs.cp("engine/tessdata", path.join(out, "ocr/tessdata"), {
   recursive: true,
 });

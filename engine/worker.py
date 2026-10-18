@@ -10,7 +10,7 @@ def main():
         if operation == "ocr":
             result = ocr(im, request.get("language"))
         elif operation == "identify":
-            result = identify(im, request.get("text", ""))
+            result = identify(im, request.get("text", ""), request.get("lineCount", 0))
         else:
             raise InputError("Operación no disponible.")
         print(json.dumps({"ok": True, "result": result}, ensure_ascii=False))

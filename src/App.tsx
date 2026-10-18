@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 
 type Font = {
+  tag?: string;
   variable: boolean;
   id: string;
   family: string;
@@ -36,7 +37,12 @@ type Font = {
   overlay: string;
 };
 type Result = {
-  status: "candidates" | "unidentified";
+  status: "candidates" | "unidentified" | "needs_crop";
+  search?: {
+    indexedVariants?: number;
+    shortlistedVariants: number;
+    comparedVariants: number;
+  };
   text: string;
   candidates: Font[];
   alternatives: Font[];
@@ -65,12 +71,23 @@ async function request<T>(
   text: string,
   signal: AbortSignal,
   language?: string,
+  lineCount?: number,
 ): Promise<T> {
   if (browserEngine)
-    return browserRequest<T>(operation, image, text, signal, language);
+    return browserRequest<T>(
+      operation,
+      image,
+      text,
+      signal,
+      language,
+      lineCount,
+    );
   const form = new FormData();
   form.append("image", image, "recorte.png");
-  if (operation === "identify") form.append("text", text);
+  if (operation === "identify") {
+    form.append("text", text);
+    if (lineCount !== undefined) form.append("lineCount", String(lineCount));
+  }
   if (operation === "ocr" && language) form.append("language", language);
   const response = await fetch("/api/" + operation, {
     method: "POST",
@@ -164,6 +181,12 @@ function CandidateCard({
           </p>
         </div>
       )}
+      {!alternative && font.variable && (
+        <p className="variant-caution">
+          La variante de esta tarjeta es la que hemos comparado. El peso
+          original aún no está verificado.
+        </p>
+      )}
       <div className="license-line">
         <ShieldCheck size={15} />
         <span>OFL 1.1 · uso personal y comercial</span>
@@ -209,6 +232,10 @@ export default function App() {
   const [croppedUrl, setCroppedUrl] = useState("");
   const [text, setText] = useState("");
   const [ocrNote, setOcrNote] = useState("");
+  const [ocrLineCount, setOcrLineCount] = useState(0);
+  const [requiresCrop, setRequiresCrop] = useState(false);
+  const [catalogQuery, setCatalogQuery] = useState("");
+  const [catalogTag, setCatalogTag] = useState("");
   const [ocrLanguage, setOcrLanguage] = useState("spa+eng");
   const [error, setError] = useState("");
   const [result, setResult] = useState<Result>();
@@ -317,6 +344,8 @@ export default function App() {
       setCroppedUrl("");
       setStage("crop");
       setOcrNote("");
+      setOcrLineCount(0);
+      setRequiresCrop(false);
       setTimeout(
         () =>
           work.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
@@ -417,6 +446,8 @@ export default function App() {
         needsReview: boolean;
       }>("ocr", blob, "", abort.signal, ocrLanguage);
       setText(data.text);
+      setOcrLineCount(data.lineCount);
+      setRequiresCrop(data.lineCount > 1);
       setOcrNote(
         data.lineCount > 1
           ? "El OCR ha detectado varias líneas. Vuelve a recortar una sola."
@@ -434,7 +465,7 @@ export default function App() {
     }
   }
   async function identify() {
-    if (!cropped) return;
+    if (!cropped || requiresCrop) return;
     setPending("identify");
     setError("");
     setResult(undefined);
@@ -446,7 +477,15 @@ export default function App() {
         cropped,
         text,
         abort.signal,
+        undefined,
+        ocrLineCount,
       );
+      if (data.status === "needs_crop") {
+        setRequiresCrop(true);
+        setOcrNote(data.reasons[0]);
+        setResult(undefined);
+        return;
+      }
       setResult(data);
       setStage("results");
       setTimeout(
@@ -467,6 +506,8 @@ export default function App() {
     setPending("");
     setResult(undefined);
     setError("");
+    setRequiresCrop(false);
+    setOcrLineCount(0);
     setStage("crop");
   }
   const current =
@@ -677,7 +718,8 @@ export default function App() {
                     <p>
                       Arrastra los bordes para seleccionar{" "}
                       <strong>una sola línea</strong> de texto. Deja fuera
-                      logotipos, adornos y otras fuentes.
+                      logotipos, adornos y otras fuentes. Si una misma línea
+                      mezcla tipografías, analiza cada fragmento por separado.
                     </p>
                     <ul>
                       <li>Cuantas más letras distintas, mejor.</li>
@@ -723,6 +765,23 @@ export default function App() {
                     </button>
                   </div>
                   <div className="text-pane">
+                    {requiresCrop && (
+                      <div className="crop-guidance" role="alert">
+                        <strong>Selecciona una sola línea.</strong>
+                        <p>
+                          Este recorte contiene varias líneas. Un diseño puede
+                          mezclar tipografías: recorta cada línea o fragmento
+                          con una única fuente y analízalos por separado.
+                        </p>
+                        <button
+                          className="button primary"
+                          onClick={recrop}
+                          disabled={!!pending}
+                        >
+                          Seleccionar una línea <CropIcon size={16} />
+                        </button>
+                      </div>
+                    )}
                     <label htmlFor="ocr-text">¿Qué dice la imagen?</label>
                     <p>
                       {pending === "ocr"
@@ -771,7 +830,9 @@ export default function App() {
                     <button
                       className="button primary"
                       onClick={identify}
-                      disabled={!!pending || text.trim().length < 3}
+                      disabled={
+                        !!pending || requiresCrop || text.trim().length < 3
+                      }
                     >
                       {pending ? (
                         <LoaderCircle className="spin" size={17} />
@@ -912,10 +973,21 @@ export default function App() {
                 </div>
               </>
             )}
+            {result.alternatives.length === 0 && (
+              <div className="empty-alternatives">
+                <h3>No encontramos alternativas útiles.</h3>
+                <p>
+                  Ninguna otra fuente comparada supera el mínimo de parecido.
+                  Prueba un recorte de mayor calidad; la tipografía puede estar
+                  fuera del catálogo.
+                </p>
+              </div>
+            )}
             <p className="method-note">
-              {result.method} El catálogo no incluye fuentes comerciales. Las
-              variantes solo cubren Regular y Bold, recta o cursiva cuando están
-              disponibles.
+              {result.method} El catálogo no incluye fuentes comerciales.{" "}
+              {result.search &&
+                `Búsqueda sobre ${result.search.indexedVariants ?? result.catalog.variants} variantes; comparación detallada de ${result.search.comparedVariants}.`}{" "}
+              Consulta las variantes reales en El catálogo.
             </p>
           </section>
         )}
@@ -998,7 +1070,7 @@ export default function App() {
         </a>
         <p>Para quienes encuentran belleza en los detalles.</p>
         <div>
-          <span>VERSIÓN 0.3 · CATÁLOGO ABIERTO</span>
+          <span>VERSIÓN 0.4 · CATÁLOGO ABIERTO</span>
           <button onClick={() => setModal("privacy")}>Privacidad</button>
         </div>
       </footer>
@@ -1060,9 +1132,43 @@ export default function App() {
                     · {catalog.fonts.length} variantes · Licencias revisadas:{" "}
                     {catalog.verifiedAt}
                   </p>
+                  <div className="catalog-controls">
+                    <label>
+                      Buscar familia
+                      <input
+                        value={catalogQuery}
+                        onChange={(e) => setCatalogQuery(e.target.value)}
+                        placeholder="Nombre de la familia"
+                      />
+                    </label>
+                    <label>
+                      Estilo
+                      <select
+                        value={catalogTag}
+                        onChange={(e) => setCatalogTag(e.target.value)}
+                      >
+                        <option value="">Todos</option>
+                        <option value="texto">Texto</option>
+                        <option value="manuscrita">Manuscritas</option>
+                        <option value="ludica">Lúdicas y decorativas</option>
+                        <option value="display">Titulares</option>
+                      </select>
+                    </label>
+                  </div>
                   <div className="catalog-list">
                     {Array.from(
-                      new Set(catalog.fonts.map((f) => f.family)),
+                      new Set(
+                        catalog.fonts
+                          .filter(
+                            (f) =>
+                              (!catalogTag ||
+                                (f.tag ?? "texto") === catalogTag) &&
+                              f.family
+                                .toLocaleLowerCase("es")
+                                .includes(catalogQuery.toLocaleLowerCase("es")),
+                          )
+                          .map((f) => f.family),
+                      ),
                     ).map((name) => {
                       const fonts = catalog.fonts.filter(
                         (f) => f.family === name,
