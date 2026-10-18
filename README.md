@@ -8,6 +8,8 @@ Carga o pegado de imagen → recorte → OCR local editable → comparación de 
 
 ![Fontea en ordenador](docs/desktop.png)
 
+**[Abrir Fontea — vista privada](https://fontea-estudio-2026.icycalf17.chatgpt.site)**. Accede con la misma cuenta de ChatGPT propietaria de esta conversación. Flujo completo comprobado sobre esa URL en Chromium, ordenador y móvil emulado. [Registro de verificación alojada](docs/browser/hosted-checks.json).
+
 ## Probar sin instalar Python
 
 La modalidad de navegador hace OCR con Tesseract.js/WASM y compara contornos con los mismos archivos tipográficos, renderizados mediante FontFace/Canvas en un Worker. **No es una demostración con resultados prefijados.** Las imágenes no se envían a ningún servidor. El catálogo, los modelos y las bibliotecas se sirven desde el mismo sitio; no requiere claves ni un CDN externo.

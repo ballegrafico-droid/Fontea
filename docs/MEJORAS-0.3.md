@@ -63,7 +63,7 @@ El benchmark crea un módulo de prueba temporal dentro de `out` para acceder al 
 
 ## Alojamiento y pendientes
 
-La vista alojada usa la compilación de navegador y acceso privado; el motor Python sigue listo para un VPS Ubuntu. El enlace y su estado real se comprueban al publicar y se comunican en la entrega, sin presentar localhost como URL accesible. El código se mantiene en la misma rama/PR, con ZIP del proyecto y bundle del historial.
+La [vista alojada](https://fontea-estudio-2026.icycalf17.chatgpt.site) está publicada y verificada con acceso privado de la cuenta propietaria: el flujo completo pasó en escritorio y móvil emulado, incluida descarga con SHA-256 correcto y recuperación tras cancelar. [Registro alojado](browser/hosted-checks.json). La primera comprobación de descarga con el cliente HTTP de pruebas falló por IPv6 sin ruta; se verificó después mediante el propio navegador, con sus cookies/proxy, sin cambiar la aplicación ni rebajar la comprobación. La vista usa la compilación de navegador; el motor Python sigue listo para un VPS Ubuntu. El enlace y su estado real se comprueban al publicar y se comunican en la entrega, sin presentar localhost como URL accesible. El código se mantiene en la misma rama/PR, con ZIP del proyecto y bundle del historial.
 
 La [guía de Ubuntu/Nginx](UBUNTU.md) clona ahora la rama que contiene la aplicación, exige comprobar un puerto libre (ejemplo 3401), usa un subdominio y servicio propios y conserva los sitios de otras aplicaciones. Incluye también la opción estática sin proceso Node/Python. Se requiere configurar tu dominio/DNS y HTTPS, instalar dependencias, compilar y aplicar la configuración elegida. No se ha publicado en tu VPS ni contratado ningún servicio.
 

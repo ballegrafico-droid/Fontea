@@ -101,15 +101,22 @@ with sync_playwright() as p:
     official = first.get_by_role("link", name="Fuente oficial")
     assert official.get_attribute("href") == "https://fonts.google.com/specimen/Inter"
     download = first.get_by_role("link", name="Descargar archivo de Inter")
-    response = page.request.get(
-        BASE + download.get_attribute("href"),
-        headers=(
-            {"OAI-Sites-Authorization": "Bearer " + os.environ["FONTEA_SITES_TOKEN"]}
-            if os.environ.get("FONTEA_SITES_TOKEN")
-            else {}
-        ),
+    # Browser fetch uses the same proxy, cookies and private-site routing as the UI.
+    # A separate APIRequestContext may bypass the environment proxy / select IPv6.
+    response = page.evaluate(
+        """async url => {
+      const response=await fetch(url), bytes=await response.arrayBuffer();
+      const hash=await crypto.subtle.digest('SHA-256',bytes);
+      return {status:response.status,sha256:[...new Uint8Array(hash)].map(n=>n.toString(16).padStart(2,'0')).join('')};
+    }""",
+        download.get_attribute("href"),
     )
-    assert response.status == 200
+    expected_font = next(
+        f
+        for f in json.loads((ROOT / "catalog/manifest.json").read_text())["fonts"]
+        if f["id"] == "inter-700"
+    )
+    assert response["status"] == 200 and response["sha256"] == expected_font["sha256"]
     page.locator("#results").screenshot(
         path=str(
             ROOT
