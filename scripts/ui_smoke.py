@@ -262,7 +262,14 @@ with sync_playwright() as p:
     page.locator("#ocr-text").fill("Juegos en el campo Una aventura entre letras")
     expect(page.get_by_role("button", name="Buscar en el catálogo")).to_be_disabled()
     page.locator("#workspace").screenshot(
-        path=str(ROOT / "docs/revision-0.5/multiline-mobile.png")
+        path=str(
+            ROOT
+            / (
+                "docs/revision-"
+                + os.environ.get("FONTEA_QA_REVISION", "0.6")
+                + "/multiline-mobile.png"
+            )
+        )
     )
     page.get_by_role("button", name="Seleccionar una línea", exact=True).click()
     expect(page.get_by_role("button", name="Leer el recorte")).to_be_visible()

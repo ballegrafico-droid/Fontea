@@ -1,10 +1,10 @@
 # Fontea
 
-Versión 0.5: [comparación privada con archivo propio y referencias comerciales](docs/MEJORAS-0.5.md). Se mantiene la ampliación de [117 familias y mediciones 0.4](docs/MEJORAS-0.4.md). Se conservan todos los commits anteriores en la misma rama y PR.
+Versión 0.6: [conector externo real, controles y activación pendiente de clave](docs/MEJORAS-0.6.md). Se conserva la [comparación privada de archivos](docs/MEJORAS-0.5.md). Se mantiene la ampliación de [117 familias y mediciones 0.4](docs/MEJORAS-0.4.md). Se conservan todos los commits anteriores en la misma rama y PR.
 
-Aplicación web en español para buscar la tipografía de una imagen y consultar su origen y licencia. **Primera versión funcional sobre un catálogo limitado: 117 familias abiertas y 203 variantes. No confirma una identidad exacta; el reconocimiento automático no cubre fuentes comerciales. Permite comprobar un archivo propio localmente y continuar en un identificador externo.**
+Aplicación web en español para buscar la tipografía de una imagen y consultar su origen y licencia. **Primera versión funcional sobre un catálogo limitado: 117 familias abiertas y 203 variantes. No confirma una identidad exacta. Añade un conector para candidatos comerciales/externos de WhatFontIs, desactivado hasta configurar una clave y acceso autorizado. Permite también comparar un archivo propio localmente.**
 
-Carga o pegado de imagen → recorte → OCR local editable → comparación de contornos con fuentes reales → candidatos y alternativas separados → ficha oficial, licencia y descarga autorizada. No usa resultados simulados, claves externas, cuentas ni servicios de pago. El ejemplo opcional está marcado como demostración y pasa por el mismo motor.
+Carga o pegado de imagen → recorte → OCR local editable → comparación de contornos con fuentes reales → candidatos y alternativas separados → ficha oficial, licencia y descarga autorizada. El flujo local no usa claves ni servicios de pago. El conector externo requiere una clave privada y acceso autorizado; no se ha activado ni contratado ningún servicio. No hay resultados simulados en producción. El ejemplo opcional está marcado como demostración y pasa por el mismo motor.
 
 ![Fontea en ordenador](docs/browser/desktop.png)
 
@@ -12,7 +12,7 @@ Carga o pegado de imagen → recorte → OCR local editable → comparación de 
 
 ## Probar sin instalar Python
 
-La modalidad de navegador hace OCR con Tesseract.js/WASM y compara contornos con los mismos archivos tipográficos, renderizados mediante FontFace/Canvas en un Worker. **No es una demostración con resultados prefijados.** Las imágenes no se envían a ningún servidor. El catálogo, los modelos y las bibliotecas se sirven desde el mismo sitio; no requiere claves ni un CDN externo.
+La modalidad de navegador hace OCR con Tesseract.js/WASM y compara contornos con los mismos archivos tipográficos, renderizados mediante FontFace/Canvas en un Worker. **No es una demostración con resultados prefijados.** El OCR, catálogo abierto y comparación privada no envían imágenes a ningún servidor. La búsqueda externa opcional envía exclusivamente el recorte preparado tras marcar la casilla y pulsar su botón. El catálogo, los modelos y las bibliotecas se sirven desde el mismo sitio; no requiere claves ni un CDN externo.
 
 ```bash
 npm ci
@@ -26,7 +26,7 @@ Los resultados del navegador pueden diferir de Python por el rasterizador y Tess
 
 ## Ejecutar con servidor
 
-Requisitos: Node.js >=22.9 (recomendado 24 LTS), Python 3.12, Tesseract 5 y Linux. En Ubuntu instala `python3-venv` y `tesseract-ocr`; los datos oficiales de inglés y español ya se incluyen en el proyecto.
+Requisitos: Node.js >=22.13 (recomendado 24 LTS), Python 3.12, Tesseract 5 y Linux. En Ubuntu instala `python3-venv` y `tesseract-ocr`; los datos oficiales de inglés y español ya se incluyen en el proyecto.
 
 ```bash
 npm ci
@@ -38,7 +38,7 @@ python scripts/doctor.py
 npm run dev
 ```
 
-Abre la dirección que imprime Vite (normalmente http://localhost:5173). Ejecuta Node con el entorno virtual activo o configura `PYTHON_BIN=/ruta/absoluta/.venv/bin/python3` en `.env`. Node carga `.env`; nunca lo subas a GitHub. No necesitas claves.
+Abre la dirección que imprime Vite (normalmente http://localhost:5173). Ejecuta Node con el entorno virtual activo o configura `PYTHON_BIN=/ruta/absoluta/.venv/bin/python3` en `.env`. Node carga `.env`; nunca lo subas a GitHub. No necesitas claves para el flujo local.
 
 Producción local:
 
@@ -58,7 +58,7 @@ Abre http://127.0.0.1:3001. El mismo servidor sirve React, API, fuentes y licenc
 - Varias líneas: exige volver a recortar y comparar cada fragmento con una sola tipografía. La API y el motor también lo comprueban.
 - Candidatos del catálogo (filtro 0,155), alternativas solo si distancia <=0,20 y proporciones compatibles, y estado sin alternativas útiles. Distancias de similitud sin porcentajes de confianza. **Ningún resultado se etiqueta como exacto.**
 - Comparación privada con un TTF/OTF propio de hasta 8 MB, incluida una fuente comercial obtenida legalmente, con metadatos y ejes variables. El archivo no sale del navegador, tampoco en modo servidor. No verifica licencia ni identidad.
-- Acceso manual a WhatFontIs para búsqueda externa y dos referencias comerciales Bauhaus consultables por nombre, separadas de la identificación por imagen. [Cobertura, condiciones y costes publicados](docs/COMERCIALES.md).
+- Conector WhatFontIs API 2.2 en Node y en el backend de la vista alojada, con resultados externos separados, errores, cancelación y cuota persistente. Requiere activación privada; [pasos y costes](docs/ACTIVAR-EXTERNO.md). No descarga fuentes comerciales ni convierte los títulos en identidades exactas. El directorio por nombre permanece independiente.
 - Descargas de archivos originales bajo SIL OFL 1.1, licencias por familia y 117 fichas oficiales comprobadas. Los archivos variables pueden contener más pesos que el comparado.
 - Servidor: procesamiento en memoria, sin historial ni imágenes temporales; límites de concurrencia, tamaño, resolución, peticiones y tiempo. Navegador: procesamiento local en Workers, cancelación y límite de 90 s. No se registran cuerpos, texto ni imágenes.
 
@@ -100,7 +100,7 @@ Las imágenes sintéticas se generan en `tests/artifacts`, que no se versiona. L
 
 [Guía de Ubuntu + Nginx + systemd](docs/UBUNTU.md). Está preparada; no se ha accedido a ningún VPS ni se han aplicado esos comandos en un servidor tuyo.
 
-La integración automática de fuentes comerciales, la corrección geométrica y una búsqueda remota dentro de Fontea quedan pendientes. Ya se puede comparar un archivo propio sin subirlo o abrir una búsqueda externa manual. WhatFontIs tiene una API documentada, pero su autorización comercial necesita aclaración; los costes publicados y los pasos pendientes están en [COMERCIALES.md](docs/COMERCIALES.md). Antes de añadir un proveedor hay que verificar acceso, términos, enlaces y licencias, y conocer su tarifa. No se ha contratado ningún servicio; el flujo actual funciona sin claves. El alojamiento posterior tendrá el coste de la infraestructura que elijas. [Arquitectura y contrato de ampliación](docs/ENGINE.md).
+El conector externo ya está implementado, pero falta configurar una clave y acceso permitido; no se ha hecho ninguna identificación real con WhatFontIs. Sus costes y la activación están en [ACTIVAR-EXTERNO.md](docs/ACTIVAR-EXTERNO.md). Quedan pendientes su evaluación comercial real, la verificación de enlaces oficiales de compra de sus resultados y la corrección geométrica. La búsqueda local y el archivo privado funcionan sin clave. No se ha contratado ningún servicio. El alojamiento posterior tendrá el coste de la infraestructura que elijas. [Arquitectura y contrato de ampliación](docs/ENGINE.md).
 
 ## Fuentes y licencias de terceros
 
@@ -108,7 +108,7 @@ Las fuentes permanecen sin modificar, con licencias y avisos originales en `cata
 
 ## Rama y respaldos
 
-La rama de trabajo sigue siendo `codex/fontea-v1` y conserva el commit original `21f1e73`. Los cambios de las versiones 0.2, 0.3, 0.4 y 0.5 se añaden encima; no se rehace el proyecto. ZIP y bundle se generan desde el commit final, con respaldos separados de la versión inicial. El resultado del envío a GitHub se indica en la entrega de la sesión; la conexión requiere permisos de escritura sobre el repositorio. No se ha desplegado ni publicado en un VPS.
+La rama de trabajo sigue siendo `codex/fontea-v1` y conserva el commit original `21f1e73`. Los cambios de las versiones 0.2, 0.3, 0.4, 0.5 y 0.6 se añaden encima; no se rehace el proyecto. ZIP y bundle se generan desde el commit final, con respaldos separados de la versión inicial. El resultado del envío a GitHub se indica en la entrega de la sesión; la conexión requiere permisos de escritura sobre el repositorio. No se ha desplegado ni publicado en un VPS.
 
 ## Reproducir la ampliación y evaluar 0.4
 
@@ -139,3 +139,27 @@ python scripts/qa_local_font.py http://127.0.0.1:3401 --server
 ```
 
 La regresión utiliza las imágenes generadas por `python benchmarks/revision04_samples.py`. `qa_local_font.py` requiere además las fuentes de prueba del sistema `fonts-dejavu-core` y `fonts-urw-base35`; no descarga fuentes comerciales. Los casos externos no se añaden al catálogo ni al ZIP como nuevos archivos de fuente.
+
+## Conector externo (0.6)
+
+[Activar WhatFontIs sin exponer la clave](docs/ACTIVAR-EXTERNO.md). El servidor puede recuperar hasta 20 candidatos de fuentes gratuitas y comerciales por consulta; no restringe la búsqueda a Bauhaus ni a una familia elegida. La vista muestra nombre, orden, ficha del identificador y licencia desconocida. No inventa variantes, porcentajes, URL de compra ni renders con archivos comerciales. Sin clave, presenta `missing_key` y no envía imágenes.
+
+El backend Node viene en la instalación anterior. Para preparar la misma vista alojada con un backend Worker, conservando el frontend React existente:
+
+```bash
+npm ci
+npm ci --prefix hosting
+npm run build:site
+# Solo la primera vez en un estado local vacío: aplicar la migración de cuota
+node hosting/node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config hosting/dist/server/wrangler.json --persist-to hosting/.wrangler/state --file drizzle/0000_external_quota.sql
+npm run preview:site
+```
+
+La vista local de ese Worker usa 127.0.0.1:4175; es una dirección del equipo que ejecuta el comando. Cambia `FONTEA_SITE_PORT` si está ocupado; no se detienen otros servicios. No es el enlace de prueba remoto del usuario.
+
+```bash
+python scripts/qa_external.py http://127.0.0.1:4175
+node scripts/qa_hosted_adapter.mjs
+```
+
+El segundo control requiere el PNG de prueba preparado por el Worker; véase [el protocolo](docs/MEJORAS-0.6.md). Los controles de respuestas externas utilizan fixtures **solo en pruebas**, con toda salida a WhatFontIs interceptada. No son una evaluación de reconocimiento comercial y nunca se sirven como resultados reales.

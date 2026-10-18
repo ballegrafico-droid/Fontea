@@ -1,0 +1,216 @@
+{
+  "base": "http://127.0.0.1:4175",
+  "mode": "browser",
+  "catalogFamilies": 117,
+  "catalogVariants": 203,
+  "bauhausVariants": 0,
+  "checks": [
+    "Bauhaus references distinct and explicitly name-based, zero matching catalog entries; no overflow at 320/390/768/1440",
+    "External services opened only by explicit links; no requests to any external provider",
+    "Real OCR -> upload own TTF -> metadata -> variable weight 700 -> useful visual comparison -> overlay; no upload or font/index requests, server mode included when selected",
+    "Correcting OCR clears stale comparison while retaining the private font in RAM",
+    "Retire clears file and result; malformed font has readable error"
+  ],
+  "samples": [
+    {
+      "sample": "inter-700",
+      "expectedUseful": true,
+      "status": "compared",
+      "distance": 0.0633,
+      "useful": true,
+      "family": "Inter",
+      "axes": {
+        "opsz": 14,
+        "wght": 700
+      },
+      "reasons": [
+        "El archivo ofrece un ajuste visual útil para comprobarlo. Esto no demuestra la identidad ni la variante original.",
+        "Se ha comparado únicamente tu archivo, con los ejes indicados. Los nombres y la versión son metadatos declarados por el archivo; no verifican su procedencia ni licencia."
+      ],
+      "ms": 131
+    },
+    {
+      "sample": "roboto-400",
+      "expectedUseful": true,
+      "status": "compared",
+      "distance": 0.0748,
+      "useful": true,
+      "family": "Roboto",
+      "axes": {
+        "wght": 400,
+        "wdth": 100
+      },
+      "reasons": [
+        "El archivo ofrece un ajuste visual útil para comprobarlo. Esto no demuestra la identidad ni la variante original.",
+        "Se ha comparado únicamente tu archivo, con los ejes indicados. Los nombres y la versión son metadatos declarados por el archivo; no verifican su procedencia ni licencia."
+      ],
+      "ms": 170.10000000149012
+    },
+    {
+      "sample": "caveat-400",
+      "expectedUseful": true,
+      "status": "compared",
+      "distance": 0.1679,
+      "useful": true,
+      "family": "Caveat",
+      "axes": {
+        "wght": 400
+      },
+      "reasons": [
+        "El archivo ofrece un ajuste visual útil para comprobarlo. Esto no demuestra la identidad ni la variante original.",
+        "Se ha comparado únicamente tu archivo, con los ejes indicados. Los nombres y la versión son metadatos declarados por el archivo; no verifican su procedencia ni licencia."
+      ],
+      "ms": 166.5
+    },
+    {
+      "sample": "fredoka-700",
+      "expectedUseful": true,
+      "status": "compared",
+      "distance": 0.0403,
+      "useful": true,
+      "family": "Fredoka",
+      "axes": {
+        "wght": 700,
+        "wdth": 100
+      },
+      "reasons": [
+        "El archivo ofrece un ajuste visual útil para comprobarlo. Esto no demuestra la identidad ni la variante original.",
+        "Se ha comparado únicamente tu archivo, con los ejes indicados. Los nombres y la versión son metadatos declarados por el archivo; no verifican su procedencia ni licencia."
+      ],
+      "ms": 173.09999999776483
+    },
+    {
+      "sample": "DejaVuSerif-Bold.ttf",
+      "expectedUseful": true,
+      "status": "compared",
+      "distance": 0.0619,
+      "useful": true,
+      "family": "DejaVu Serif",
+      "axes": {},
+      "reasons": [
+        "El archivo ofrece un ajuste visual útil para comprobarlo. Esto no demuestra la identidad ni la variante original.",
+        "Se ha comparado únicamente tu archivo, con los ejes indicados. Los nombres y la versión son metadatos declarados por el archivo; no verifican su procedencia ni licencia."
+      ],
+      "ms": 135.40000000223517
+    },
+    {
+      "sample": "DejaVuSans-Oblique.ttf",
+      "expectedUseful": true,
+      "status": "compared",
+      "distance": 0.0692,
+      "useful": true,
+      "family": "DejaVu Sans",
+      "axes": {},
+      "reasons": [
+        "El archivo ofrece un ajuste visual útil para comprobarlo. Esto no demuestra la identidad ni la variante original.",
+        "Se ha comparado únicamente tu archivo, con los ejes indicados. Los nombres y la versión son metadatos declarados por el archivo; no verifican su procedencia ni licencia."
+      ],
+      "ms": 118.39999999850988
+    },
+    {
+      "sample": "NimbusRoman-Regular.otf",
+      "expectedUseful": true,
+      "status": "compared",
+      "distance": 0.0926,
+      "useful": true,
+      "family": "Nimbus Roman",
+      "axes": {},
+      "reasons": [
+        "El archivo ofrece un ajuste visual útil para comprobarlo. Esto no demuestra la identidad ni la variante original.",
+        "Se ha comparado únicamente tu archivo, con los ejes indicados. Los nombres y la versión son metadatos declarados por el archivo; no verifican su procedencia ni licencia."
+      ],
+      "ms": 159.09999999776483
+    },
+    {
+      "sample": "wrong-file",
+      "expectedUseful": false,
+      "status": "compared",
+      "distance": 0.43,
+      "useful": false,
+      "family": "Inter",
+      "axes": {
+        "opsz": 14,
+        "wght": 400
+      },
+      "reasons": [
+        "No hay un ajuste visual suficiente o la muestra no aporta evidencia suficiente. No se propone como coincidencia.",
+        "Se ha comparado únicamente tu archivo, con los ejes indicados. Los nombres y la versión son metadatos declarados por el archivo; no verifican su procedencia ni licencia."
+      ],
+      "ms": 100.80000000074506
+    },
+    {
+      "sample": "short-sample",
+      "expectedUseful": false,
+      "status": "compared",
+      "distance": 0.0472,
+      "useful": false,
+      "family": "DejaVu Serif",
+      "axes": {},
+      "reasons": [
+        "Hay pocas letras distintas: añade una muestra más larga.",
+        "No hay un ajuste visual suficiente o la muestra no aporta evidencia suficiente. No se propone como coincidencia.",
+        "Se ha comparado únicamente tu archivo, con los ejes indicados. Los nombres y la versión son metadatos declarados por el archivo; no verifican su procedencia ni licencia."
+      ],
+      "ms": 64.5
+    },
+    {
+      "sample": "low-resolution",
+      "expectedUseful": false,
+      "status": "compared",
+      "distance": 0.2005,
+      "useful": false,
+      "family": "DejaVu Serif",
+      "axes": {},
+      "reasons": [
+        "Las letras tienen poca resolución.",
+        "No hay un ajuste visual suficiente o la muestra no aporta evidencia suficiente. No se propone como coincidencia.",
+        "Se ha comparado únicamente tu archivo, con los ejes indicados. Los nombres y la versión son metadatos declarados por el archivo; no verifican su procedencia ni licencia."
+      ],
+      "ms": 87
+    },
+    {
+      "sample": "two-fonts-two-lines",
+      "expectedUseful": null,
+      "status": "needs_crop",
+      "distance": null,
+      "useful": null,
+      "family": "DejaVu Serif",
+      "axes": {},
+      "reasons": [
+        "Se detectan varias líneas. Recorta una sola línea y una sola tipografía; compara cada fragmento por separado."
+      ],
+      "ms": 52.100000001490116
+    },
+    {
+      "sample": "ocr-line-count",
+      "expectedUseful": null,
+      "status": "needs_crop",
+      "distance": null,
+      "useful": null,
+      "family": "DejaVu Serif",
+      "axes": {},
+      "reasons": [
+        "Se detectan varias líneas. Recorta una sola línea y una sola tipografía; compara cada fragmento por separado."
+      ],
+      "ms": 59.19999999925494
+    },
+    {
+      "sample": "explicit-newline",
+      "expectedUseful": null,
+      "status": "needs_crop",
+      "distance": null,
+      "useful": null,
+      "family": "DejaVu Serif",
+      "axes": {},
+      "reasons": [
+        "Se detectan varias líneas. Recorta una sola línea y una sola tipografía; compara cada fragmento por separado."
+      ],
+      "ms": 42.599999997764826
+    }
+  ],
+  "medianComparisonMs": 133.2000000011176,
+  "warnings": [
+    "Synthetic independent FreeType images, corrected text for Worker cases. Not the user logo. No commercial font was obtained or redistributed. Not a general accuracy estimate.",
+    "Chromium resized viewport is not a physical phone. External API not activated or called."
+  ]
+}

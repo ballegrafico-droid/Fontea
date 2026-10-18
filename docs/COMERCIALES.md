@@ -1,5 +1,7 @@
 # Fuentes comerciales y reconocimiento externo · revisión 0.5
 
+**Registro histórico. En 0.6 se implementó el conector descrito; permanece sin activar por falta de clave. Consulta [ACTIVAR-EXTERNO.md](ACTIVAR-EXTERNO.md) y [MEJORAS-0.6.md](MEJORAS-0.6.md).**
+
 Comprobación: 18 de octubre de 2026. No se contrató, compró ni activó ningún servicio. Las condiciones y precios pueden cambiar. Esta revisión no incorpora un reconocedor comercial automático a Fontea.
 
 ## Qué cubre realmente Bauhaus

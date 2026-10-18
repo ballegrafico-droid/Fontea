@@ -21,7 +21,7 @@ En este ejemplo se usa **3401**: comprueba en `ss` que esté libre y, si no, eli
 
 ## Instalar y comprobar
 
-Instala Node.js 24 LTS desde el distribuidor oficial siguiendo https://nodejs.org/en/download. Se requiere Node >=22.9; el Node de los repositorios de Ubuntu puede ser anterior. Después:
+Instala Node.js 24 LTS desde el distribuidor oficial siguiendo https://nodejs.org/en/download. Se requiere Node >=22.13; el Node de los repositorios de Ubuntu puede ser anterior. Después:
 
 ```bash
 sudo apt update
@@ -50,7 +50,7 @@ TRUST_PROXY=1
 TESSERACT_LANG=spa+eng
 ```
 
-`.env` no se versiona. Aquí no hay secretos. No abras el puerto 3401 al exterior cuando uses `TRUST_PROXY=1`: únicamente Nginx debe poder conectarse. Mantén UNA instancia de Node; el límite de concurrencia es por proceso. Para escalar, añade una cola global y mide CPU/RAM primero.
+`.env` no se versiona. Sin la integración externa no hay secretos; si activas WhatFontIs, protege `.env` con permisos 600. No abras el puerto 3401 al exterior cuando uses `TRUST_PROXY=1`: únicamente Nginx debe poder conectarse. Mantén UNA instancia de Node; el límite de concurrencia es por proceso. Para escalar, añade una cola global y mide CPU/RAM primero.
 
 ## Servicio systemd
 
@@ -66,6 +66,8 @@ Type=simple
 User=fontea
 Group=fontea
 WorkingDirectory=/opt/fontea
+StateDirectory=fontea
+StateDirectoryMode=0700
 ExecStart=/usr/bin/node --env-file=/opt/fontea/.env /opt/fontea/dist-server/index.js
 Environment=OPENBLAS_NUM_THREADS=1
 Environment=OMP_NUM_THREADS=1
@@ -145,4 +147,12 @@ El índice de `catalog/index/` debe acompañar al manifiesto. El servidor lo sir
 
 No requiere instalar fuentes comerciales en el VPS, rutas de subida de fuentes, claves ni abrir puertos adicionales. La comparación del archivo propio ocurre en un Worker en el navegador, también con el backend Node/Python. Mantén la aplicación en el puerto libre que configures con `PORT` y la configuración de Nginx anterior. No se ha accedido al VPS ni aplicado estos comandos.
 
-La API de reconocimiento comercial permanece sin configurar: la compilación estática no puede guardar claves privadas. Antes de añadir esa integración hay que resolver autorización, cuota y costes con el proveedor; consulta [COMERCIALES.md](COMERCIALES.md). No habilites envíos de fuentes propias ni conviertas `VITE_*` en almacén de secretos.
+La API de reconocimiento comercial permanece sin configurar: la compilación estática no puede guardar claves privadas. Antes de activar esa integración hay que resolver autorización, cuota y costes con el proveedor; consulta [COMERCIALES.md](COMERCIALES.md). No habilites envíos de fuentes propias ni conviertas `VITE_*` en almacén de secretos.
+
+## Revisión 0.6: conector externo opcional
+
+El conector WhatFontIs ya está implementado. No hace falta otro puerto ni otro servicio para Node: usa `/api/external/status` y `/api/external/identify` en la misma aplicación. Está desactivado sin clave y acceso autorizado. El OCR, catálogo abierto y archivo privado siguen funcionando sin ella.
+
+Para activarlo tras obtener acceso gratuito permitido, añade los valores de [ACTIVAR-EXTERNO.md](ACTIVAR-EXTERNO.md) a `.env`, con `WFI_QUOTA_FILE=/var/lib/fontea/external-quota.json`. El `StateDirectory=fontea` del servicio permite ese único directorio persistente con `ProtectSystem=strict`. Conserva el contador al actualizar o reiniciar; borrarlo reinicia el control de intentos y no restituye la cuota del proveedor. No guardes ahí imágenes o fuentes.
+
+La modalidad exclusivamente estática (`out/`) no tiene un servidor donde proteger la clave y no activa búsquedas remotas. La vista alojada de Sites añade un Worker y D1 solo para el conector y su contador; mantiene el OCR, catálogo y archivos privados en el navegador. Para tu VPS puedes seguir usando Node/Express y el contador en disco, sin Cloudflare ni D1. No instales `hosting/` en Ubuntu para ese modo. No se ha accedido al VPS.

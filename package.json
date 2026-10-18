@@ -1,6 +1,6 @@
 {
   "name": "fontea",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -16,7 +16,9 @@
     "build:web": "tsc --noEmit && vite build --mode browser --outDir out && node scripts/browser-assets.mjs",
     "preview:web": "vite preview --outDir out --host 127.0.0.1 --port 4173 --strictPort",
     "catalog:expand": "python scripts/expand_catalog.py && python scripts/build_glyph_index.py",
-    "evaluate:revision04": "python benchmarks/revision04_samples.py && python benchmarks/revision04.py --base http://127.0.0.1:4174"
+    "evaluate:revision04": "python benchmarks/revision04_samples.py && python benchmarks/revision04.py --base http://127.0.0.1:4174",
+    "build:site": "node scripts/build-hosting.mjs",
+    "preview:site": "node scripts/preview-hosting.mjs"
   },
   "dependencies": {
     "express": "^5.1.0",
@@ -43,6 +45,6 @@
     "vite": "^7.1.7"
   },
   "engines": {
-    "node": ">=22.9"
+    "node": ">=22.13"
   }
 }

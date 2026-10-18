@@ -1990,3 +1990,50 @@ button.text-button {
     text-align: center;
   }
 }
+.external-setup {
+  padding: 16px 18px;
+  background: #f2ecd6;
+  border: 1px solid #d9ca98;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+.external-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 20px 0;
+  max-width: 760px;
+}
+.external-consent input {
+  margin-top: 5px;
+  flex-shrink: 0;
+  accent-color: #516829;
+}
+.external-results {
+  margin-top: 28px;
+  border-top: 1px solid #d1d7c5;
+  padding-top: 10px;
+}
+.external-candidate {
+  background: white;
+  border: 1px solid #d7ddc9;
+  border-radius: 8px;
+  padding: 18px;
+  margin: 18px 0;
+}
+.external-candidate h4 {
+  font-size: 22px;
+  margin: 8px 0;
+  overflow-wrap: anywhere;
+}
+.external-activation {
+  margin-top: 24px;
+  padding: 16px 0;
+  border-top: 1px solid #d1d7c5;
+}
+.external-ready {
+  font-weight: 600;
+  color: #3c5920 !important;
+}

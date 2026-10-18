@@ -1,139 +1,212 @@
-import { useState } from "react";
-// These are verified directory references, NOT matches inferred from an image.
-const references = [
-  {
-    family: "ITC Bauhaus",
-    vendor: "ITC",
-    styles: "Pro Light, Pro Medium, Pro Demi, Pro Bold y Pro Heavy",
-    url: "https://www.myfonts.com/collections/bauhaus-font-itc",
-    source: "https://www.myfonts.com/collections/bauhaus-font-itc",
-  },
-  {
-    family: "Bauhaus 93",
-    vendor: "URW Type Foundry",
-    styles:
-      "Std Regular (1 estilo). Microsoft también documenta Bauhs93.ttf; no se asume que dos archivos sean la misma versión.",
-    url: "https://www.myfonts.com/collections/bauhaus-93-font-urw/",
-    source: "https://learn.microsoft.com/en-us/typography/font-list/bauhaus-93",
-  },
-];
+import { useEffect, useState } from "react";
+import {
+  getExternalStatus,
+  type ExternalStatus,
+  type ExternalResult,
+} from "./browser/external";
+import CommercialDirectory from "./CommercialDirectory";
 export default function ExternalFonts({
   cropUrl,
+  image,
+  text,
   blocked,
   busy,
+  searching,
+  search,
 }: {
   cropUrl: string;
+  image?: Blob;
+  text: string;
   blocked: boolean;
   busy: boolean;
+  searching: boolean;
+  search: () => Promise<ExternalResult | undefined>;
 }) {
-  const [query, setQuery] = useState("");
+  const [status, setStatus] = useState<ExternalStatus>(),
+    [consent, setConsent] = useState(false),
+    [result, setResult] = useState<ExternalResult>(),
+    [error, setError] = useState("");
+  useEffect(() => {
+    const stop = new AbortController();
+    getExternalStatus(stop.signal)
+      .then(setStatus)
+      .catch(() => {
+        if (!stop.signal.aborted)
+          setError("No se ha podido comprobar la conexión externa.");
+      });
+    return () => stop.abort();
+  }, []);
+  useEffect(() => {
+    setResult(undefined);
+    setConsent(false);
+  }, [cropUrl, text]);
   return (
-    <details className="font-tool external-tool">
-      <summary>Fuentes comerciales y fuera del catálogo</summary>
-      <p>
-        El reconocimiento automático de Fontea consulta 117 familias abiertas y
-        203 variantes. No incluye ninguna variante de Bauhaus. Una fuente
-        comercial puede identificarse sin redistribuir su archivo.
+    <section
+      className="font-tool external-tool"
+      id="external-search"
+      aria-label="Reconocimiento externo"
+    >
+      <p className="card-kicker">
+        AMPLIAR LA BÚSQUEDA · FUENTES GRATUITAS Y COMERCIALES
       </p>
-      <h3>Buscar en un servicio externo</h3>
+      <h3>Busca fuera del catálogo de Fontea.</h3>
       <p>
-        WhatFontIs busca fuentes gratuitas y comerciales. Puedes guardar tu
-        recorte y abrir su identificador. Tendrás que seleccionar allí la
-        imagen: Fontea no la envía ni importa resultados automáticamente. Revisa
-        sus condiciones y privacidad antes de subirla.
+        Un texto bien leído no garantiza que su fuente esté entre nuestras 117
+        familias y 203 variantes. El conector de WhatFontIs consulta su catálogo
+        remoto; sus candidatos se muestran aquí, separados de las comparaciones
+        locales.
       </p>
-      <div className="local-actions">
-        {cropUrl && !blocked && !busy && (
-          <a
-            className="button secondary"
-            href={cropUrl}
-            download="fontea-recorte.png"
-          >
-            Guardar recorte de una línea
-          </a>
-        )}
-        <a
-          href="https://www.whatfontis.com/"
-          target="_blank"
-          rel="noreferrer"
-          className="external-official"
-        >
-          Abrir WhatFontIs ↗
-        </a>
-      </div>
-      {blocked && (
-        <p className="variant-caution">
-          Recorta una sola línea antes de buscar. Compara cada tipografía por
-          separado.
+      {!status ? (
+        <p role="status">Comprobando disponibilidad del motor externo…</p>
+      ) : !status.ready ? (
+        <div className="external-setup" role="status">
+          <strong>Conector implementado, pendiente de activación.</strong>
+          <p>{status.message}</p>
+          <p>
+            No basta con volver a recortar: para consultar fuentes comerciales
+            desde esta aplicación falta la clave privada y el acceso autorizado
+            del proveedor. El catálogo local sigue funcionando.
+          </p>
+        </div>
+      ) : (
+        <p className="external-ready">
+          Conector configurado · límite de Fontea: {status.dailyLimit} consultas
+          al día.
         </p>
       )}
-      <p>
-        Sus candidatos son hipótesis de otro motor. No prueban la identidad, y
-        su etiqueta «Free» no verifica permisos comerciales. Sigue el enlace al
-        vendedor y comprueba la licencia. La API existe, pero no está activada
-        aquí: requiere una clave y aclarar la autorización comercial con el
-        proveedor.
-      </p>
-      <h3>¿Conoces parte del nombre?</h3>
-      <label className="font-file-label">
-        Consultar las referencias comerciales verificadas
-        <input
-          type="search"
-          aria-label="Buscar referencia comercial por nombre"
-          placeholder="Por ejemplo, Bauhaus"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          maxLength={80}
-        />
-      </label>
-      <p>
-        Directorio inicial: 2 familias documentadas, ajenas al catálogo de
-        reconocimiento. Estas fichas se buscan por el nombre que escribes, no
-        por tu imagen.
-      </p>
-      {query.trim().length >= 3 && (
-        <div className="commercial-references">
-          {references
-            .filter((r) =>
-              r.family.toLowerCase().includes(query.trim().toLowerCase()),
-            )
-            .map((r) => (
-              <article key={r.family}>
-                <p className="card-kicker">
-                  REFERENCIA POR NOMBRE · NO IDENTIFICADA EN TU IMAGEN
-                </p>
-                <h4>{r.family}</h4>
-                <p>
-                  {r.vendor} · {r.styles}
-                </p>
-                <p>
-                  Licencia comercial: consulta las condiciones para tu uso. Sin
-                  archivo de descarga en Fontea.
-                </p>
-                <a href={r.url} target="_blank" rel="noreferrer">
-                  Ficha de compra en MyFonts ↗
-                </a>{" "}
-                ·{" "}
-                <a href={r.source} target="_blank" rel="noreferrer">
-                  Documentación verificada ↗
-                </a>
-                <p>
-                  Ficha comprobada el 18/10/2026; precios y condiciones pueden
-                  cambiar.
-                </p>
-              </article>
-            ))}
-          {!references.some((r) =>
-            r.family.toLowerCase().includes(query.trim().toLowerCase()),
-          ) && (
+      {image && (
+        <>
+          <label className="external-consent">
+            <input
+              type="checkbox"
+              checked={consent}
+              disabled={busy || !status?.ready || blocked}
+              onChange={(e) => setConsent(e.target.checked)}
+            />
+            Enviar únicamente este recorte de texto a WhatFontIs para buscar
+            fuentes gratuitas y comerciales. Se aplican sus condiciones y
+            privacidad.
+          </label>
+          <button
+            className="button primary"
+            disabled={
+              busy ||
+              blocked ||
+              !status?.ready ||
+              !consent ||
+              text.trim().length < 3
+            }
+            onClick={async () => {
+              setResult(undefined);
+              setError("");
+              const r = await search();
+              if (r) setResult(r);
+            }}
+          >
+            Buscar fuentes externas
+          </button>
+        </>
+      )}
+      {blocked && image && (
+        <p className="variant-caution">
+          Selecciona una sola línea y una sola tipografía antes de enviarla.
+        </p>
+      )}
+      {searching && (
+        <p role="status">
+          La búsqueda externa utiliza el recorte preparado; no se envían
+          archivos de fuentes.
+        </p>
+      )}
+      {error && <p role="alert">{error}</p>}
+      {result && (
+        <div
+          className="external-results"
+          aria-label="Resultados del proveedor externo"
+        >
+          <h3>
+            {result.candidates.length
+              ? "Candidatos externos sin verificar"
+              : "El proveedor no ha encontrado candidatos."}
+          </h3>
+          <p>{result.message}</p>
+          <p>
+            La variante exacta no está verificada. Estas fichas no incluyen un
+            render local de tu texto; puedes contrastar un archivo obtenido
+            legalmente con la herramienta privada.
+          </p>
+          {result.candidates.map((c) => (
+            <article className="external-candidate" key={c.detailUrl}>
+              <p className="card-kicker">
+                WHATFONTIS · POSICIÓN {c.rank} DEL PROVEEDOR
+              </p>
+              <h4>{c.displayName}</h4>
+              <p>
+                {c.reportedType === "Commercial"
+                  ? "Comercial según el proveedor"
+                  : c.reportedType === "Free"
+                    ? "Gratuita según el proveedor; licencia sin verificar"
+                    : "Tipo de licencia no indicado"}{" "}
+                · {c.reportedVendor}
+              </p>
+              <p>
+                Nombre propuesto por el proveedor; familia, variante exacta,
+                identidad y licencia sin verificar. No se distribuye el archivo.
+              </p>
+              <a href={c.detailUrl} target="_blank" rel="noreferrer">
+                Ver ficha en WhatFontIs ↗
+              </a>
+              <p>
+                Esta ficha es del identificador. El enlace oficial de compra o
+                descarga todavía no está verificado por Fontea.
+              </p>
+            </article>
+          ))}
+          <p>{result.method}</p>
+          {result.quota && (
             <p>
-              No hay una ficha verificada para ese nombre en este pequeño
-              directorio. No significa que la fuente no exista. Prueba el
-              buscador externo.
+              Cuota de Fontea: {result.quota.used} de {result.quota.limit}{" "}
+              intentos hoy. Los errores y cancelaciones después de enviar
+              también pueden contar.
             </p>
           )}
         </div>
       )}
-    </details>
+      <details className="external-activation">
+        <summary>Activar el conector y consultar condiciones</summary>
+        <p>
+          El propietario debe configurar la clave en el servidor, nunca en este
+          navegador. WhatFontIs ofrece acceso personal gratuito; para una
+          aplicación comercial pide contactarles. La cuota de Fontea no mide el
+          uso de esa cuenta en otros servicios.
+        </p>
+        <a
+          href="https://www.whatfontis.com/API-identify-fonts-from-image.html"
+          target="_blank"
+          rel="noreferrer"
+        >
+          API oficial y condiciones ↗
+        </a>
+        <p>
+          Mientras se configura, puedes guardar tu recorte y usar su web
+          manualmente. Esta acción no importa resultados en Fontea.
+        </p>
+        <div className="local-actions">
+          {cropUrl && !blocked && !busy && (
+            <a href={cropUrl} download="fontea-recorte.png">
+              Guardar recorte de una línea
+            </a>
+          )}
+          <a
+            href="https://www.whatfontis.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Abrir WhatFontIs ↗
+          </a>
+        </div>
+      </details>
+      <CommercialDirectory />
+    </section>
   );
 }

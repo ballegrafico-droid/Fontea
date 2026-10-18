@@ -10,3 +10,13 @@ dist-server/
 
 dist-web/
 out/
+
+.fontea/
+hosting/.wrangler/
+hosting/.vite/
+hosting/.env*
+hosting/.dev.vars*
+
+.env*
+!.env.example
+!.env.browser

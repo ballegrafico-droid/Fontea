@@ -1,3 +1,4 @@
+import { searchExternal } from "./browser/external";
 import LocalFontPanel from "./LocalFontPanel";
 import ExternalFonts from "./ExternalFonts";
 import { compareLocalFont } from "./browser/local-font";
@@ -230,7 +231,9 @@ export default function App() {
   const [stage, setStage] = useState<"upload" | "crop" | "review" | "results">(
     "upload",
   );
-  const [pending, setPending] = useState<"ocr" | "identify" | "local" | "">("");
+  const [pending, setPending] = useState<
+    "ocr" | "identify" | "local" | "external" | ""
+  >("");
   const [cropped, setCropped] = useState<Blob>();
   const [croppedUrl, setCroppedUrl] = useState("");
   const [text, setText] = useState("");
@@ -525,6 +528,31 @@ export default function App() {
       if (data.status === "needs_crop") {
         setRequiresCrop(true);
         setOcrNote(data.reasons[0]);
+        return;
+      }
+      return data;
+    } catch (e) {
+      if (!abort.signal.aborted) setError((e as Error).message);
+    } finally {
+      if (!abort.signal.aborted) setPending("");
+    }
+  }
+  async function identifyOutside() {
+    if (!cropped || requiresCrop || pending) return;
+    setPending("external");
+    setError("");
+    const abort = new AbortController();
+    controller.current = abort;
+    try {
+      const data = await searchExternal(
+        cropped,
+        text,
+        ocrLineCount,
+        abort.signal,
+      );
+      if (data.status === "needs_crop") {
+        setRequiresCrop(true);
+        setOcrNote(data.message);
         return;
       }
       return data;
@@ -876,9 +904,11 @@ export default function App() {
                         ? "Leyendo el texto…"
                         : pending === "identify"
                           ? "Comparando contornos…"
-                          : pending === "local"
-                            ? "Comparando tu archivo…"
-                            : "Buscar en el catálogo"}
+                          : pending === "external"
+                            ? "Consultando el catálogo externo…"
+                            : pending === "local"
+                              ? "Comparando tu archivo…"
+                              : "Buscar en el catálogo"}
                       {!pending && <ArrowRight size={17} />}
                     </button>
                     {pending === "identify" && (
@@ -917,8 +947,12 @@ export default function App() {
           )}
           <ExternalFonts
             cropUrl={croppedUrl}
+            image={cropped}
+            text={text}
+            search={identifyOutside}
             blocked={requiresCrop || stage === "crop"}
             busy={!!pending}
+            searching={pending === "external"}
           />
           {error && (
             <div className="error" role="alert">
@@ -933,8 +967,8 @@ export default function App() {
             <span>
               <ShieldCheck size={14} />{" "}
               {browserEngine
-                ? "Tu imagen se analiza en tu navegador y no se envía."
-                : "Tu imagen se procesa en memoria y no se guarda."}
+                ? "El análisis local permanece en tu navegador; el envío externo es opcional."
+                : "Procesamos tu recorte en memoria; el envío externo es opcional."}
             </span>
             <button onClick={() => setModal("privacy")}>
               Sobre tu privacidad <ArrowUpRight size={12} />
@@ -982,6 +1016,13 @@ export default function App() {
                 ))}
               </div>
             </div>
+            {result.status === "unidentified" && (
+              <div className="local-actions">
+                <a className="button primary" href="#external-search">
+                  Ver búsqueda fuera del catálogo <ArrowUpRight size={16} />
+                </a>
+              </div>
+            )}
             {result.candidates.length > 0 && (
               <>
                 <div className="result-section-title">
@@ -1119,7 +1160,7 @@ export default function App() {
         </a>
         <p>Para quienes encuentran belleza en los detalles.</p>
         <div>
-          <span>VERSIÓN 0.5 · COMPARACIÓN PRIVADA</span>
+          <span>VERSIÓN 0.6 · BÚSQUEDA EXTERNA</span>
           <button onClick={() => setModal("privacy")}>Privacidad</button>
         </div>
       </footer>
@@ -1149,11 +1190,12 @@ export default function App() {
                   : "La imagen completa permanece en el navegador. Al leer o comparar, enviamos el recorte a este servidor para procesarlo en memoria con Python y Tesseract."}
               </p>
               <p>
-                No guardamos las imágenes, el texto ni los resultados. No los
-                enviamos a servicios de inteligencia artificial externos. Los
-                datos del análisis permanecen en memoria mientras usas la página
-                y se descartan al cambiar de imagen o cerrarla. No se requieren
-                cuentas ni claves de API.
+                Fontea no guarda las imágenes, el texto ni los resultados. El
+                OCR, la búsqueda local y la comparación privada no consultan
+                proveedores externos ni requieren claves. Sus datos permanecen
+                en memoria mientras usas la página. El contador externo solo
+                conserva el día, una huella de la clave y el número de intentos;
+                nunca la imagen ni la clave.
               </p>
               <p>
                 Tu archivo de fuente propio se lee únicamente en este navegador,
@@ -1162,9 +1204,13 @@ export default function App() {
                 comparación no verifica su licencia.
               </p>
               <p>
-                El identificador externo se abre solo al pulsar su enlace: tú
-                decides si le subes la imagen y se aplican sus condiciones.
-                Fontea no le envía automáticamente imágenes, texto ni fuentes.
+                La búsqueda externa solo se ejecuta al aceptar el envío y pulsar
+                Buscar fuentes externas. Se envía el recorte preparado a
+                WhatFontIs, nunca la imagen completa ni un archivo de fuente. El
+                texto revisado llega al servidor de Fontea para validar la
+                solicitud; al proveedor se envía la imagen del recorte. Se
+                aplican sus condiciones y conservación de datos. El OCR y la
+                búsqueda local no lo consultan.
               </p>
               <p>
                 El servidor y Nginx pueden registrar datos técnicos de acceso

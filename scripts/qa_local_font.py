@@ -9,7 +9,7 @@ from playwright.sync_api import sync_playwright, expect
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 BASE = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:4173"
-OUT = ROOT / "docs/revision-0.5"
+OUT = ROOT / ("docs/revision-" + os.environ.get("FONTEA_QA_REVISION", "0.6"))
 if not BASE.startswith(("http://127.0.0.1:", "http://localhost:")):
     OUT = OUT / "hosted"
 OUT.mkdir(exist_ok=True)
@@ -67,7 +67,7 @@ with sync_playwright() as p:
     )
     page.goto(BASE)
     page.evaluate("document.fonts.ready")
-    page.locator(".external-tool summary").click()
+    page.locator(".external-tool > .font-tool > summary").click()
     page.get_by_label("Buscar referencia comercial por nombre").fill("Bauhaus")
     expect(page.locator(".commercial-references article")).to_have_count(2)
     links = page.locator(".commercial-references a").evaluate_all(
@@ -89,7 +89,7 @@ with sync_playwright() as p:
     checks.append(
         "External services opened only by explicit links; no requests to any external provider"
     )
-    page.locator(".external-tool summary").click()
+    page.locator(".external-tool > .font-tool > summary").click()
     # Real UI: demo -> full crop -> real OCR -> actual user-file input -> local render.
     page.get_by_role(
         "button", name="Prueba un ejemplo de demostración", exact=False

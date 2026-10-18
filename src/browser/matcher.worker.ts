@@ -663,23 +663,70 @@ async function compareOwn(
     scope.fonts.delete(ff);
   }
 }
+async function prepareExternal(blob: Blob, rawText: string, lineCount = 0) {
+  if (blob.size > 8 * 1024 * 1024) throw Error("El recorte supera los 8 MB.");
+  const text = rawText.replace(/\s+/g, " ").trim();
+  if (
+    text.length < 3 ||
+    text.length > 80 ||
+    [...text].some((c) => c.charCodeAt(0) < 32 || c.charCodeAt(0) > 0x024f)
+  )
+    throw Error(
+      "Revisa la transcripción de una sola línea, entre 3 y 80 caracteres latinos.",
+    );
+  const { m, quality } = await source(blob);
+  if (/[\r\n]/.test(rawText) || lineCount > 1 || quality.possibleMultiline)
+    return {
+      status: "needs_crop",
+      message:
+        "Selecciona una sola línea y una sola tipografía antes de enviarla al proveedor.",
+    };
+  if (
+    new Set([...text.toLowerCase()].filter((c) => /\p{L}/u.test(c))).size < 5 ||
+    quality.inkHeight < 24 ||
+    quality.contrast < 50
+  )
+    throw Error(
+      "La muestra no aporta suficientes letras, resolución o contraste. No se ha enviado al proveedor.",
+    );
+  // Send only the cropped glyph mask with margin, never the complete design or a font file.
+  const scale = Math.min(1, 2100 / m.w, 550 / m.h),
+    w = Math.round(m.w * scale),
+    h = Math.round(m.h * scale),
+    { c, x } = canvas(w + 32, h + 32);
+  x.fillStyle = "white";
+  x.fillRect(0, 0, c.width, c.height);
+  x.drawImage(drawMask(m), 16, 16, w, h);
+  const output = await c.convertToBlob({ type: "image/png" }),
+    bytes = new Uint8Array(await output.arrayBuffer());
+  if (bytes.length > 2 * 1024 * 1024)
+    throw Error(
+      "El recorte preparado supera los 2 MB. Usa una muestra más corta.",
+    );
+  let base64 = "";
+  for (let i = 0; i < bytes.length; i += 8192)
+    base64 += String.fromCharCode(...bytes.subarray(i, i + 8192));
+  return { status: "ready", image: btoa(base64), text, lineCount: 1 };
+}
 scope.onmessage = async (e) => {
   try {
     const result =
-      e.data.operation === "local-font"
-        ? await compareOwn(
-            e.data.image,
-            e.data.text,
-            e.data.font,
-            e.data.axes,
-            e.data.lineCount,
-          )
-        : await identify(
-            e.data.image,
-            e.data.text,
-            e.data.catalog,
-            e.data.lineCount,
-          );
+      e.data.operation === "prepare-external"
+        ? await prepareExternal(e.data.image, e.data.text, e.data.lineCount)
+        : e.data.operation === "local-font"
+          ? await compareOwn(
+              e.data.image,
+              e.data.text,
+              e.data.font,
+              e.data.axes,
+              e.data.lineCount,
+            )
+          : await identify(
+              e.data.image,
+              e.data.text,
+              e.data.catalog,
+              e.data.lineCount,
+            );
     scope.postMessage({ ok: true, result });
   } catch (error) {
     scope.postMessage({

@@ -1,4 +1,5 @@
 import express from "express";
+import { externalRouter } from "./external.js";
 import multer from "multer";
 import helmet from "helmet";
 import { rateLimit } from "express-rate-limit";
@@ -37,6 +38,7 @@ export const apiLimiter = rateLimit({
   },
 });
 app.use("/api", apiLimiter);
+app.use("/api/external", externalRouter);
 const manifest = JSON.parse(
   fs.readFileSync(path.join(root, "catalog/manifest.json"), "utf8"),
 );
