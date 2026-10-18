@@ -56,3 +56,9 @@ FONTEA_QA_REVISION=0.6 python scripts/qa_local_font.py http://127.0.0.1:4175
 ## Activación pendiente
 
 [Pasos concretos, condiciones y coste publicado](ACTIVAR-EXTERNO.md). Falta obtener una clave y acceso gratuito autorizado, configurarlos de forma privada en el servidor correspondiente y realizar una evaluación real. Para uso comercial de la API, el proveedor pide contacto; la tarifa MCP/créditos publicada no acredita automáticamente ese permiso. No se ha contratado ni comprado nada. La activación no requiere añadir Bauhaus ni modificar el catálogo o los umbrales.
+
+## Vista privada publicada y verificada
+
+Se actualizó [la misma URL](https://fontea-estudio-2026.icycalf17.chatgpt.site) con el commit de código `2f62104`, conservando acceso de una sola cuenta propietaria. La API remota de Fontea responde de verdad `missing_key`; un POST sin clave recibe HTTP 503 con ese código, sin generar candidatos ni contactar al proveedor. La falta de identificación comercial no se presenta como problema del OCR o del recorte.
+
+Se ejecutaron sobre esa URL los cinco controles externos (resultados exclusivamente de fixture donde corresponda), las 13 comparaciones privadas y los 11 controles de flujo completo, incluyendo OCR real de «gráfico» en la muestra sintética y recortar una línea del diseño mixto. Los cuatro archivos públicos de ejecución coinciden por SHA-256 con la compilación local. [Registro alojado](revision-0.6/hosted-checks.json), [pruebas externas alojadas](revision-0.6/hosted/external-checks.json). El commit posterior solo añade estos registros y documentación; no modifica el código del motor ni los candidatos.

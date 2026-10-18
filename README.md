@@ -8,7 +8,7 @@ Carga o pegado de imagen → recorte → OCR local editable → comparación de 
 
 ![Fontea en ordenador](docs/browser/desktop.png)
 
-**[Abrir Fontea — vista privada](https://fontea-estudio-2026.icycalf17.chatgpt.site)**. Accede con la misma cuenta de ChatGPT propietaria de esta conversación. Flujo completo comprobado sobre esa URL en Chromium, ordenador y móvil emulado. [Registro de verificación alojada 0.5](docs/revision-0.5/hosted-checks.json).
+**[Abrir Fontea — vista privada](https://fontea-estudio-2026.icycalf17.chatgpt.site)**. Accede con la misma cuenta de ChatGPT propietaria de esta conversación. Flujo completo comprobado sobre esa URL en Chromium, ordenador y móvil emulado. [Registro de verificación alojada 0.6](docs/revision-0.6/hosted-checks.json).
 
 ## Probar sin instalar Python
 

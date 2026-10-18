@@ -1,0 +1,45 @@
+{
+  "url": "https://fontea-estudio-2026.icycalf17.chatgpt.site",
+  "externalBackend": {
+    "status": {
+      "provider": "WhatFontIs",
+      "ready": false,
+      "code": "missing_key",
+      "message": "Falta configurar una clave privada de WhatFontIs en el servidor. La búsqueda comercial no se ha ejecutado."
+    },
+    "postStatus": 503,
+    "post": {
+      "error": "Falta configurar una clave privada de WhatFontIs en el servidor. La búsqueda comercial no se ha ejecutado.",
+      "code": "missing_key"
+    }
+  },
+  "actualRecognitionProviderCalls": 0,
+  "runtimeSourceCommit": "2f621049a9f92f139274864d6e600774362b55f5",
+  "checks": [
+    "Hosted real missing-key API and blocked POST; external UI transport tested only with explicit fixtures, zero provider calls",
+    "Real OCR, 13 private-worker cases, TTF/OTF, axes, wrong file, three multiline gates, and no image/font uploads for the local modes",
+    "320/390/768/1440 widths, crop/paste/search, links, cancellation, recrop one line from two fonts"
+  ],
+  "assets": [
+    {
+      "path": "/index.html",
+      "status": 200,
+      "sha256": "4d6165d7c52f29bc199f3c7dc3a2636c228d15f5e45f26ebfbb3198251c0cc67"
+    },
+    {
+      "path": "/assets/index-D_6c7iff.css",
+      "status": 200,
+      "sha256": "746b4dbc7a6e6bbebc02530246187b8bac6e81f83dc892b7c6d8a37ebbcbc7cb"
+    },
+    {
+      "path": "/assets/index-D_On12NO.js",
+      "status": 200,
+      "sha256": "53c09312a8d572a808223f8bf11589d6e873f82a7e7fa89a0609ce280b27b94a"
+    },
+    {
+      "path": "/assets/matcher.worker-DxVwRdqI.js",
+      "status": 200,
+      "sha256": "b7c13a80805a05a37796c9a1ee89da8a5ef38afd234d50a880b20cfec37c6926"
+    }
+  ]
+}
